@@ -1,1 +1,1 @@
-# Welcome to Professor Gentrty's Site
+# Welcome to Professor Gentry's Site
