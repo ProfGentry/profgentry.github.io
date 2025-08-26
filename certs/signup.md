@@ -1,3 +1,4 @@
+## General Information
 ```
 You MUST register for the practice exams using an ECPI email address.
 ```
@@ -10,8 +11,9 @@ Please read the instructions for GetCertified carefully. The screenshot below il
 
 There is no fee to take the practice tests, however, you will be prompted to make your voucher payment through a secure payment portal when registering for your voucher via “How to sign up for the Exam”. 
 
-REGISTERING FOR PRACTICE TESTS
- 
+## REGISTERING FOR PRACTICE TESTS
+<img width="1086" height="576" alt="image" src="https://github.com/user-attachments/assets/80bf9da7-bbc5-4975-b651-be942260a9b9" />
+
 
 ABOUT THE PRACTICE TESTS
 •	Read & accept the commitment statement
