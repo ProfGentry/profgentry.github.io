@@ -1,5 +1,5 @@
 # Welcome to Professor Gentry's Site
 
-#Certification Information#
+# Certification Information 
 
-#Greensboro ECPI Information#
+# Greensboro ECPI Information
