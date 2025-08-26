@@ -2,4 +2,4 @@
 
 # [Certification Information](/certs/)
 
-# Greensboro ECPI Information
+# [Greensboro ECPI Information](/ecpi/)
