@@ -52,6 +52,6 @@ Note that you need to create an account with the Pearson Exam Host (ex: CompTIA)
 Test takers are given 45 days to complete the practice test modules. Within 7 days, use your badge to register for your voucher. 
 
 ## OTHER IMPORTANT INFORAMTION
--	All Pearson Vue exams MUST be rescheduled or cancelled at LEAST 48 hours prior to the exam date/time. Rescheduling an exam less than 48 hours (2 business days) is subject to a same day forfeit and the tester is responsible for the future exam expense for the respective exam. You MUST contact PEARSON to reschedule or cancel an exam. 
+-	All Pearson Vue exams **MUST be rescheduled or cancelled at LEAST 48 hours prior to the exam date/time**. Rescheduling an exam less than 48 hours (2 business days) is subject to a same day forfeit and the tester is responsible for the future exam expense for the respective exam. <ins>**You MUST contact PEARSON to reschedule or cancel an exam.**</ins> 
 -	**For technical issues/ questions regarding GetCertified, please contact GetCertifiedHelp@ecpi.edu**
 -	**For questions about scheduling, please contact your local exam proctor.**
