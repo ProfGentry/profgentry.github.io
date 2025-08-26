@@ -1,4 +1,8 @@
-You MUST register for the practice exams using an ECPI email address. If you do not have an active ECPI email address, contact itservices@ecpi.edu to have your account reinstated. 
+```
+You MUST register for the practice exams using an ECPI email address.
+```
+
+If you do not have an active ECPI email address, contact [itservices@ecpi.edu](mailto:itservices@ecpi.edu) to have your account reinstated. 
  
 Once your email is re-activated, register for your preferred exam at: https://getcertified.ecpi.edu/. 
 
