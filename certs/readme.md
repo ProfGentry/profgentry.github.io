@@ -1,4 +1,4 @@
-# Certifications
+# Certification Information
 
 ## Certification Mapping
 ![map of certification vs classes](CertificationClassMap.png)
