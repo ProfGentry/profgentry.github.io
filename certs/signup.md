@@ -11,21 +11,27 @@ Please read the instructions for GetCertified carefully. The screenshot below il
 
 There is no fee to take the practice tests, however, you will be prompted to make your voucher payment through a secure payment portal when registering for your voucher via “How to sign up for the Exam”. 
 
-## REGISTERING FOR PRACTICE TESTS
+### REGISTERING FOR PRACTICE TESTS
+
 <img width="1086" height="576" alt="image" src="https://github.com/user-attachments/assets/80bf9da7-bbc5-4975-b651-be942260a9b9" />
 
+## ABOUT THE PRACTICE TESTS
 
-ABOUT THE PRACTICE TESTS
-•	Read & accept the commitment statement
-•	Register for the EXAM PREP
-•	use your student email address to register
-•	Fill in the required fields & submit
-•	InfoTech will send you an email with a link to canvas. Review materials in the InfoTech canvas shell test prep modules/domains & complete test at 85% or higher pass rate. Note that this canvas shell is NOT your student canvas shell, it is a separate canvas account for the purposes of GetCertified practice testing. If you did not receive the email in your inbox, please check your junk mail folder. 
-•	You have 45 days to pass the practice tests (unlimited tries). Once the 45 days expire, you lose access to the modules/domains. 
-•	You may only register for the same practice test twice.
-•	Once you have achieved the pass rate, you will be issued a digital badge. Use your digital badge to register for your voucher via GetCertified “How to sign up for the Exam”.
+-	Read & accept the commitment statement
+-	Register for the EXAM PREP
+    -	use your <ins>**student email**</ins> address to register
+    -	Fill in the required fields & submit
+-	InfoTech will send you an email with a link to canvas. Review materials in the InfoTech canvas shell test prep modules/domains & complete test at 85% or higher pass rate.
+```
+Note that this canvas shell is NOT your student canvas shell, it is a separate canvas account for the purposes of GetCertified practice testing.
+If you did not receive the email in your inbox, please check your junk mail folder.
+```
+-	You have 45 days to pass the practice tests (unlimited tries). Once the 45 days expire, you lose access to the modules/domains. 
+-	You may only register for the same practice test twice.
+-	Once you have achieved the pass rate, **you will be issued a digital badge**. Use your digital badge to register for your voucher via GetCertified “**How to sign up for the Exam**”.
 
-REGISTERING FOR THE VOUCHER FOR YOUR PEARSON EXAM
+## REGISTERING FOR THE VOUCHER FOR YOUR PEARSON EXAM
+
 Select “How to Sign up for Exam” from the list of exams under “Exam” and follow the instructions. 
 
 After making your voucher payment, send a screenshot of your voucher payment to your exam proctor.  
