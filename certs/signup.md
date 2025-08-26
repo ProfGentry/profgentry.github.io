@@ -32,48 +32,26 @@ If you did not receive the email in your inbox, please check your junk mail fold
 
 ## REGISTERING FOR THE VOUCHER FOR YOUR PEARSON EXAM
 
-Select “How to Sign up for Exam” from the list of exams under “Exam” and follow the instructions. 
+Select “
+**How to Sign up for Exam**” from the list of exams under “Exam” and follow the instructions. 
 
 After making your voucher payment, send a screenshot of your voucher payment to your exam proctor.  
 
 Note that you need to create an account with the Pearson Exam Host (ex: CompTIA) before a Test Administrator can schedule you for an exam.
 
+<img width="350" height="451" alt="image" src="https://github.com/user-attachments/assets/1cc743ed-83e4-4944-9747-8510cf472c0f" /><img width="588" height="192" alt="image" src="https://github.com/user-attachments/assets/7ea5f5ee-7119-4505-8fc5-063e4fa56e23" />
 
+## VOUCHER PAY SCALE
 
+<img width="648" height="514" alt="image" src="https://github.com/user-attachments/assets/eb173382-5ec1-4019-ab31-60c57ec66a4f" />
+
+## PRACTICE TEST to PEARSON TEST TIMELINE
  
-
-
-
-
-
-
-
-VOUCHER PAY SCALE
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-PRACTICE TEST to PEARSON TEST TIMELINE
- 
+<img width="414" height="225" alt="image" src="https://github.com/user-attachments/assets/4718807b-b930-4176-8bd4-2b41aaf176e2" />
 
 Test takers are given 45 days to complete the practice test modules. Within 7 days, use your badge to register for your voucher. 
 
-OTHER IMPORTANT INFORAMTION
-•	All Pearson Vue exams MUST be rescheduled or cancelled at LEAST 48 hours prior to the exam date/time. Rescheduling an exam less than 48 hours (2 business days) is subject to a same day forfeit and the tester is responsible for the future exam expense for the respective exam. You MUST contact PEARSON to reschedule or cancel an exam. 
-•	For technical issues/ questions regarding GetCertified, please contact GetCertifiedHelp@ecpi.edu
-•	For questions about scheduling, please contact your local exam proctor.
+## OTHER IMPORTANT INFORAMTION
+-	All Pearson Vue exams MUST be rescheduled or cancelled at LEAST 48 hours prior to the exam date/time. Rescheduling an exam less than 48 hours (2 business days) is subject to a same day forfeit and the tester is responsible for the future exam expense for the respective exam. You MUST contact PEARSON to reschedule or cancel an exam. 
+-	**For technical issues/ questions regarding GetCertified, please contact GetCertifiedHelp@ecpi.edu**
+-	**For questions about scheduling, please contact your local exam proctor.**
