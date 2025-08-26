@@ -7,4 +7,4 @@ How to sign up for certifications
 
 Full list of certifications
 
-ECPI Certification resources
+[ECPI Certification resources](https://ecpi.libguides.com/CertificationsECPI)
