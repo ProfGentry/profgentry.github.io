@@ -5,6 +5,6 @@
 
 How to sign up for certifications
 
-Full list of certifications
+## [Full list of certifications](https://ecpi.libguides.com/c.php?g=627710)
 
-[ECPI Certification resources](https://ecpi.libguides.com/CertificationsECPI)
+## [ECPI Certification resources](https://ecpi.libguides.com/CertificationsECPI)
