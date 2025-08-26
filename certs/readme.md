@@ -1,7 +1,7 @@
 # Certifications
 
 ## Certification Mapping
-![map of certification vs classes](Certification%20Class%20Map.pdf)
+![map of certification vs classes](CertificationClassMap.png)
 
 How to sign up for certifications
 
