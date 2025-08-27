@@ -15,7 +15,7 @@ Jennifer is ABD in a Ph.D. program in Information Systems and received her M.S. 
 
 Copyright 2022
 
-<img width="400" height="574" alt="image" src="https://github.com/user-attachments/assets/6fcdde50-b2b7-4774-b8bb-324baec05fa1" />
+<img width="200" height="287" alt="image" src="https://github.com/user-attachments/assets/6fcdde50-b2b7-4774-b8bb-324baec05fa1" />
 
 DOI: 10.4018/978-1-6684-4558-7
 
