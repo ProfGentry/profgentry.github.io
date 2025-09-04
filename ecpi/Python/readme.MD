@@ -14,9 +14,9 @@ Week 4 - System & Network Tasks (Chapters 9, 11 & 12)
 Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 
 ## Assignments
-- 1.1 Python Setup
-- 1.2 Syntax
-- 1.3 Variables
+- 1.1 In-Class Assignment
+- 1.2 System Login Simulator
+
 - 1.4 Input/Output
 - 1.5 Conditionals - if
 - 1.6 Conditionals - if/else
@@ -39,9 +39,11 @@ Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 - 5.3 Password Validation
 
 ## Labs
+# Week 1
 - Lab 1 - Hello World
 - Lab 2 - Calculator
 - Lab 3 - Converter
+# Week 2
 - Lab 4 - Access Control Scripts
 - Lab 5 - Login Attempts
 - Lab 6 - Multiplication Tables
@@ -58,6 +60,7 @@ Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 - Lab 17 - DNS Resolution
 - Lab 18 - Port Scanner
 - Lab 19 - Banner Grabbing
+# Week 5
 - Lab 20 - Log Analyzer
 - Lab 21 - Scanner
 - Lab 22 - Password Auditor
