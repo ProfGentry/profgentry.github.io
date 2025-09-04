@@ -1,3 +1,3 @@
 # Textbook
 
-<img src="ecpi/Python/jlbd4iyp.png" width="200">
+(https://profgentry.github.io/ecpi/Python/jlbd4iyp.png)
