@@ -14,8 +14,8 @@ Week 4 - System & Network Tasks (Chapters 9, 11 & 12)
 Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 
 ## Assignments
-- 1.1 In-Class Assignment[Week1-AS.md]
-- 1.2 Assignment [1-1.md]
+- [1.1 In-Class Assignment](Week1-AS.md)
+- [1.2 Assignment] (1-1.md)
 
 - 1.4 Input/Output
 - 1.5 Conditionals - if
