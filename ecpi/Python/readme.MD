@@ -40,9 +40,10 @@ Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 
 ## Labs
 # Week 1
-- Lab 1 - Hello World
-- Lab 2 - Calculator
-- Lab 3 - Converter
+- Lab 1 - Hello World(W1-Labs.md)
+- Lab 2 - Math(W1-Labs.md)
+- Lab 3 - User Input(W1-Labs.md)
+- Lab 4 - First Access Control with Conditionals(W1-Labs.md)
 # Week 2
 - Lab 4 - Access Control Scripts
 - Lab 5 - Login Attempts
