@@ -61,3 +61,6 @@ Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 - Lab 20 - Log Analyzer
 - Lab 21 - Scanner
 - Lab 22 - Password Auditor
+
+## Midterm
+## Final
