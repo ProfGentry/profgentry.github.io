@@ -1,5 +1,7 @@
 # Certification Information
 
+## [Security+ SYO-701 (V7) Exam Study Information](SecurityPlus.md)
+
 ![map of certification vs classes](CertificationClassMap.png)
 
 ## [How to sign up for certifications](signup.md)
