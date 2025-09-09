@@ -1,6 +1,6 @@
 # Week 1b Labs (Chapter 2: Flow Control)
 
-## Lab 1 – Number Analyzer (If/Elif/Else)
+## Lab 5 – Number Analyzer (If/Elif/Else)
 
 - Create ```number_analyzer.py.```
 - Ask the user for an integer.
@@ -13,7 +13,7 @@ That’s a big number!
 ```
 Deliverable: ```number_analyzer.py```
 
-## Lab 2 – Login Attempts (While Loop)
+## Lab 6 – Login Attempts (While Loop)
 - Create ```login_attempts.py.```
 - Store a hardcoded password (e.g., "Cyber123").
 - Prompt the user to enter the password.
@@ -24,7 +24,7 @@ Deliverable: ```number_analyzer.py```
 
 Deliverable: ```login_attempts.py```
 
-## Lab 3 – Countdown & Loops with Break/Continue
+## Lab 7 – Countdown & Loops with Break/Continue
 - Create ```countdown.py.```
 - Prompt user for a starting number (e.g., 10).
 - Use a ```while``` loop to count down to 0.
@@ -34,7 +34,7 @@ Deliverable: ```login_attempts.py```
 
 Deliverable: ```countdown.py```
 
-## Lab 4 – Cyber Menu Tool (Mini-Project)
+## Lab 8 – Cyber Menu Tool (Mini-Project)
 - Create ```cyber_menu.py.```
 
 - Continuously display:
