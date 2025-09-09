@@ -16,8 +16,7 @@ Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 ## Assignments
 - [1.1 In-Class Assignment](Week1-AS.md)
 - [1.2 Python Basics](1-1.md)
-
-- 1.4 Input/Output
+- [1.3 Python Basics for Cybersecurity](1-3.md)
 - 1.5 Conditionals - if
 - 1.6 Conditionals - if/else
 - 1.7 Conditionals - Nested
