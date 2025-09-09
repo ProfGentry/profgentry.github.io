@@ -14,12 +14,12 @@ Week 4 - System & Network Tasks (Chapters 9, 11 & 12)
 Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 
 ## Assignments
-- [1.1 In-Class Assignment](Week1-AS.md)
-- [1.2 Python Basics](1-2.md)
-- [1.3 Python Basics for Cybersecurity](1-3.md)
+- [1.1 In-Class Assignment](W1/1-1.md)
+- [1.2 Python Basics](W1/1-2.md)
+- [1.3 Python Basics for Cybersecurity](W1/1-3.md)
 
-- [1.4 Flow Control in Cybersecurity](1-4.md)
-- [1.5 Flow Control in Cybersecurity](1-5.md)
+- [1.4 Flow Control in Cybersecurity](W1/1-4.md)
+- [1.5 Flow Control in Cybersecurity](W1/1-5.md)
 
 - 2.1 Loops - for
 - 2.2 Loops - While
@@ -40,10 +40,10 @@ Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 
 ## Labs
 # Week 1
-- [Lab 1 - Hello World](W1-Labs.md)
-- [Lab 2 - Math](W1-Labs.md)
-- [Lab 3 - User Input](W1-Labs.md)
-- [Lab 4 - First Access Control with Conditionals](W1-Labs.md)
+- [Lab 1 - Hello World](W1/W1-Labs.md)
+- [Lab 2 - Math](W1/W1-Labs.md)
+- [Lab 3 - User Input](W1/W1-Labs.md)
+- [Lab 4 - First Access Control with Conditionals](W1/W1-Labs.md)
 # Week 2
 - Lab 4 - Access Control Scripts
 - Lab 5 - Login Attempts
