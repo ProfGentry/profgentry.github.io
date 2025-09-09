@@ -18,8 +18,9 @@ Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 - [1.2 Python Basics](W1/1-2.md)
 - [1.3 Python Basics for Cybersecurity](W1/1-3.md)
 
-- [1.4 Flow Control in Cybersecurity](W1/1-4.md)
+- [1.4 In-Class Assignment](W1/1-4.md)
 - [1.5 Flow Control in Cybersecurity](W1/1-5.md)
+- [1.6 Flow Control in Cybersecurity](W1/1-6.md)
 
 - 2.1 Loops - for
 - 2.2 Loops - While
@@ -44,6 +45,12 @@ Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 - [Lab 2 - Math](W1/W1-Labs.md)
 - [Lab 3 - User Input](W1/W1-Labs.md)
 - [Lab 4 - First Access Control with Conditionals](W1/W1-Labs.md)
+
+- [Lab 5 - Hello World](W1/W1b-Labs.md)
+- [Lab 6 - Math](W1/W1b-Labs.md)
+- [Lab 7 - User Input](W1/W1b-Labs.md)
+- [Lab 8 - First Access Control with Conditionals](W1/W1b-Labs.md)
+
 # Week 2
 - Lab 4 - Access Control Scripts
 - Lab 5 - Login Attempts
