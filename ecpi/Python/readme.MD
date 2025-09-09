@@ -46,10 +46,10 @@ Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 - [Lab 3 - User Input](W1/W1-Labs.md)
 - [Lab 4 - First Access Control with Conditionals](W1/W1-Labs.md)
 
-- [Lab 5 - Hello World](W1/W1b-Labs.md)
-- [Lab 6 - Math](W1/W1b-Labs.md)
-- [Lab 7 - User Input](W1/W1b-Labs.md)
-- [Lab 8 - First Access Control with Conditionals](W1/W1b-Labs.md)
+- [Lab 5 - Number Analyzer](W1/W1b-Labs.md)
+- [Lab 6 - Login Attempts](W1/W1b-Labs.md)
+- [Lab 7 - Countdown & Loops with Break/Continue](W1/W1b-Labs.md)
+- [Lab 8 - Cyber Menu Tool](W1/W1b-Labs.md)
 
 # Week 2
 - Lab 4 - Access Control Scripts
