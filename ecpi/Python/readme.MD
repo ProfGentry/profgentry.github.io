@@ -15,12 +15,12 @@ Week 5 - Secuirty Applications & Final Exam (Chapters 7 & 9)
 
 ## Assignments
 - [1.1 In-Class Assignment](Week1-AS.md)
-- [1.2 Python Basics](1-1.md)
+- [1.2 Python Basics](1-2.md)
 - [1.3 Python Basics for Cybersecurity](1-3.md)
+
 - [1.4 Flow Control in Cybersecurity](1-4.md)
 - [1.5 Flow Control in Cybersecurity](1-5.md)
-- 1.6 Conditionals - if/else
-- 1.7 Conditionals - Nested
+
 - 2.1 Loops - for
 - 2.2 Loops - While
 - 2.3 Loops - Range
