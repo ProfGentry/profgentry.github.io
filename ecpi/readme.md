@@ -2,7 +2,7 @@
 
 [Greensboro Discord Channel](https://discord.gg/urXRaKKuAj)
 
-## [Learn Python](ecpi/Python/readme.MD)
+## [Learn Python](Python/readme.MD)
 
 ## CST140 Operating Systems Links
 - [Windows Command Line Commands](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands)
