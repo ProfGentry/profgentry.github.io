@@ -6,5 +6,5 @@
 
 ## [Learn Python](Python/readme.MD)
 
-## CST140 Operating Systems Links
+## [CST140 Operating Systems Links](ecpi/CST140/cst140.md)
 
