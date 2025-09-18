@@ -6,13 +6,15 @@ Jennifer Gentry is a Computer Science and Aerospace Engineering professional. S
 
 Jennifer is ABD in a Ph.D. program in Information Systems and received her M.S. in Computer Science from the University of New Haven in West Haven, Connecticut. Her undergraduate work was done at Rutgers University in New Brunswick, NJ in the fields of Mechanical and Aerospace Engineering. Jennifer has worked in the aerospace field for over 25 years doing structural analysis and FAA substantiation on interior structure for aircraft.
 
-# [My Youtube Channel](https://www.youtube.com/channel/UCQ1FVzzYo9Wz1g3qmRt6DQw)
+## [My Youtube Channel](https://www.youtube.com/channel/UCQ1FVzzYo9Wz1g3qmRt6DQw)
 
-# [Certification Information](/certs/)
+## [Certification Information](/certs/)
 
-# [Greensboro ECPI Information](/ecpi/)
+## [Greensboro ECPI Information](/ecpi/)
 
-# Publications
+## [Study Stacks](https://www.studystack.com/users/jlgentry)
+
+## Publications
 [Aiding Forensic Investigation Through Deep Learning and Machine Learning Frameworks](https://www.igi-global.com/book/aiding-forensic-investigation-through-deep/290354#table-of-contents/)
 
 Copyright 2022
