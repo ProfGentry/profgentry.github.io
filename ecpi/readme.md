@@ -8,4 +8,4 @@
 
 ## [CST140 Operating Systems Links](CST140/cst140.md)
 
-## [CYB120/CYB120Lab Introduction to Python Scripting](CYB120/cyb120.md)
+## [CYB120/CYB120Lab Introduction to Python Scripting](cyb120/cyb120.md)
