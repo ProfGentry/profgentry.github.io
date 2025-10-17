@@ -2,6 +2,8 @@
 
 [Greensboro Discord Channel](https://discord.gg/urXRaKKuAj)
 
+Hack the Box Student Team
+
 ## [Study Stacks](https://www.studystack.com/users/jlgentry)
 
 ## [Learn Python](Python/readme.MD)
