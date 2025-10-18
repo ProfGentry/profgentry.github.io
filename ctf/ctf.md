@@ -15,3 +15,4 @@ And if that little voice starts whispering, “I don’t know enough, no one wil
 
 ## [CTF Code of Conduct](CodeOfConduct.md)
 ## [CTF Discord Server](https://discord.gg/gU4GedW7gE)
+## [CTF Training](training.md)
