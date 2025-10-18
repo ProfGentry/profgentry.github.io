@@ -13,6 +13,23 @@ The truth is, the most valuable person on any team isn’t always the one rackin
 
 And if that little voice starts whispering, “I don’t know enough, no one will listen,” silence it. You’re not in this alone. The ECPI community has your back every step of the way. We’ll help you learn, grow, and discover what you’re capable of, together.
 
+## CTF Skill Listing
+Everyone should have a little information about all these, but most people will specialize in a few. The point is becoming a team and using everyone's strengths to the teams benefit. 
+- General Skills
+  - Scripting
+  - Operating System Specific
+  - System Administration
+- Cryptography
+- Forensics
+  - File
+  - Filesystem
+  - Memory
+  - Network
+- Web Exploitation
+- Uncategorized / Miscellaneous
+- Reverse Engineering
+- Binary Exploitation
+
 ## [CTF Code of Conduct](CodeOfConduct.md)
 ## [CTF Discord Server](https://discord.gg/gU4GedW7gE)
 ## [CTF Training](training.md)
