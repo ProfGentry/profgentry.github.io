@@ -29,7 +29,11 @@ Everyone should have a little information about all these, but most people will 
 - Uncategorized / Miscellaneous
 - Reverse Engineering
 - Binary Exploitation
-
+## Things I should be comfy with:
+- Linux VM
+- CLI
+- Learning new things
+- Having Fun! 
 ## [CTF Code of Conduct](CodeOfConduct.md)
 ## [CTF Discord Server](https://discord.gg/gU4GedW7gE)
 ## [CTF Training](training.md)
