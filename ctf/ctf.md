@@ -38,3 +38,4 @@ Everyone should have a little information about all these, but most people will 
 ## [CTF Discord Server](https://discord.gg/gU4GedW7gE)
 ## [CTF Training](training.md)
 ## [CTF Roles](roles.md)
+## [Recommended Software](software.md)
