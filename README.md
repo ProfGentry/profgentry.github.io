@@ -8,6 +8,7 @@ Jennifer is ABD in a Ph.D. program in Information Systems and received her M.S. 
 
 ## [My Youtube Channel](https://www.youtube.com/channel/UCQ1FVzzYo9Wz1g3qmRt6DQw)
 
+## [CTF Teams](/ctf/)
 ## [Certification Information](/certs/)
 
 ## [Greensboro ECPI Information](/ecpi/)
