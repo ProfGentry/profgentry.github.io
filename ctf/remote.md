@@ -4,3 +4,4 @@ Goal: Gain experience & confidence with CTF topics and creating a foundation for
 - [ ] [Computing Fundamentals](https://www.roppers.org/courses/fundamentals)
 - [ ] [Capture the Flag](https://www.roppers.org/courses/ctf)
 - [ ] [Bandit Wargames](https://overthewire.org/wargames/bandit/)
+- [ ] [Capture The Flag 101](https://ctf101.org/)
