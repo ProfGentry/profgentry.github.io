@@ -4,5 +4,5 @@
 - [IPv4 Addressing and Subntetting Workbook](IPv4SubnettingWorkbook.pdf)
 - [Subnetting Excel Workbook](Subnetting.xlsx)
 - [Switch Commands]
-- [Router Commands]
+- [Router Commands](RouterCommands.txt)
 - [All Commands - Word Document](CYB200_Commands.docx)
