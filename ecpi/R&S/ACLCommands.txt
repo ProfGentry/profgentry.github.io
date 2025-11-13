@@ -1,0 +1,30 @@
+--- IPv4 Standart ACL
+--- 		Outbound
+studentid-R2(config)#access-list 1 permit 10.50.2.0 0.0.0.63
+studentid-R2(config)#access-list 1 permit 10.500.2.64 0.0.0.63
+studentid-R2(config)#interface g0/0/0.10
+studentid-R2(config-subif)#ip access-group 1 out
+studentid-R2(config-subif)#exit
+
+--- 		Inbound
+studentid-R2(config)#access-list 100 deny ip any 10.0.0.0 0.255.255.255
+studentid-R2(config)#access-list 100 permit ip any any
+studentid-R2(config)#interface g0/0/1
+studentid-R2(config-if)#ip access-group 100 in
+
+--- IPv4 Extended ACL
+studentid-R2(config)#access-list 101 deny ip 10.50.2.64 0.0.0.63 any
+studentid-R2(config)#access-list 101 deny ip 10.50.2.128 0.0.0.63 any
+studentid-R2(config)#access-list 101 deny ip 10.50.2.192 0.0.0.63 any
+studentid-R2(config)#access-list 101 permit ip any any
+studentid-R2(config)#interface g0/0/0.10
+studentid-R2(config-subif)#ip access-group 101 out
+
+--- IPv6 ACL
+studentid-R2(config)#ipv6 access-list NoLocal
+studentid-R2(config-ipv6-acl)#deny ipv6 2001:db8:10::/48 any
+studentid-R2(config-ipv6-acl)#permit ipv6 any any
+studentid-R2(config-ipv6-acl)#exit
+studentid-R2(config)#int g0/0/1.10
+studentid-R2(config-subif)#ipv6 traffic-filter NoLocal out
+studentid-R2(config-subif)#exit
