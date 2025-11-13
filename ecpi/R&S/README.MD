@@ -10,6 +10,7 @@
 
 ### CYB220/L References
 - Utilize the previous class references
+- [IPv4/CIDR Cheat Sheet](CIDR.pdf)
 
 ### CYB320 References
 - Utilize the previous class references
