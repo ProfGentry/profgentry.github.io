@@ -12,4 +12,4 @@ Hack the Box Student Team
 
 ## [CYB120/CYB120Lab Introduction to Python Scripting](cyb120/cyb120.md)
 
-## [Routing & Switching CYB200/L -> CYB220/L -> CYB320 -> CYB330L](R&S/readme.md)
+## [Routing & Switching CYB200/L -> CYB220/L -> CYB320 -> CYB330L](R&S/routing.md)
