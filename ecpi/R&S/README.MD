@@ -9,5 +9,7 @@
 - [All Commands - Word Document](CYB200_Commands.docx)
 
 ### CYB220/L References
+- Utilize the previous class references
 
 ### CYB320 References
+- Utilize the previous class references
