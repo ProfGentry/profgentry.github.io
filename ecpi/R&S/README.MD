@@ -5,4 +5,4 @@
 - [Subnetting Excel Workbook](Subnetting.xlsx)
 - [Switch Commands]
 - [Router Commands]
-- [All Commands - Word Document]
+- [All Commands - Word Document](CYB200_Commands.docx)
