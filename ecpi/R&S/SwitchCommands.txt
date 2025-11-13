@@ -1,0 +1,44 @@
+--- Switch Programming
+Switch>enable
+Switch#
+
+Switch#configure terminal
+Switch(config)#hostname studentid-Sw1
+studentid-Sw1(config)#
+
+--- Switch Allocate ports(1-23) to VLAN 10
+studentid-Sw1(config)#interface range f0/1-23
+studentid-Sw1(config-if-range)#switchport mode access
+studentid-Sw1(config-if-range)#switchport access vlan 10
+studentid-Sw1(config-if-range)#
+
+--- Switch Program Trunk Ports
+studentid-Sw1(config)#interface range g0/1-2
+studentid-Sw1(config-if-range)#switchport mode trunk
+
+--- Switch Show Configuration
+studentid-Sw1#show run
+
+--- Switch Recognize VLANs
+studentid-Sw1(config)#vlan 30
+studentid-Sw1(config-vlan)#name VLAN30
+studentid-Sw1(config-vlan)#vlan 40
+studentid-Sw1(config-vlan)#name VLAN40
+studentid-Sw1(config-vlan)#vlan 50
+studentid-Sw1(config-vlan)#name VLAN50
+studentid-Sw1#show vlan brief
+
+--- Switch Port Security
+studentid-Sw1(config)#interface range f0/1-23
+studentid-Sw1(config-if-range)#switchport port-security
+studentid-Sw1(config-if-range)#switchport port-security maximum 1
+studentid-Sw1(config-if-range)#switchport port-security violation shutdown
+studentid-Sw1(config-if-range)#switchport port-security mac-address sticky
+studentid-Sw1#show port-security int f0/1
+studentid-Sw1(config-if)#switchport port-security
+studentid-Sw1(config-if)#switchport port-security mac-address 0030.F217.2A5D
+
+--- Switch Program SPAN
+studentid-Sw1(config)#monitor session 1 source interface G0/1
+studentid-Sw1(config)#monitor session 1 destination interface f0/24
+studentid-Sw1#show monitor session 1 detail
