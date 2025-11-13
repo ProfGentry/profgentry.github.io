@@ -1,0 +1,31 @@
+--- Internet Programming
+Router> enable
+Router#
+
+Router# configure terminal
+Router(config)#
+
+Router(config)#hostname Internet
+Internet(config)#interface g0/0/0
+Internet(config-if)#ip add 11.0.0.1 255.255.255.0
+Internet(config-if)#no shutdown
+
+Internet(config)#interface g0/0/1
+Internet(config-if)#ip add 11.1.1.1 255.255.255.0
+Internet(config-if)#no shutdown
+Internet(config-if)#exit
+Internet(config)#ip route 192.168.10.0 255.255.255.0 11.0.0.45
+
+--- Internet DHCP
+Internet#configure terminal
+Internet(config)#ip dhcp pool mypool
+Internet(dhcp-config)#network 11.1.1.00 255.255.255.0
+Internet(dhcp-config)#default-router 11.1.1.1
+Internet(dhcp-config)#dns-server 11.1.1.10
+Internet(dhcp-config)#exit
+Internet(config)#ip dhcp excluded-address 11.1.1.0 11.1.1.9
+Internet(config)#ip route 0.0.0.0 0.0.0.0 g0/0/1
+
+--- Internet static routing
+R1(config)#ip route 0.0.0.0 0.0.0.0 11.0.0.1
+
