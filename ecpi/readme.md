@@ -6,7 +6,7 @@ Hack the Box Student Team
 
 ## [Study Stacks](https://www.studystack.com/users/jlgentry)
 
-## [Learn Python](Python/readme.MD)
+## [Learn Python](Python/python.md)
 
 ## [CST140 Operating Systems Links](CST140/cst140.md)
 
