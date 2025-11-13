@@ -3,3 +3,6 @@
 ### CYB200/L References
 - [IPv4 Addressing and Subntetting Workbook](IPv4SubnettingWorkbook.pdf)
 - [Subnetting Excel Workbook](Subnetting.xlsx)
+- [Switch Commands]
+- [Router Commands]
+- [All Commands - Word Document]
