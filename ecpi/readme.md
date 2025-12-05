@@ -4,7 +4,7 @@
 ## Hack the Box Student Team
 ## [Study Stacks](https://www.studystack.com/users/jlgentry)
 ## [Learn Python](Python/python.md)
-## [Virtual Machine Labs](vm.md)
+## [Virtual Machine Labs](labs/vm.md)
 
 # ECPI Classes
 ## [CST140 Operating Systems Links](CST140/cst140.md)
