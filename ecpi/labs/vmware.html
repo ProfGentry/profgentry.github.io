@@ -1,50 +1,1325 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="/css/new-page-1-7997dedd8f421fb2d136e35f3afa482e8da072631a9b32adc92131a08ab7b378.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Hyper-V Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
 
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
 
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            margin-top: 10px;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin: 10px 5px;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .advanced-badge {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .tabs {
+            display: flex;
+            background: #1a1a2e;
+            border-bottom: 3px solid #667eea;
+            overflow-x: auto;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #16213e;
+            border: none;
+            font-size: 15px;
+            font-weight: bold;
+            color: #a0aec0;
+            min-width: 140px;
+            position: relative;
+        }
+
+        .tab:hover {
+            background: #1e2a47;
+            color: #e2e8f0;
+            transform: translateY(-2px);
+        }
+
+        .tab.active {
+            background: white;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            transform: translateY(3px);
+        }
+
+        .tab.active::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 40px;
+            animation: fadeIn 0.5s;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-card {
+            background: white;
+            border-left: 5px solid #667eea;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(102, 126, 234, 0.2);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.4em;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .step-title {
+            font-size: 1.8em;
+            color: #1a202c;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .command-box {
+            background: #1a202c;
+            color: #48bb78;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            position: relative;
+            overflow-x: auto;
+            border: 2px solid #2d3748;
+        }
+
+        .command-box::before {
+            content: 'TERMINAL';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #1a202c;
+            padding: 2px 10px;
+            font-size: 10px;
+            color: #48bb78;
+            font-weight: bold;
+            border: 1px solid #2d3748;
+            border-radius: 4px;
+        }
+
+        .config-box {
+            background: #2d3748;
+            color: #90cdf4;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            position: relative;
+            overflow-x: auto;
+            border: 2px solid #4a5568;
+        }
+
+        .config-box::before {
+            content: 'CONFIG FILE';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #2d3748;
+            padding: 2px 10px;
+            font-size: 10px;
+            color: #90cdf4;
+            font-weight: bold;
+            border: 1px solid #4a5568;
+            border-radius: 4px;
+        }
+
+        .prompt-box {
+            background: #2d3748;
+            color: #f6e05e;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            position: relative;
+            overflow-x: auto;
+            border: 2px solid #4a5568;
+        }
+
+        .prompt-label {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #fff8e1 100%);
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
+        }
+
+        .highlight-box strong {
+            color: #856404;
+        }
+
+        .notice-box {
+            background: linear-gradient(135deg, #d1ecf1 0%, #e0f7fa 100%);
+            border-left: 5px solid #0dcaf0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(13, 202, 240, 0.2);
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #d4edda 0%, #e7f5ea 100%);
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #f8d7da 0%, #fde7e9 100%);
+            border-left: 5px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(220, 53, 69, 0.2);
+        }
+
+        .architecture-diagram {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            text-align: center;
+            border: 3px dashed #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+
+        .architecture-diagram h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .arch-flow {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2d3748;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .arch-component {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            margin: 5px;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 35px;
+        }
+
+        li {
+            margin: 12px 0;
+            line-height: 1.8;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .objective-card {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .objective-card:hover {
+            transform: translateX(10px);
+        }
+
+        .objective-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .prereq-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 3px solid #28a745;
+        }
+
+        .footer {
+            background: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .progress-tracker {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            width: 0%;
+            transition: width 0.6s ease;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        .time-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 8px 5px;
+            font-size: 0.95em;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .tab {
+                font-size: 13px;
+                padding: 15px 10px;
+            }
+            
+            .tab-content {
+                padding: 20px;
+            }
+
+            .step-title {
+                font-size: 1.4em;
+            }
+        }
+
+        .intro-section {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px solid #667eea20;
+        }
+
+        .intro-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .key-concept {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .key-concept:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+        }
+
+        .key-concept h3 {
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #2d3748;
+            color: #90cdf4;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .scenario-box {
+            background: #f7fafc;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .scenario-box h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+    </style>
 </head>
-<body><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>🤖 Agentic AI Lab - 30-Minute Faculty Workshop</title><div class="container"><div class="header"><h1 id="iis7v">🤖 VMWare Lab</h1><p id="i7etx">VMWare + Docker + Desktop Commander</p><div><span class="info-badge">⏱️ 1.5-2 Hours</span><span class="info-badge">🎯 No Setup Required</span></div></div><div class="tabs"><button type="button" class="tab active">📋 Overview</button><button type="button" class="tab">1️⃣ Discover Tools</button><button type="button" class="tab">2️⃣ Use Docker</button><button type="button" class="tab">3️⃣ Create Files</button><button type="button" class="tab">4️⃣ Reflection</button><button type="button" class="tab">✅ Complete</button></div><div id="overview" class="tab-content active"><div class="intro-section"><h2><span class="emoji">🎯</span>What You'll Learn</h2><p id="itjeo"><p class="MsoNormal">This activity introduces you to the fundamentals of
-virtualization using VMware Workstation or VMware Fusion. You will install a
-virtual machine, explore virtual hardware, take and restore snapshots,
-configure networking modes, and safely experiment with operating‑system level
-changes.<o:p></o:p></p></p></div><div class="key-concept"><h3 id="it9vg">🔍 1. How Virtual Machines Work Behind the Scenes</h3><p id="izqj8">Students grasp how VMware creates a simulated computer inside their real one, including virtual CPUs, memory, storage, and hardware abstraction.</p></div><div class="key-concept"><h3 id="idpmi">🐳 2. How to Safely Experiment Using Snapshots and Recovery Tools</h3><p id="ism0j">Students learn to take snapshots, roll back broken systems, and treat the VM like a safe sandbox where mistakes don’t wreck their actual machine.</p></div><div class="key-concept"><h3 id="i0o9e">📁 3. How Virtual Networking Connects VMs to Hosts and the Internet</h3><p id="ifox8">Students explore NAT, Bridged, and Host-Only networking to understand how virtual machines communicate with the outside world and each other.</p></div><div class="highlight-box"><strong>🎉 The Best Part:</strong> This is where the magic happens!</div><div class="notice-box"><h3 id="igd9g">🖥️ Environment Setup</h3><ul id="in6li"><li id="i2mll">✅ Computer (8GB RAM, CPU, 30-40 GB free disk space)</li><li id="i7i32">✅VMWare Workstation <a href="" id="iqtpa2">Downloaded </a>and Installed</li><li id="i0q4c">✅ Ubuntu Desktop ISO (22.04 LTS or similar)</li><li id="imgf8">Network Access</li></ul><p><strong>You're ready to start immediately!</strong></p></div><div class="success-box"><h3>📚 Target Audience</h3><p id="is72j">Students wanting to learn more about VMWare.</p></div><div class="progress-tracker"><h3>⏰ Time Breakdown</h3><span class="time-badge">Start: 2 min</span><span class="time-badge">Step 1: 5 min</span><span class="time-badge">Step 2: 10 min</span><span class="time-badge">Step 3: 10 min</span><span class="time-badge">Step 4: 5 min</span><div class="progress-bar"><div id="progressBar" class="progress-fill"></div></div></div></div><div id="step1" class="tab-content"><div class="step-card"><div class="step-title"><span class="step-number">1</span><span>Start Claude Desktop</span></div><p><span class="time-badge">⏱️ 2 minutes</span></p><ol><li>Log in to the provided virtual machine</li><li>Open <strong>Claude Desktop</strong> (icon on desktop or start menu)</li><li>Start a <strong>new chat</strong></li></ol><div class="success-box"><strong>That's it!</strong> You'll do everything else by pasting prompts.
-                </div></div><div class="step-card"><div class="step-title"><span class="step-number">2</span><span>Ask Claude What Tools It Has</span></div><p><span class="time-badge">⏱️ 5 minutes</span></p><p id="iefcsl">In the new Claude chat, paste this prompt:</p><div class="prompt-box"><span class="prompt-label">📝 Prompt 1: "What tools do you have?"</span><button type="button" class="copy-btn">📋 Copy</button><pre id="iwmiw6">Hello Claude. On this virtual machine you're connected to some tools via MCP.
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="advanced-badge">🎓 Virtual Machine Creation Lab</span>
+            <h1>🚀 Hyper-V Lab</h1>
+            <p>Using Hyper-V for your Virtual Machines</p>
+            <div>
+                <span class="info-badge">⏱️ 45-60 Minutes</span>
+                <span class="info-badge">👨‍💻 Technical Level: Beginner</span>
+                <span class="info-badge">🐳 Windows Hyper-V Required</span>
+            </div>
+        </div>
 
-1. Please list each tool you have access to.
-2. For each tool, explain in very simple terms what it can do.
-3. Highlight anything related to Docker or controlling the desktop.
+        <div class="tabs">
+            <button class="tab active" onclick="openTab(event, 'overview')">📋 Overview</button>
+            <button class="tab" onclick="openTab(event, 'bigpicture')">🎯 Big Picture</button>
+            <button class="tab" onclick="openTab(event, 'setup')">⚙️ Setup</button>
+            <button class="tab" onclick="openTab(event, 'config')">🔧 Configuration</button>
+            <button class="tab" onclick="openTab(event, 'demo')">🎬 Demo</button>
+            <button class="tab" onclick="openTab(event, 'complete')">✅ Wrap-Up</button>
+        </div>
 
-Assume I have never used these tools before.</pre></div><div class="highlight-box"><strong>🔍 What to notice:</strong><ul><li>Claude should mention <strong>Docker</strong> (or a Docker-related tool)</li><li>Claude should mention <strong>Desktop Commander</strong> (or a tool for managing files/desktop)</li><li>It explains tools in plain English, which is already agent-like introspection</li></ul></div><div class="notice-box"><strong>🧠 This is Agentic Behavior:</strong> Claude is introspecting its own capabilities and explaining them in human terms. A regular chatbot can't do this!
-                </div></div></div><div id="step2" class="tab-content"><div class="step-card"><div class="step-title"><span class="step-number">3</span><span>Let Claude Use Docker for You</span></div><p><span class="time-badge">⏱️ 8-10 minutes</span></p><p id="i5qw3r">Now we'll have Claude act using its Docker tool.</p><div class="prompt-box"><span class="prompt-label">📝 Prompt 2: "Check Docker status for me"</span><button type="button" class="copy-btn">📋 Copy</button><pre id="iozfso">Using your Docker-related tools, please:
+        <div id="overview" class="tab-content active">
+            <div class="intro-section">
+                <h2><span class="emoji">🎯</span>Lab Overview</h2>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
+                    In this lab, faculty will see how an AI assistant (Claude Desktop) can act as a <strong>true agent</strong>: 
+                    it will plan, call tools running in Docker containers, and use the results to answer questions.
+                </p>
+            </div>
 
-1. Check whether Docker is running.
-2. List any current containers.
-3. List any Docker images that are available.
+            <div class="key-concept">
+                <h3>🔍 What You'll Experience</h3>
+                <ul>
+                    <li><strong>Connect</strong> Claude Desktop to a Dockerized SQLite MCP server (no coding, just copy-paste)</li>
+                    <li><strong>Ask Claude</strong> in plain English to:
+                        <ul>
+                            <li>Create a tiny database</li>
+                            <li>Insert sample data</li>
+                            <li>Run SQL queries via the tool</li>
+                            <li>Summarize results like a data analyst</li>
+                        </ul>
+                    </li>
+                    <li><strong>Understand</strong> how the "heavy lifting" (SQL + database) runs in Docker while Claude orchestrates everything</li>
+                </ul>
+            </div>
 
-Explain in simple terms what you did and what you found.</pre></div><div class="highlight-box"><strong>👀 What to look for:</strong><ul><li>Claude should call its Docker MCP tool to list containers/images</li><li>It may show an empty list (that's fine)</li><li>It will describe the results in normal language</li></ul></div></div><div class="step-card"><div class="step-title"><span class="step-number">4</span><span>Run a Test Container</span></div><p id="i1kn8j">Next, have Claude run a simple test container:</p><div class="prompt-box"><span class="prompt-label">📝 Prompt 3: "Run a small test container"</span><button type="button" class="copy-btn">📋 Copy</button><pre id="ir6obh">Using your Docker tools, please run a very small, safe test container (for example a 'hello-world'-style container) just to prove that Docker commands are working.
+            <div class="architecture-diagram">
+                <h3>🏗️ System Architecture</h3>
+                <div class="arch-flow">
+                    <div class="arch-component">Claude Desktop<br/>(AI Agent)</div>
+                    <span style="color: #667eea; font-size: 1.5em;"> ⇄ </span>
+                    <div class="arch-component">MCP SQLite Server<br/>(Tool Provider)</div>
+                    <span style="color: #667eea; font-size: 1.5em;"> ⇄ </span>
+                    <div class="arch-component">SQLite DB<br/>(in Docker Volume)</div>
+                </div>
+                <p style="margin-top: 20px; color: #4a5568; font-style: italic;">
+                    All communication happens automatically through the MCP protocol
+                </p>
+            </div>
 
-1. Tell me which image you chose and why.
-2. Start the container.
-3. Then confirm that it ran by listing containers or checking its status.
-4. Explain what you did in simple terms, as if I'm totally new to Docker.</pre></div><div class="notice-box"><strong>🧠 Agentic behavior here:</strong><ul><li>✨ Claude <strong>decides</strong> what container to run (e.g., hello-world)</li><li>🔧 Claude <strong>calls</strong> the Docker MCP tool on your behalf</li><li>🎯 You never open Docker or type a command</li></ul></div><div class="success-box"><strong>🎉 Congratulations!</strong> You just watched Claude operate Docker autonomously. This is the power of agentic AI!
-                </div></div></div><div id="step3" class="tab-content"><div class="step-card"><div class="step-title"><span class="step-number">5</span><span>Have Claude Create a Lab Notes Folder</span></div><p><span class="time-badge">⏱️ 8-10 minutes</span></p><p id="iyuh2u">Now we'll switch to the <strong>Desktop Commander</strong> tool so Claude can act like a little assistant on your VM.</p><div class="prompt-box"><span class="prompt-label">📝 Prompt 4: "Create a folder and notes file"</span><button type="button" class="copy-btn">📋 Copy</button><pre id="ioza0v">Using any desktop or file-management tools you have (such as Desktop Commander):
+            <div class="objective-card">
+                <h4>🎓 Learning Objective 1: Conceptual Understanding</h4>
+                <p>Explain what agentic AI is: <strong>LLM + Tools</strong>, not just chat</p>
+            </div>
 
-1. Create a folder on the Desktop called `Agentic_AI_Lab`.
-2. Inside that folder, create a text file named `lab_notes.txt`.
-3. In that file, write a short summary (3-5 bullet points) of what you just did with Docker in this session.
-4. Then confirm the full path to the file so I know where to find it.</pre></div><div class="highlight-box"><strong>📂 Then, on the VM:</strong><ol><li>Minimize Claude</li><li>Look on the desktop for the folder <code>Agentic_AI_Lab</code></li><li>Open <code>lab_notes.txt</code> and verify the notes are there</li></ol></div><div class="notice-box"><strong>🧠 Agentic behavior here:</strong><ul><li>🎯 Claude interprets your high-level request</li><li>🛠️ Uses Desktop Commander tools to:
-                            <ul><li>Create a folder</li><li>Create a file</li><li>Write content into that file</li></ul></li><li>✨ You didn't browse directories or open Notepad yourself—Claude orchestrated it!</li></ul></div><div class="success-box"><strong>🎊 Amazing!</strong> Claude just acted as your digital assistant, creating files and organizing content without you touching the file system.
-                </div></div></div><div id="step4" class="tab-content"><div class="step-card"><div class="step-title"><span class="step-number">6</span><span>Reflection &amp; Discussion</span></div><p><span class="time-badge">⏱️ 5 minutes</span></p><p id="im91ls">Back in Claude, paste this final prompt:</p><div class="prompt-box"><span class="prompt-label">📝 Prompt 5: "Help me reflect on what just happened"</span><button type="button" class="copy-btn">📋 Copy</button><pre id="ixad6t">In 5-7 simple sentences, please explain back to me what we just did in this lab. Focus on:
+            <div class="objective-card">
+                <h4>🔧 Learning Objective 2: Technical Components</h4>
+                <p>Describe the roles of:</p>
+                <ul>
+                    <li><strong>Claude Desktop</strong> - The AI/agent making decisions</li>
+                    <li><strong>MCP server</strong> - The tool provider exposing capabilities</li>
+                    <li><strong>Docker</strong> - Isolated runtime for tools</li>
+                </ul>
+            </div>
 
-* How you used tools (Docker and the desktop tools)
-* Why this is considered 'agentic AI' instead of just normal chatting
-* One or two ways a teacher at ECPI might use this pattern in class.</pre></div></div><div class="reflection-card"><h4>🤔 Discussion Questions</h4><p><strong>1. What felt different from normal chat?</strong></p><p id="ii2xrh">Claude took actions in the environment: Docker + file system.</p></div><div class="reflection-card"><h4>💡 Practical Applications</h4><p><strong>2. Where could this be used in teaching?</strong></p><ul><li>📁 Auto-creating lab folders for each student</li><li>🐳 Launching containers for students automatically</li><li>📝 Saving summaries of lab work automatically</li><li>🔧 Setting up development environments</li><li>📊 Generating reports and documentation</li></ul></div><div class="reflection-card"><h4>🎯 Key Takeaways</h4><p><strong>What makes this "agentic"?</strong></p><ul><li>🔍 <strong>Autonomy:</strong> Claude makes decisions about HOW to accomplish tasks</li><li>🛠️ <strong>Tool Use:</strong> Claude uses external tools to interact with the environment</li><li>🎯 <strong>Goal-Oriented:</strong> Claude understands high-level goals and breaks them down</li><li>💬 <strong>Communication:</strong> Claude explains what it's doing in natural language</li></ul></div></div><div id="complete" class="tab-content"><div id="ixjjtl"><div id="iuqvp3">🎉</div><h2 id="ir2rlw">Lab Complete!</h2><div class="success-box" id="iipu41"><h3>✅ What You Accomplished:</h3><ul><li>✨ Watched Claude discover and describe its own tools</li><li>🐳 Saw Claude interact with Docker autonomously</li><li>📁 Observed Claude create files and folders on command</li><li>🧠 Experienced true agentic AI behavior firsthand</li></ul></div><div class="notice-box" id="il2acs"><h3>🎓 Key Learning:</h3><p>You just experienced the difference between a chatbot and an agent:</p><ul><li><strong>Chatbot:</strong> Answers questions with text</li><li><strong>Agent:</strong> Takes actions in the real world using tools</li></ul></div><div class="highlight-box" id="iuzwdf"><h3>🚀 Next Steps:</h3><p>Consider how you might use agentic AI in your courses:</p><ul><li>Automating lab setup and teardown</li><li>Creating personalized learning environments</li><li>Generating custom exercises and assessments</li><li>Providing intelligent tutoring with real tool access</li></ul></div><div id="iqvxyv"><p id="iekrmj"><strong>Remember:</strong> No code. No config. Just plain English prompts. 
-                        <br/>That's the power of agentic AI! 🤖✨
-                    </p></div></div></div><div class="footer"><p id="ipbjsg">🎓 Professor Gentry - CIS Faculty</p><p id="ia2lrq">VMWare Lab</p></div></div></body>
+            <div class="objective-card">
+                <h4>💼 Learning Objective 3: Practical Application</h4>
+                <p>Use Claude Desktop with a Docker-based SQLite MCP server to:</p>
+                <ul>
+                    <li>Create tables and insert rows</li>
+                    <li>Run simple queries</li>
+                    <li>Generate business insights</li>
+                </ul>
+            </div>
+
+            <div class="notice-box">
+                <h3>📋 Prerequisites</h3>
+                <div class="prereq-item">
+                    ✅ <strong>Claude Desktop</strong> installed and working
+                </div>
+                <div class="prereq-item">
+                    ✅ <strong>Docker Desktop</strong> installed, running, and user can run Docker commands
+                </div>
+                <div class="prereq-item">
+                    ✅ <strong>Internet access</strong> to pull the Docker image <code>mcp/sqlite</code>
+                </div>
+                <div class="prereq-item">
+                    ✅ <strong>OS:</strong> Windows 10/11 (instructions easily adaptable for macOS)
+                </div>
+            </div>
+
+            <div class="progress-tracker">
+                <h3>⏰ Time Breakdown</h3>
+                <span class="time-badge">Big Picture: 5 min</span>
+                <span class="time-badge">Pull Image: 5 min</span>
+                <span class="time-badge">Configuration: 15 min</span>
+                <span class="time-badge">Testing: 5 min</span>
+                <span class="time-badge">Demo: 15-20 min</span>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bigpicture" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">1</span>
+                    <span>The Big Picture</span>
+                </div>
+                <p><span class="time-badge">⏱️ 5 minutes</span></p>
+
+                <div class="intro-section">
+                    <h2>🧠 Understanding Agentic AI</h2>
+                    <p style="font-size: 1.15em; line-height: 1.8; margin-bottom: 20px;">
+                        Give faculty this quick framing before doing any clicks:
+                    </p>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>💡 Key Concept: Beyond Chatbots</h3>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        An <strong>agentic AI</strong> isn't just a chatbot. It's a model that can decide:
+                    </p>
+                    <ul style="margin-top: 15px;">
+                        <li><strong>"I need to call a tool to solve this."</strong></li>
+                        <li><strong>"Which tool should I use?"</strong></li>
+                        <li><strong>"What should I ask that tool to do?"</strong></li>
+                    </ul>
+                </div>
+
+                <div class="key-concept">
+                    <h3>🎯 Today's Demonstration</h3>
+                    <p>Claude will:</p>
+                    <ul>
+                        <li>📊 Use an MCP server (SQLite) as its "database tool"</li>
+                        <li>🐳 That MCP server runs inside Docker</li>
+                        <li>🤖 Claude automatically calls the right tool functions to answer our questions</li>
+                        <li>✨ All orchestration happens transparently through natural language</li>
+                    </ul>
+                </div>
+
+                <div class="architecture-diagram">
+                    <h3>🔄 Data Flow</h3>
+                    <div style="text-align: left; max-width: 700px; margin: 20px auto;">
+                        <p style="margin: 15px 0;"><strong>1. Faculty asks Claude:</strong> "Create a student grades table"</p>
+                        <p style="margin: 15px 0; padding-left: 20px;">↓</p>
+                        <p style="margin: 15px 0;"><strong>2. Claude thinks:</strong> "I need to use the SQLite tool"</p>
+                        <p style="margin: 15px 0; padding-left: 20px;">↓</p>
+                        <p style="margin: 15px 0;"><strong>3. Claude calls MCP server:</strong> CREATE TABLE command</p>
+                        <p style="margin: 15px 0; padding-left: 20px;">↓</p>
+                        <p style="margin: 15px 0;"><strong>4. MCP executes in Docker:</strong> Table created in SQLite</p>
+                        <p style="margin: 15px 0; padding-left: 20px;">↓</p>
+                        <p style="margin: 15px 0;"><strong>5. Claude reports back:</strong> "Done! Here's what I created..."</p>
+                    </div>
+                </div>
+
+                <div class="success-box">
+                    <h3>🎓 Teaching Moment</h3>
+                    <p>This is fundamentally different from traditional automation because:</p>
+                    <ul>
+                        <li>✨ <strong>No scripting required</strong> - Just natural language requests</li>
+                        <li>🧠 <strong>Intelligent decision-making</strong> - Claude chooses the right tools and methods</li>
+                        <li>🔄 <strong>Adaptive responses</strong> - Can handle variations in requests</li>
+                        <li>💬 <strong>Explains its work</strong> - Transparency in every action</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="setup" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    <span>Pull the SQLite MCP Image</span>
+                </div>
+                <p><span class="time-badge">⏱️ 5 minutes</span></p>
+
+                <div class="notice-box">
+                    <h3>🐳 What We're Doing</h3>
+                    <p>We need to get the official SQLite MCP server image from Docker Hub. This container will provide the database tools that Claude can use.</p>
+                </div>
+
+                <h3 style="margin: 25px 0 15px 0;">📝 Step-by-Step Instructions</h3>
+
+                <p><strong>1. Open PowerShell or Command Prompt</strong></p>
+                <ul>
+                    <li>Press <kbd>Win + R</kbd></li>
+                    <li>Type <code>powershell</code> or <code>cmd</code></li>
+                    <li>Press Enter</li>
+                </ul>
+
+                <p style="margin-top: 25px;"><strong>2. Pull the Docker image:</strong></p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                    <pre style="white-space: pre-wrap; margin-top: 10px;">docker pull mcp/sqlite</pre>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>⏳ What's happening:</strong> Docker is downloading the SQLite MCP server image from Docker Hub. This may take a minute or two depending on your internet connection.
+                </div>
+
+                <p style="margin-top: 25px;"><strong>3. Verify the image is downloaded (optional):</strong></p>
+                <div class="command-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                    <pre style="white-space: pre-wrap; margin-top: 10px;">docker images mcp/sqlite</pre>
+                </div>
+
+                <div class="success-box">
+                    <h3>✅ Expected Output</h3>
+                    <p>You should see something like:</p>
+                    <pre style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 10px; overflow-x: auto;">
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+mcp/sqlite    latest    abc123def456   2 weeks ago    150MB
+                    </pre>
+                </div>
+
+                <div class="warning-box">
+                    <h3>⚠️ Troubleshooting</h3>
+                    <ul>
+                        <li><strong>Docker not running?</strong> Make sure Docker Desktop is started</li>
+                        <li><strong>Permission denied?</strong> Run PowerShell as Administrator</li>
+                        <li><strong>Network error?</strong> Check your internet connection and proxy settings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="config" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    <span>Connect Claude to the Docker Tool</span>
+                </div>
+                <p><span class="time-badge">⏱️ 10-15 minutes</span></p>
+
+                <div class="intro-section">
+                    <h2>🔧 Configuration Goal</h2>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        We'll tell Claude Desktop: <em>"When I say 'use the SQLite tools', run this Docker container and talk to it via MCP."</em>
+                    </p>
+                </div>
+
+                <div class="notice-box">
+                    <h3>📐 The Configuration Structure</h3>
+                    <p>The official docs show a Claude config entry that uses Docker like this:</p>
+                </div>
+
+                <div class="config-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                    <pre style="white-space: pre-wrap; margin-top: 10px;">{
+  "mcpServers": {
+    "sqlite": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-v",
+        "mcp-test:/mcp",
+        "mcp/sqlite",
+        "--db-path",
+        "/mcp/test.db"
+      ]
+    }
+  }
+}</pre>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>🔍 Understanding the Configuration</h3>
+                    <ul>
+                        <li><code>docker run --rm -i</code> – Run container interactively, clean up when done</li>
+                        <li><code>-v mcp-test:/mcp</code> – Use a Docker volume named <code>mcp-test</code> at <code>/mcp</code> in the container (persists DB file)</li>
+                        <li><code>mcp/sqlite</code> – Use the SQLite MCP server image we just pulled</li>
+                        <li><code>--db-path /mcp/test.db</code> – Store the SQLite database in that volume</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.1</span>
+                    <span>Find the Claude Config File (Windows)</span>
+                </div>
+
+                <div class="notice-box">
+                    <p>On Windows, the config file is typically at:</p>
+                    <p style="margin-top: 10px; font-family: 'Courier New', monospace; font-size: 1.1em; color: #2d3748;">
+                        <strong>%APPDATA%\Claude\claude_desktop_config.json</strong>
+                    </p>
+                </div>
+
+                <h3 style="margin: 25px 0 15px 0;">📝 Steps to Open the Config File:</h3>
+
+                <ol style="font-size: 1.05em; line-height: 2;">
+                    <li>Press <kbd>Win + R</kbd> to open the Run dialog</li>
+                    <li>Type: <code>%APPDATA%\Claude</code></li>
+                    <li>Press Enter</li>
+                    <li>In the folder that opens, find <code>claude_desktop_config.json</code></li>
+                    <li>Right-click it → <strong>Open with</strong> → <strong>Notepad</strong> (or your preferred editor)</li>
+                </ol>
+
+                <div class="warning-box">
+                    <h3>⚠️ Can't Find the File?</h3>
+                    <p>If the file doesn't exist, you can create it:</p>
+                    <ol>
+                        <li>In the <code>%APPDATA%\Claude</code> folder</li>
+                        <li>Right-click → New → Text Document</li>
+                        <li>Name it exactly: <code>claude_desktop_config.json</code></li>
+                        <li>Make sure the extension is <code>.json</code>, not <code>.txt</code></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.2</span>
+                    <span>Add the SQLite MCP Server Config</span>
+                </div>
+
+                <p style="margin-bottom: 20px;">There are two likely scenarios:</p>
+
+                <div class="scenario-box">
+                    <h4>📄 Scenario A: File is Empty or Almost Empty</h4>
+                    <p style="margin-bottom: 15px;">Replace the entire contents with:</p>
+                    
+                    <div class="config-box">
+                        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                        <pre style="white-space: pre-wrap; margin-top: 10px;">{
+  "mcpServers": {
+    "sqlite": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-v",
+        "mcp-sqlite:/mcp",
+        "mcp/sqlite",
+        "--db-path",
+        "/mcp/test.db"
+      ]
+    }
+  }
+}</pre>
+                    </div>
+                    <p style="margin-top: 15px; font-style: italic;">
+                        Note: You can use <code>mcp-sqlite</code> or <code>mcp-test</code> as the volume name; just keep it consistent.
+                    </p>
+                </div>
+
+                <div class="scenario-box" style="margin-top: 25px;">
+                    <h4>📄 Scenario B: File Already Has Other MCP Servers</h4>
+                    <p style="margin-bottom: 15px;">Add a comma after the last server entry, then add the SQLite config:</p>
+                    
+                    <div class="config-box">
+                        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                        <pre style="white-space: pre-wrap; margin-top: 10px;">{
+  "mcpServers": {
+    "existing-server": {
+      "command": "...",
+      "args": ["..."]
+    },
+    "sqlite": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-v",
+        "mcp-sqlite:/mcp",
+        "mcp/sqlite",
+        "--db-path",
+        "/mcp/test.db"
+      ]
+    }
+  }
+}</pre>
+                    </div>
+                </div>
+
+                <div class="success-box">
+                    <h3>💾 Save and Restart</h3>
+                    <ol>
+                        <li><strong>Save</strong> the config file (Ctrl+S in Notepad)</li>
+                        <li><strong>Close</strong> Claude Desktop completely</li>
+                        <li><strong>Restart</strong> Claude Desktop</li>
+                        <li><strong>Wait</strong> a few seconds for it to connect to the MCP server</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.3</span>
+                    <span>Verify the Connection</span>
+                </div>
+                <p><span class="time-badge">⏱️ 5 minutes</span></p>
+
+                <p style="margin-bottom: 20px;">Let's make sure Claude can see the SQLite tool:</p>
+
+                <div class="prompt-box">
+                    <span class="prompt-label">📝 Test Prompt</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                    <pre style="white-space: pre-wrap; margin-top: 15px;">Hello Claude! Please list all the tools you have available right now. Specifically, do you have access to any SQLite or database tools?</pre>
+                </div>
+
+                <div class="success-box">
+                    <h3>✅ Expected Response</h3>
+                    <p>Claude should mention something like:</p>
+                    <ul>
+                        <li>"I have access to an SQLite database tool..."</li>
+                        <li>"I can create tables, insert data, and query databases..."</li>
+                        <li>It might list specific functions like <code>create_table</code>, <code>execute_query</code>, etc.</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h3>⚠️ If Claude Doesn't See SQLite Tools</h3>
+                    <ul>
+                        <li>Double-check the JSON syntax (commas, brackets, quotes)</li>
+                        <li>Verify Docker Desktop is running</li>
+                        <li>Completely quit and restart Claude Desktop (not just minimize)</li>
+                        <li>Check the config file path is exactly: <code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="demo" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">4</span>
+                    <span>The Demo: Claude as Your Data Analyst</span>
+                </div>
+                <p><span class="time-badge">⏱️ 15-20 minutes</span></p>
+
+                <div class="intro-section">
+                    <h2>🎬 Time to See Agentic AI in Action!</h2>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Now that Claude is connected to the SQLite tool, let's watch it act as an intelligent database assistant. 
+                        You'll give it high-level goals, and Claude will figure out the SQL and orchestrate everything.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>4.1</span>
+                    <span>Create a Database Table</span>
+                </div>
+
+                <div class="prompt-box">
+                    <span class="prompt-label">📝 Prompt 1: Create a Student Grades Table</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                    <pre style="white-space: pre-wrap; margin-top: 15px;">Using your SQLite tools, please create a table called "student_grades" with the following columns:
+- student_id (integer, primary key)
+- student_name (text)
+- assignment (text)
+- score (integer)
+- submission_date (date)
+
+After creating it, confirm that the table was successfully created.</pre>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>🔍 What to Watch For</h3>
+                    <ul>
+                        <li>Claude will explain what it's about to do</li>
+                        <li>It will compose the appropriate CREATE TABLE SQL</li>
+                        <li>It will call the SQLite tool through Docker</li>
+                        <li>It will report back on success</li>
+                        <li><strong>You didn't write any SQL!</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>4.2</span>
+                    <span>Insert Sample Data</span>
+                </div>
+
+                <div class="prompt-box">
+                    <span class="prompt-label">📝 Prompt 2: Add Student Records</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                    <pre style="white-space: pre-wrap; margin-top: 15px;">Now insert 10 sample student records into the student_grades table. Make up realistic data with:
+- Diverse student names
+- Various assignments (Lab 1, Lab 2, Midterm, Final, etc.)
+- Scores ranging from 65 to 100
+- Submission dates in the past 3 months
+
+After inserting, show me all the records you just added.</pre>
+                </div>
+
+                <div class="notice-box">
+                    <h3>🧠 Agentic Behavior in Action</h3>
+                    <ul>
+                        <li>Claude decides what realistic data looks like</li>
+                        <li>Claude composes INSERT statements</li>
+                        <li>Claude executes them through the tool</li>
+                        <li>Claude verifies the results with a SELECT query</li>
+                        <li>All from one natural language request!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>4.3</span>
+                    <span>Run Analytics Queries</span>
+                </div>
+
+                <div class="prompt-box">
+                    <span class="prompt-label">📝 Prompt 3: Generate Insights</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                    <pre style="white-space: pre-wrap; margin-top: 15px;">Using the student_grades data, please analyze and tell me:
+
+1. What is the average score across all assignments?
+2. Which student has the highest average score?
+3. Which assignment had the lowest average performance?
+4. How many students scored above 90?
+5. Show me the top 5 highest individual scores with student names and assignments.
+
+Present your findings in a clear, readable format.</pre>
+                </div>
+
+                <div class="success-box">
+                    <h3>✨ This is Where It Gets Amazing</h3>
+                    <p>Watch Claude:</p>
+                    <ul>
+                        <li>Break down your multi-part question</li>
+                        <li>Compose multiple SQL queries</li>
+                        <li>Execute them sequentially</li>
+                        <li>Synthesize the results into a coherent narrative</li>
+                        <li>Present it in human-readable format</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>This is true agentic AI: planning + tool use + synthesis.</strong></p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>4.4</span>
+                    <span>Advanced: Let Claude Be Creative</span>
+                </div>
+
+                <div class="prompt-box">
+                    <span class="prompt-label">📝 Prompt 4: Open-Ended Analysis</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                    <pre style="white-space: pre-wrap; margin-top: 15px;">Based on this student grades data, what are 3-4 interesting insights or patterns you can discover? 
+
+Use your SQLite tools to explore the data creatively. For example, you might look at:
+- Performance trends
+- Score distributions
+- Correlations between different assignments
+- Any surprising outliers
+
+Present your findings as if you're reporting to a department chair.</pre>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>🎯 Why This Demonstrates True Agency</h3>
+                    <ul>
+                        <li><strong>Autonomy:</strong> Claude decides WHAT to investigate</li>
+                        <li><strong>Planning:</strong> Claude plans WHICH queries to run</li>
+                        <li><strong>Execution:</strong> Claude uses tools to get answers</li>
+                        <li><strong>Synthesis:</strong> Claude creates a coherent narrative</li>
+                        <li><strong>Adaptation:</strong> Claude can follow up based on findings</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>4.5</span>
+                    <span>Bonus: Database Management</span>
+                </div>
+
+                <p>Try these additional prompts to see more capabilities:</p>
+
+                <div class="prompt-box">
+                    <span class="prompt-label">📝 Bonus Prompt: Modify Schema</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                    <pre style="white-space: pre-wrap; margin-top: 15px;">Add a new column called "grade_letter" to the student_grades table. Then update all existing records to populate this column based on their scores (A: 90-100, B: 80-89, C: 70-79, D: 60-69, F: below 60).</pre>
+                </div>
+
+                <div class="prompt-box" style="margin-top: 25px;">
+                    <span class="prompt-label">📝 Bonus Prompt: Export Summary</span>
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                    <pre style="white-space: pre-wrap; margin-top: 15px;">Create a summary report showing each student's average score across all assignments, sorted from highest to lowest. Include the letter grade for each student.</pre>
+                </div>
+            </div>
+        </div>
+
+        <div id="complete" class="tab-content">
+            <div style="text-align: center; padding: 40px;">
+                <div style="font-size: 5em; margin-bottom: 20px;">🎊</div>
+                <h2 style="color: #667eea; font-size: 2.5em; margin-bottom: 20px;">Advanced Lab Complete!</h2>
+                
+                <div class="success-box" style="text-align: left; max-width: 900px; margin: 30px auto;">
+                    <h3>🎓 What You Accomplished</h3>
+                    <ul style="font-size: 1.05em;">
+                        <li>✅ <strong>Configured</strong> Claude Desktop to work with a Dockerized MCP server</li>
+                        <li>✅ <strong>Witnessed</strong> true agentic AI behavior (planning + tool use + synthesis)</li>
+                        <li>✅ <strong>Created</strong> and managed a database using only natural language</li>
+                        <li>✅ <strong>Generated</strong> complex analytics without writing SQL</li>
+                        <li>✅ <strong>Understood</strong> the architecture of modern AI agent systems</li>
+                    </ul>
+                </div>
+
+                <div class="architecture-diagram" style="text-align: left; max-width: 900px; margin: 30px auto;">
+                    <h3>🧠 Key Takeaways: Agentic AI vs Traditional Automation</h3>
+                    <table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+                        <tr style="background: #667eea; color: white;">
+                            <th style="padding: 12px; text-align: left;">Aspect</th>
+                            <th style="padding: 12px; text-align: left;">Traditional Automation</th>
+                            <th style="padding: 12px; text-align: left;">Agentic AI</th>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 12px; border: 1px solid #e2e8f0;"><strong>Input</strong></td>
+                            <td style="padding: 12px; border: 1px solid #e2e8f0;">Exact commands/scripts</td>
+                            <td style="padding: 12px; border: 1px solid #e2e8f0;">Natural language goals</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #e2e8f0;"><strong>Planning</strong></td>
+                            <td style="padding: 12px; border: 1px solid #e2e8f0;">Pre-programmed logic</td>
+                            <td style="padding: 12px; border: 1px solid #e2e8f0;">AI decides approach</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td style="padding: 12px; border: 1px solid #e2e8f0;"><strong>Adaptation</strong></td>
+                            <td style="padding: 12px; border: 1px solid #e2e8f0;">Fails on unexpected input</td>
+                            <td style="padding: 12px; border: 1px solid #e2e8f0;">Handles variations gracefully</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #e2e8f0;"><strong>Output</strong></td>
+                            <td style="padding: 12px; border: 1px solid #e2e8f0;">Raw results</td>
+                            <td style="padding: 12px; border: 1px solid #e2e8f0;">Synthesized insights</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="notice-box" style="text-align: left; max-width: 900px; margin: 30px auto;">
+                    <h3>💡 Pedagogical Applications</h3>
+                    <p style="margin-bottom: 15px;">Consider how you might use agentic AI in your courses:</p>
+                    <ul>
+                        <li>🗄️ <strong>Database Courses:</strong> Students practice schema design by describing requirements to AI</li>
+                        <li>📊 <strong>Data Analytics:</strong> Focus on asking good questions rather than SQL syntax</li>
+                        <li>🔬 <strong>Research Methods:</strong> AI assists with data cleaning and exploratory analysis</li>
+                        <li>💼 <strong>Business Intelligence:</strong> Practice communicating data needs to technical systems</li>
+                        <li>🛡️ <strong>Cybersecurity:</strong> Use AI to automate security testing and log analysis</li>
+                        <li>🎓 <strong>Any Course:</strong> Automate routine data management tasks to focus on higher-order thinking</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="text-align: left; max-width: 900px; margin: 30px auto;">
+                    <h3>🚀 Next Steps & Extensions</h3>
+                    <ol style="font-size: 1.05em;">
+                        <li><strong>Explore Other MCP Servers:</strong> Try filesystem, web search, or custom tools</li>
+                        <li><strong>Build Custom Tools:</strong> Create MCP servers for your specific domain</li>
+                        <li><strong>Chain Multiple Tools:</strong> Have Claude coordinate between database + filesystem + web</li>
+                        <li><strong>Student Projects:</strong> Have students describe database schemas and let AI implement them</li>
+                        <li><strong>Assessment Innovation:</strong> Create auto-grading systems that explain their decisions</li>
+                    </ol>
+                </div>
+
+                <div class="warning-box" style="text-align: left; max-width: 900px; margin: 30px auto;">
+                    <h3>⚠️ Important Considerations</h3>
+                    <ul>
+                        <li><strong>Data Privacy:</strong> Don't use sensitive student data in public AI systems</li>
+                        <li><strong>Academic Integrity:</strong> Be clear about when/how AI tools can be used</li>
+                        <li><strong>Learning Fundamentals:</strong> Students should still learn SQL/databases before using AI shortcuts</li>
+                        <li><strong>Critical Thinking:</strong> Teach students to verify AI-generated queries and results</li>
+                        <li><strong>Transparency:</strong> Always explain that AI is being used and how</li>
+                    </ul>
+                </div>
+
+                <div class="architecture-diagram" style="text-align: center; max-width: 900px; margin: 40px auto;">
+                    <h3>🎯 The Big Picture</h3>
+                    <p style="font-size: 1.2em; line-height: 1.8; margin-top: 20px;">
+                        You've just experienced the <strong>future of human-computer interaction</strong>. 
+                        Instead of learning specific commands and syntax, we can now describe what we want in natural language, 
+                        and intelligent agents figure out how to accomplish it using available tools.
+                    </p>
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-top: 20px; color: #4a5568;">
+                        This shifts the focus from <em>"How do I use this tool?"</em> to <em>"What problem am I trying to solve?"</em>
+                    </p>
+                    <p style="font-size: 1.3em; margin-top: 30px; color: #667eea; font-weight: bold;">
+                        That's the power of agentic AI! 🚀
+                    </p>
+                </div>
+
+                <div class="success-box" style="text-align: center; max-width: 900px; margin: 40px auto;">
+                    <h3>📚 Additional Resources</h3>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>📖 <strong>MCP Documentation:</strong> Learn to build custom MCP servers</li>
+                        <li>🐳 <strong>Docker Hub:</strong> Explore other pre-built MCP containers</li>
+                        <li>💬 <strong>Claude Documentation:</strong> Advanced prompting techniques</li>
+                        <li>🎓 <strong>Faculty Community:</strong> Share your use cases and learn from peers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🎓 ECPI University Advanced Faculty Development Workshop</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Agentic AI Deep Dive • Claude Desktop + Docker + SQLite MCP</p>
+            <p style="margin-top: 15px; font-size: 0.85em; opacity: 0.8;">
+                Building the future of AI-augmented education, one tool at a time 🚀
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            var tabs = document.getElementsByClassName("tab");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+
+            updateProgress(tabName);
+        }
+
+        function updateProgress(tabName) {
+            var progress = {
+                'overview': 0,
+                'bigpicture': 15,
+                'setup': 30,
+                'config': 55,
+                'demo': 80,
+                'complete': 100
+            };
+            
+            var progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                progressBar.style.width = progress[tabName] + '%';
+            }
+        }
+
+        function copyPrompt(button) {
+            var promptBox = button.parentElement;
+            var preElement = promptBox.querySelector('pre');
+            var text = preElement.textContent;
+
+            navigator.clipboard.writeText(text).then(function() {
+                var originalText = button.textContent;
+                button.textContent = '✅ Copied!';
+                button.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+                
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy text: ', err);
+                alert('Copy failed. Please select and copy manually.');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress('overview');
+        });
+    </script>
+</body>
 </html>
