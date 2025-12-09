@@ -930,66 +930,104 @@
                             <li>Start your <strong>Kali VM</strong> in VMware.</li>
                             <li>In VMware, make sure the VM's <strong>Network Adapter</strong> is set to <strong>NAT</strong></li>
                             <li>Inside Kali, open a <strong>terminal</strong></li>
+                            <li>Type:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre style="white-space: pre-wrap; margin-top: 10px;">ping -c 4 8.8.8.8</pre>
+                            </div>
+                            </li>
+                            <li>You should see replies from <code>8.8.8.8</code>. Press <strong>Ctrl+C</strong> to stop the ping.</li>
+                            <li>Optional: Open <strong>Firefox</strong> in Kali and browse to <code>https://tryhackme.com</code> to confirm web access.</li>
                         </ol>
                 </div>
                 
                 <div class="step-card">
                     <h2>Step 2 🛠️: Update Kali's Package List</h2>
                     <p style="font-size: 1.1em; line-height: 1.8;">
-                        Make sure your VM network is working before adding the VPN on top of it.</p>
+                        Refresh Kali's knowledge of available software.</p>
                         <ol>
-                            <li>Start your <strong>Kali VM</strong> in VMware.</li>
-                            <li>In VMware, make sure the VM's <strong>Network Adapter</strong> is set to <strong>NAT</strong></li>
-                            <li>Inside Kali, open a <strong>terminal</strong></li>
+                            <li>In the Kali terminal, run
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre style="white-space: pre-wrap; margin-top: 10px;">sudo apt update</pre>
+                            </div>
+                            </li>
+                            <li>Enter your password if prompted.</li>
+                            <li>Wait for the command to finish. This does <strong>not</strong> install anything just yet; it just updates the list.</li>
                         </ol>
                 </div>
                 
                 <div class="step-card">
                     <h2>Step 3 🛠️: Install OpenVPN</h2>
                     <p style="font-size: 1.1em; line-height: 1.8;">
-                        Make sure your VM network is working before adding the VPN on top of it.</p>
+                        Install the VPN client that will create the tunnel to TryHackMe.</p>
                         <ol>
-                            <li>Start your <strong>Kali VM</strong> in VMware.</li>
-                            <li>In VMware, make sure the VM's <strong>Network Adapter</strong> is set to <strong>NAT</strong></li>
-                            <li>Inside Kali, open a <strong>terminal</strong></li>
+                            <li>In the same terminal, run
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre style="white-space: pre-wrap; margin-top: 10px;">sudo apt install openvpn -y</pre>
+                            </div>
+                            </li>
+                            <li>Wait while Kali downloads and installs OpenVPN and any required dependencies</li>
+                            <li>When the prompt returns with no errors, OpenVPN is installed.</li>
                         </ol>
                 </div>
                 
                 <div class="step-card">
                     <h2>Step 4 🛠️: Download your TryHackMe VPN Configuration File</h2>
                     <p style="font-size: 1.1em; line-height: 1.8;">
-                        Make sure your VM network is working before adding the VPN on top of it.</p>
+                        Getting a unique<code>.ovpn</code> file that links your VM to your TryHackMe account.
                         <ol>
-                            <li>Start your <strong>Kali VM</strong> in VMware.</li>
-                            <li>In VMware, make sure the VM's <strong>Network Adapter</strong> is set to <strong>NAT</strong></li>
-                            <li>Inside Kali, open a <strong>terminal</strong></li>
+                            <li>In Kali, open <strong>Firefox</strong></li>
+                            <li>Go to https://tryhackme.com and log in.</li>
+                            <li>Click on the <strong>"Access"</strong> or <strong>"VPN"</strong> section.</li>
+                            <li>Choose the <strong>OpenVPN</strong> option if asked</li>
+                            <li>Download your <code>.ovpn</code> file</li>
+                            <li>Confirm that the file is saved (usually in the <strong>Downloads</strong> folder in Kali).</li>
                         </ol>
                 </div>
                 
                 <div class="step-card">
                     <h2>Step 5 🛠️: Navigate to the VPN File in the Terminal</h2>
                     <p style="font-size: 1.1em; line-height: 1.8;">
-                        Make sure your VM network is working before adding the VPN on top of it.</p>
+                        Move into the folder where your <code>.ovpn</code> file is, so OpenVPN can use it.</p>
                         <ol>
-                            <li>Start your <strong>Kali VM</strong> in VMware.</li>
-                            <li>In VMware, make sure the VM's <strong>Network Adapter</strong> is set to <strong>NAT</strong></li>
-                            <li>Inside Kali, open a <strong>terminal</strong></li>
+                            <li>In the Kali terminal, go to the Downloads folder
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre style="white-space: pre-wrap; margin-top: 10px;">cd ~/Downloads</pre>
+                            </div>
+                            </li>
+                            <li>List the files to verify the <code>.ovpn</code> file is there:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre style="white-space: pre-wrap; margin-top: 10px;">ls</pre>
+                            </div></li>
+                            <li>Look for a filenmae ending in <code>.ovpn</code>
+                            Example: <code>thm-region-yourusername.ovpn</code></li>
                         </ol>
                 </div>
                  <div class="step-card">
                     <h2>Step 6 🛠️: Connect to TryHackMe Using OpenVPN</h2>
                     <p style="font-size: 1.1em; line-height: 1.8;">
-                        Make sure your VM network is working before adding the VPN on top of it.</p>
+                        Create a secure VPN tunnuel from your VM to TryHackMe.
                         <ol>
-                            <li>Start your <strong>Kali VM</strong> in VMware.</li>
-                            <li>In VMware, make sure the VM's <strong>Network Adapter</strong> is set to <strong>NAT</strong></li>
-                            <li>Inside Kali, open a <strong>terminal</strong></li>
+                            <li>Sill in the <strong>Downloads</strong> folder, run (replace the filenme with your actual <code>.ovpn</code> filename):
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre style="white-space: pre-wrap; margin-top: 10px;">sudo openvpn yourfile.ovpn</pre>
+                            </div>
+                            </li>
+                            <li>Enter your password if prompted</li>
+                            <li>Watch the terminal output. OpenVPN will show messages as it connects</li>
+                            <li>When yiou see the line <code>Initialization Sequence Completed</code> your VPN connection is successfully established</li>
+                            <li><strong>Do not close this terminal window.</strong> Closing it will disconnect your VPN</li>
                         </ol>
                 </div>
                  <div class="step-card">
                     <h2>Step 7 🛠️: Verify the VPN Connection</h2>
                     <p style="font-size: 1.1em; line-height: 1.8;">
-                        Make sure your VM network is working before adding the VPN on top of it.</p>
+                        Confirm that your VM is actually on the TryHackMe network.</p>
                         <ol>
                             <li>Open a <strong>new</strong>terminal window or tab in Kali (leave the OpenVPN terminal running)</li>
                             <li>Type:
