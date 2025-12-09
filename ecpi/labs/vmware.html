@@ -858,13 +858,54 @@
                     <span>Understanding VM Networking Modes</span>
                 </div>
                 <p><span class="time-badge">⏱️ 10 minutes</span></p>
-
-                <div class="intro-section">
-                    <h2>🎬 Time to See Agentic AI in Action!</h2>
+                <div class="info-box">
+                    <h2>🎬 NAT (Recommended)</h2>
                     <p style="font-size: 1.1em; line-height: 1.8;">
-                        Now that Claude is connected to the SQLite tool, let's watch it act as an intelligent database assistant. 
-                        You'll give it high-level goals, and Claude will figure out the SQL and orchestrate everything.
+                        In this part, you will understand how your virtual machine communicates with the outside world and with your host system. 
+                        These modes determine whether your Kali VM can access the internet, talk to your local network, or stay isolated for safe testing.
                     </p>
+                </div>
+                <div class="success-box">
+                    <h2>🎬 NAT (Recommended)</h2>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        NAT (Network Address Translation) allows your VM to share your host computer’s internet connection. 
+                        The VM gets a private internal IP address, and VMware acts like a router translating traffic.</p>
+                        <p><strong>Why this matters:</strong></p>
+                        <ul>
+                            <li>Safest option for beginners</li>
+                            <li>Perfect for TryHackMe VPN access</li>
+                            <li>Your VM stays hidden from your real network, reducing risk</li>
+                        </ul>
+                        <p><strong>Analyogy:</strong></p>
+                            <p>Think of NAT like your VM using your host’s Wi-Fi password without actually being given the password.</p>
+                </div>
+                <div class="notice-box">
+                    <h2>🎬 Bridged</h2>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        Bridged mode places your VM directly on your physical network as if it's its own separate machine with its own IP address.</p>
+                        <p><strong>Why this matters:</strong></p>
+                        <ul>
+                            <li>Useful when simulating real networks</li>
+                            <li>Helpful for labs requiring your VM to appear as a separate device</li>
+                            <li>Less isolated, so slightly riskier for beginners</li>
+                        </ul>
+                        <p>strong>Analogy:</strong></p>
+                        <p>Your VM becomes a “real computer roommate” sharing your network. Visible, active, and discoverable.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h2>🎬 Host Only</h2>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        This mode isolates your VM from the internet entirely. 
+                        The VM can only communicate with your host computer.</p>
+                    <p><strong>Why this matters:</strong></p>
+                    <ul>
+                        <li>Great for malware analysis (nothing escapes)</li>
+                        <li>Secure for offline testing</li>
+                        <li>Not suitable for TryHackMe since internet is required</li>
+                    </ul>
+                    <p><strong>Analogy:</strong></p>
+                    <p>Host-Only mode is like airplane mode for your VM… but it can still talk to you sitting next to it.</p>
                 </div>
             </div>
         </div>
