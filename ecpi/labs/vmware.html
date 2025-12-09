@@ -635,9 +635,7 @@
 
                 <div class="intro-section">
                     <h2>🧠 Understanding VMWare</h2>
-                    <p style="font-size: 1.15em; line-height: 1.8; margin-bottom: 20px;">
-                        (The "What" Before the "How")
-                    </p>
+                    <p style="font-size: 1.15em; line-height: 1.8; margin-bottom: 20px;">The "What" Before the "How"</p>
                 </div>
 
                 <div class="highlight-box">
@@ -680,7 +678,7 @@
                         <li>🔄 Lightweight testing environments</li>
                     </ul>
                 </div>
-                 <div class="success-box">
+                 <div class="notice-box">
                     <h3>🎓 Why we use Kali Linux for TryHackMe</h3>
                     <p>Kali includes tools such as Nmap, Burp Suite, Hydra, Gobuster, and Metasploit, making it ideal for penetration testing labs.</p>
                 </div>
@@ -712,7 +710,7 @@
                 <p style="margin-top: 25px;"><strong>2. Install using default settings</strong></p>
                 <p style="margin-top: 25px;"><strong>3. Lauch the application</strong></p>
 
-                <p style="margin-top: 25px;">** Downloads may take longer depending on your internet connection. **</p>
+                <h2 style="margin-top: 25px;">** Downloads may take longer depending on your internet connection. **</h2>
    
             </div>
         </div>
@@ -729,7 +727,7 @@
             <div class="step-card">
                 <div class="step-title">
                     <span>3.1 </span>
-                    <span>Download the ISO</span>
+                    <span>-Download the ISO</span>
                 </div>
                 <p><span class="time-badge">⏱️ 5 minutes</span></p>
                 <p>Grab the Kali Linux Installer ISO from kali.org</p>
@@ -738,7 +736,7 @@
             <div class="step-card">
                 <div class="step-title">
                     <span>3.2 </span>
-                    <span>Create the VM in VMware</span>
+                    <span>-Create the VM in VMware</span>
                 </div>
                 <p><span class="time-badge">⏱️ 10 minutes</span></p>
             </div>
@@ -746,7 +744,7 @@
             <div class="step-card">
                 <div class="step-title">
                     <span>3.3 </span>
-                    <span>Install Kali</span>
+                    <span>-Install Kali</span>
                 </div>
                 <p><span class="time-badge">⏱️ 20-30 minutes</span></p>
 
@@ -759,9 +757,9 @@
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">4</span>
-                    <span>The Demo: Claude as Your Data Analyst</span>
+                    <span>Understanding VM Networking Modes</span>
                 </div>
-                <p><span class="time-badge">⏱️ 15-20 minutes</span></p>
+                <p><span class="time-badge">⏱️ 10 minutes</span></p>
 
                 <div class="intro-section">
                     <h2>🎬 Time to See Agentic AI in Action!</h2>
@@ -769,154 +767,6 @@
                         Now that Claude is connected to the SQLite tool, let's watch it act as an intelligent database assistant. 
                         You'll give it high-level goals, and Claude will figure out the SQL and orchestrate everything.
                     </p>
-                </div>
-            </div>
-
-            <div class="step-card">
-                <div class="step-title">
-                    <span>4.1</span>
-                    <span>Create a Database Table</span>
-                </div>
-
-                <div class="prompt-box">
-                    <span class="prompt-label">📝 Prompt 1: Create a Student Grades Table</span>
-                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
-                    <pre style="white-space: pre-wrap; margin-top: 15px;">Using your SQLite tools, please create a table called "student_grades" with the following columns:
-- student_id (integer, primary key)
-- student_name (text)
-- assignment (text)
-- score (integer)
-- submission_date (date)
-
-After creating it, confirm that the table was successfully created.</pre>
-                </div>
-
-                <div class="highlight-box">
-                    <h3>🔍 What to Watch For</h3>
-                    <ul>
-                        <li>Claude will explain what it's about to do</li>
-                        <li>It will compose the appropriate CREATE TABLE SQL</li>
-                        <li>It will call the SQLite tool through Docker</li>
-                        <li>It will report back on success</li>
-                        <li><strong>You didn't write any SQL!</strong></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="step-card">
-                <div class="step-title">
-                    <span>4.2</span>
-                    <span>Insert Sample Data</span>
-                </div>
-
-                <div class="prompt-box">
-                    <span class="prompt-label">📝 Prompt 2: Add Student Records</span>
-                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
-                    <pre style="white-space: pre-wrap; margin-top: 15px;">Now insert 10 sample student records into the student_grades table. Make up realistic data with:
-- Diverse student names
-- Various assignments (Lab 1, Lab 2, Midterm, Final, etc.)
-- Scores ranging from 65 to 100
-- Submission dates in the past 3 months
-
-After inserting, show me all the records you just added.</pre>
-                </div>
-
-                <div class="notice-box">
-                    <h3>🧠 Agentic Behavior in Action</h3>
-                    <ul>
-                        <li>Claude decides what realistic data looks like</li>
-                        <li>Claude composes INSERT statements</li>
-                        <li>Claude executes them through the tool</li>
-                        <li>Claude verifies the results with a SELECT query</li>
-                        <li>All from one natural language request!</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="step-card">
-                <div class="step-title">
-                    <span>4.3</span>
-                    <span>Run Analytics Queries</span>
-                </div>
-
-                <div class="prompt-box">
-                    <span class="prompt-label">📝 Prompt 3: Generate Insights</span>
-                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
-                    <pre style="white-space: pre-wrap; margin-top: 15px;">Using the student_grades data, please analyze and tell me:
-
-1. What is the average score across all assignments?
-2. Which student has the highest average score?
-3. Which assignment had the lowest average performance?
-4. How many students scored above 90?
-5. Show me the top 5 highest individual scores with student names and assignments.
-
-Present your findings in a clear, readable format.</pre>
-                </div>
-
-                <div class="success-box">
-                    <h3>✨ This is Where It Gets Amazing</h3>
-                    <p>Watch Claude:</p>
-                    <ul>
-                        <li>Break down your multi-part question</li>
-                        <li>Compose multiple SQL queries</li>
-                        <li>Execute them sequentially</li>
-                        <li>Synthesize the results into a coherent narrative</li>
-                        <li>Present it in human-readable format</li>
-                    </ul>
-                    <p style="margin-top: 15px;"><strong>This is true agentic AI: planning + tool use + synthesis.</strong></p>
-                </div>
-            </div>
-
-            <div class="step-card">
-                <div class="step-title">
-                    <span>4.4</span>
-                    <span>Advanced: Let Claude Be Creative</span>
-                </div>
-
-                <div class="prompt-box">
-                    <span class="prompt-label">📝 Prompt 4: Open-Ended Analysis</span>
-                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
-                    <pre style="white-space: pre-wrap; margin-top: 15px;">Based on this student grades data, what are 3-4 interesting insights or patterns you can discover? 
-
-Use your SQLite tools to explore the data creatively. For example, you might look at:
-- Performance trends
-- Score distributions
-- Correlations between different assignments
-- Any surprising outliers
-
-Present your findings as if you're reporting to a department chair.</pre>
-                </div>
-
-                <div class="highlight-box">
-                    <h3>🎯 Why This Demonstrates True Agency</h3>
-                    <ul>
-                        <li><strong>Autonomy:</strong> Claude decides WHAT to investigate</li>
-                        <li><strong>Planning:</strong> Claude plans WHICH queries to run</li>
-                        <li><strong>Execution:</strong> Claude uses tools to get answers</li>
-                        <li><strong>Synthesis:</strong> Claude creates a coherent narrative</li>
-                        <li><strong>Adaptation:</strong> Claude can follow up based on findings</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="step-card">
-                <div class="step-title">
-                    <span>4.5</span>
-                    <span>Bonus: Database Management</span>
-                </div>
-
-                <p>Try these additional prompts to see more capabilities:</p>
-
-                <div class="prompt-box">
-                    <span class="prompt-label">📝 Bonus Prompt: Modify Schema</span>
-                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
-                    <pre style="white-space: pre-wrap; margin-top: 15px;">Add a new column called "grade_letter" to the student_grades table. Then update all existing records to populate this column based on their scores (A: 90-100, B: 80-89, C: 70-79, D: 60-69, F: below 60).</pre>
-                </div>
-
-                <div class="prompt-box" style="margin-top: 25px;">
-                    <span class="prompt-label">📝 Bonus Prompt: Export Summary</span>
-                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
-                    <pre style="white-space: pre-wrap; margin-top: 15px;">Create a summary report showing each student's average score across all assignments, sorted from highest to lowest. Include the letter grade for each student.</pre>
                 </div>
             </div>
         </div>
