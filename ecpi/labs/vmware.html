@@ -722,35 +722,97 @@
                     <span>Setting Up a Kali Linux VM</span>
                 </div>
                 <p><span class="time-badge">⏱️ 35-45 minutes</span></p>
+                <p>In this part, you will create a brand new virtual machine that will run Kali Linux. Follow each step carefully and read what each step is doing.</p>
             </div>
 
             <div class="step-card">
                 <div class="step-title">
                     <span>3.1 </span>
-                    <span>-Download the ISO</span>
+                    <span>-📥 Download the ISO</span>
                 </div>
                 <p><span class="time-badge">⏱️ 5 minutes</span></p>
-                <p>Grab the Kali Linux Installer ISO from kali.org</p>
+                <p>Get the "installer disc" (iso) for Kali Linux. This is similar to downloading a Windows installer.</p>
+                <ol>
+                    <li>Open a web browser in your host (Windows) system</li>
+                    <li>Go to https://www.kali.org/get-kali/#kali-imstaller-images</li>
+                    <li>Download the 64-bit "Installer" ISO image</li>
+                    <li>Save it somewhere easy to find (e.g. Downloads or a folder named ISOs)</li>
+                    
+                </ol>
             </div>
 
             <div class="step-card">
                 <div class="step-title">
                     <span>3.2 </span>
-                    <span>-Create the VM in VMware</span>
+                    <span>-🏗️ Create a New VM in VMware</span>
                 </div>
                 <p><span class="time-badge">⏱️ 10 minutes</span></p>
+                <p>In this step, you are creating the "computer within a computer"</p>
+                 <ol>
+                    <li>Open VMware Workstation</li>
+                    <li>Click "Create a New Virtual Machine"</li>
+                    <li>Select "Intaller disc image file (ISO)" and browse to the Kali ISO you downloaded in the previous step.</li>
+                    <li>Click Next</li>                    
+                </ol>
             </div>
 
             <div class="step-card">
                 <div class="step-title">
                     <span>3.3 </span>
-                    <span>-Install Kali</span>
+                    <span>- Choose the Guest Operating System Type</span>
+                </div>
+                
+                <p><span class="time-badge">⏱️ 20-30 minutes</span></p>
+                <p>Optimize settings for the OS you are installing</p>
+                <ol>
+                    <li>For "Guest Operating system," choose **Linux**</li>
+                    <li>For "Version" choose **Debian 10.11 64-bit** (Kali is based on Debian)</li>
+                    <li>Click Next</li>                    
+                </ol>
+            </div>
+        
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.4 </span>
+                    <span>- Name the Virtual Machine</span>
                 </div>
                 <p><span class="time-badge">⏱️ 20-30 minutes</span></p>
-
-                <p style="margin-bottom: 20px;">Let's make sure Claude can see the SQLite tool:</p>
-
+                
+                <p>Give your VM a clear name and choose where the files will live.</p>
+                <ol>
+                    <li>Enter a name like **Kali for TryHackMe**</li>
+                    <li>Choose a location on your disk where you have enough space (e.g., a folder like C:\VMs\Kali-THM)</li>
+                    <li>Click Next</li>                    
+                </ol>
             </div>
+        
+         <div class="step-card">
+                <div class="step-title">
+                    <span>3.5 </span>
+                    <span>- Specify Disk Capacity</span>
+                </div>
+                <p>Decide how big your virtual hard drive will be. </p>
+                <ol>
+                    <li>Set the maximum disk size to at least <strong>40GB</strong> (Don't worry to much, you can actually change this later if needed)</li>
+                    <li>Choose "Store virtual disk as a single file" (simpler for most users)</li>
+                    <li>Click Next</li>                    
+                </ol>
+            </div>
+                 <div class="step-card">
+                <div class="step-title">
+                    <span>3.6 </span>
+                    <span>- Customize Hardware</span>
+                </div>
+                <p>Allocate part of your host computer's resources to the Virtual Machine</p>
+                <ol>
+                    <li>Click "Customize Hardware..." before finishing</li>
+                    <li>Memory (RAM): Set to <strong>4096 MM (4GB)</strong> minimum if your host has at least 8 GB.</li>
+                    <li>Processors: Set to <strong>2 cores</strong> if available</li>
+                    <li>Network Adapter: Leave as <strong>NAT</strong> (this lets the VM share your host's internet connection safely.</li>
+                    <li>Click Close, then Finish</li>                    
+                </ol>
+            </div>
+        
         </div>
 
         <div id="demo" class="tab-content">
