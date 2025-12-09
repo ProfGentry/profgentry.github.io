@@ -646,63 +646,55 @@
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">1</span>
-                    <span>The Big Picture</span>
+                    <span>Part 1: Understanding VMWare</span>
                 </div>
-                <p><span class="time-badge">⏱️ 5 minutes</span></p>
+                <p><span class="time-badge">⏱️ 10 minutes</span></p>
 
                 <div class="intro-section">
-                    <h2>🧠 Understanding Agentic AI</h2>
+                    <h2>🧠 Understanding VMWare</h2>
                     <p style="font-size: 1.15em; line-height: 1.8; margin-bottom: 20px;">
-                        Give faculty this quick framing before doing any clicks:
+                        (The "What" Before the "How")
                     </p>
                 </div>
 
                 <div class="highlight-box">
-                    <h3>💡 Key Concept: Beyond Chatbots</h3>
+                    <h3>💡 What is Virtualization?</h3>
                     <p style="font-size: 1.1em; line-height: 1.8;">
-                        An <strong>agentic AI</strong> isn't just a chatbot. It's a model that can decide:
+                        Virtualization is the creation of a simulated (virtual) computer environment (machine) that runs inside your physical computer.
+
+                        It allows you to run multiple different operating systems at the same time without them interfering with your main system. 
                     </p>
-                    <ul style="margin-top: 15px;">
-                        <li><strong>"I need to call a tool to solve this."</strong></li>
-                        <li><strong>"Which tool should I use?"</strong></li>
-                        <li><strong>"What should I ask that tool to do?"</strong></li>
-                    </ul>
-                </div>
+                    </div>
 
                 <div class="key-concept">
-                    <h3>🎯 Today's Demonstration</h3>
-                    <p>Claude will:</p>
+                    <h3>🎯 Why Cybersecurity Uses Virtual Machines</h3>
+                    <p>Security professionals rely on VMs to:</p>
                     <ul>
-                        <li>📊 Use an MCP server (SQLite) as its "database tool"</li>
-                        <li>🐳 That MCP server runs inside Docker</li>
-                        <li>🤖 Claude automatically calls the right tool functions to answer our questions</li>
-                        <li>✨ All orchestration happens transparently through natural language</li>
+                        <li>📊 Safely run hacking tools</li>
+                        <li>🐳 Isolate malware</li>
+                        <li>🤖 Test configurations</li>
+                        <li>✨ Recreate networks and targets</li>
                     </ul>
                 </div>
 
                 <div class="architecture-diagram">
-                    <h3>🔄 Data Flow</h3>
-                    <div style="text-align: left; max-width: 700px; margin: 20px auto;">
-                        <p style="margin: 15px 0;"><strong>1. Faculty asks Claude:</strong> "Create a student grades table"</p>
-                        <p style="margin: 15px 0; padding-left: 20px;">↓</p>
-                        <p style="margin: 15px 0;"><strong>2. Claude thinks:</strong> "I need to use the SQLite tool"</p>
-                        <p style="margin: 15px 0; padding-left: 20px;">↓</p>
-                        <p style="margin: 15px 0;"><strong>3. Claude calls MCP server:</strong> CREATE TABLE command</p>
-                        <p style="margin: 15px 0; padding-left: 20px;">↓</p>
-                        <p style="margin: 15px 0;"><strong>4. MCP executes in Docker:</strong> Table created in SQLite</p>
-                        <p style="margin: 15px 0; padding-left: 20px;">↓</p>
-                        <p style="margin: 15px 0;"><strong>5. Claude reports back:</strong> "Done! Here's what I created..."</p>
-                    </div>
+                    <h3>🔄 How VMware Works</h3>
+                    <p>VMware simulates hardware components such as:</p>
+                    <ul>
+                        <li>CPU</li>
+                        <li>RAM</li>
+                        <li>Storage</li>
+                        <li>Network Adapters</li>
+                    </ul>
+                    <p>This lets your virtual machine behave just like a real computer.</p>
                 </div>
 
                 <div class="success-box">
-                    <h3>🎓 Teaching Moment</h3>
-                    <p>This is fundamentally different from traditional automation because:</p>
+                    <h3>🎓 Types of Virtual Machines</h3>
                     <ul>
-                        <li>✨ <strong>No scripting required</strong> - Just natural language requests</li>
-                        <li>🧠 <strong>Intelligent decision-making</strong> - Claude chooses the right tools and methods</li>
-                        <li>🔄 <strong>Adaptive responses</strong> - Can handle variations in requests</li>
-                        <li>💬 <strong>Explains its work</strong> - Transparency in every action</li>
+                        <li>✨ Full OS machines (e.g. Kali Linux)</li>
+                        <li>🧠 Specialized appliances (security-focused distros)</li>
+                        <li>🔄 Lightweight testing environments</li>
                     </ul>
                 </div>
             </div>
