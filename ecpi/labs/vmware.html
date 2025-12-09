@@ -553,11 +553,11 @@
 
         <div class="tabs">
             <button class="tab active" onclick="openTab(event, 'overview')">📋 Overview</button>
-            <button class="tab" onclick="openTab(event, 'bigpicture')">🖥️ VMWare</button>
-            <button class="tab" onclick="openTab(event, 'setup')">🐉 Kali</button>
+            <button class="tab" onclick="openTab(event, 'vmware')">🖥️ VMWare</button>
+            <button class="tab" onclick="openTab(event, 'kali')">🐉 Kali</button>
             <button class="tab" onclick="openTab(event, 'config')">🌀 VM</button>
-            <button class="tab" onclick="openTab(event, 'demo')">🌐 Network</button>
-            <button class="tab" onclick="openTab(event, 'complete')">🔗 Connect</button>
+            <button class="tab" onclick="openTab(event, 'network')">🌐 Network</button>
+            <button class="tab" onclick="openTab(event, 'conn')">🔗 Connect</button>
             <button class="tab" onclick="openTab(event, 'complete')">🏁 Finish</button>
         </div>
 
@@ -625,7 +625,7 @@
             </div>
         </div>
 
-        <div id="bigpicture" class="tab-content">
+        <div id="vmware" class="tab-content">
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">1</span>
@@ -685,7 +685,7 @@
             </div>
         </div>
 
-        <div id="setup" class="tab-content">
+        <div id="kali" class="tab-content">
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">2</span>
@@ -851,7 +851,7 @@
             </div>
         </div>
 
-        <div id="demo" class="tab-content">
+        <div id="network" class="tab-content">
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">4</span>
@@ -922,7 +922,7 @@
             </div>
         </div>
 
-        <div id="demo" class="tab-content">
+        <div id="conn" class="tab-content">
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">5</span>
@@ -1088,10 +1088,11 @@
         function updateProgress(tabName) {
             var progress = {
                 'overview': 0,
-                'bigpicture': 15,
-                'setup': 30,
+                'vmware': 15,
+                'kali': 30,
                 'config': 55,
-                'demo': 80,
+                'network': 80,
+                'conn':90,
                 'complete': 100
             };
             
