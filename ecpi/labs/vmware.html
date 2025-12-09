@@ -728,6 +728,8 @@
 
                 <p style="margin-top: 25px;"><strong>2. Install using default settings</strong></p>
                 <p style="margin-top: 25px;"><strong>3. Lauch the application</strong></p>
+
+                <p style="margin-top: 25px;">** Downloads may take longer depending on your internet connection. **</p>
    
             </div>
         </div>
@@ -736,201 +738,37 @@
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">3</span>
-                    <span>Connect Claude to the Docker Tool</span>
+                    <span>Setting Up a Kali Linux VM</span>
                 </div>
-                <p><span class="time-badge">⏱️ 10-15 minutes</span></p>
-
-                <div class="intro-section">
-                    <h2>🔧 Configuration Goal</h2>
-                    <p style="font-size: 1.1em; line-height: 1.8;">
-                        We'll tell Claude Desktop: <em>"When I say 'use the SQLite tools', run this Docker container and talk to it via MCP."</em>
-                    </p>
-                </div>
-
-                <div class="notice-box">
-                    <h3>📐 The Configuration Structure</h3>
-                    <p>The official docs show a Claude config entry that uses Docker like this:</p>
-                </div>
-
-                <div class="config-box">
-                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
-                    <pre style="white-space: pre-wrap; margin-top: 10px;">{
-  "mcpServers": {
-    "sqlite": {
-      "command": "docker",
-      "args": [
-        "run",
-        "--rm",
-        "-i",
-        "-v",
-        "mcp-test:/mcp",
-        "mcp/sqlite",
-        "--db-path",
-        "/mcp/test.db"
-      ]
-    }
-  }
-}</pre>
-                </div>
-
-                <div class="highlight-box">
-                    <h3>🔍 Understanding the Configuration</h3>
-                    <ul>
-                        <li><code>docker run --rm -i</code> – Run container interactively, clean up when done</li>
-                        <li><code>-v mcp-test:/mcp</code> – Use a Docker volume named <code>mcp-test</code> at <code>/mcp</code> in the container (persists DB file)</li>
-                        <li><code>mcp/sqlite</code> – Use the SQLite MCP server image we just pulled</li>
-                        <li><code>--db-path /mcp/test.db</code> – Store the SQLite database in that volume</li>
-                    </ul>
-                </div>
+                <p><span class="time-badge">⏱️ 35-45 minutes</span></p>
             </div>
 
             <div class="step-card">
                 <div class="step-title">
-                    <span>3.1</span>
-                    <span>Find the Claude Config File (Windows)</span>
-                </div>
-
-                <div class="notice-box">
-                    <p>On Windows, the config file is typically at:</p>
-                    <p style="margin-top: 10px; font-family: 'Courier New', monospace; font-size: 1.1em; color: #2d3748;">
-                        <strong>%APPDATA%\Claude\claude_desktop_config.json</strong>
-                    </p>
-                </div>
-
-                <h3 style="margin: 25px 0 15px 0;">📝 Steps to Open the Config File:</h3>
-
-                <ol style="font-size: 1.05em; line-height: 2;">
-                    <li>Press <kbd>Win + R</kbd> to open the Run dialog</li>
-                    <li>Type: <code>%APPDATA%\Claude</code></li>
-                    <li>Press Enter</li>
-                    <li>In the folder that opens, find <code>claude_desktop_config.json</code></li>
-                    <li>Right-click it → <strong>Open with</strong> → <strong>Notepad</strong> (or your preferred editor)</li>
-                </ol>
-
-                <div class="warning-box">
-                    <h3>⚠️ Can't Find the File?</h3>
-                    <p>If the file doesn't exist, you can create it:</p>
-                    <ol>
-                        <li>In the <code>%APPDATA%\Claude</code> folder</li>
-                        <li>Right-click → New → Text Document</li>
-                        <li>Name it exactly: <code>claude_desktop_config.json</code></li>
-                        <li>Make sure the extension is <code>.json</code>, not <code>.txt</code></li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="step-card">
-                <div class="step-title">
-                    <span>3.2</span>
-                    <span>Add the SQLite MCP Server Config</span>
-                </div>
-
-                <p style="margin-bottom: 20px;">There are two likely scenarios:</p>
-
-                <div class="scenario-box">
-                    <h4>📄 Scenario A: File is Empty or Almost Empty</h4>
-                    <p style="margin-bottom: 15px;">Replace the entire contents with:</p>
-                    
-                    <div class="config-box">
-                        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
-                        <pre style="white-space: pre-wrap; margin-top: 10px;">{
-  "mcpServers": {
-    "sqlite": {
-      "command": "docker",
-      "args": [
-        "run",
-        "--rm",
-        "-i",
-        "-v",
-        "mcp-sqlite:/mcp",
-        "mcp/sqlite",
-        "--db-path",
-        "/mcp/test.db"
-      ]
-    }
-  }
-}</pre>
-                    </div>
-                    <p style="margin-top: 15px; font-style: italic;">
-                        Note: You can use <code>mcp-sqlite</code> or <code>mcp-test</code> as the volume name; just keep it consistent.
-                    </p>
-                </div>
-
-                <div class="scenario-box" style="margin-top: 25px;">
-                    <h4>📄 Scenario B: File Already Has Other MCP Servers</h4>
-                    <p style="margin-bottom: 15px;">Add a comma after the last server entry, then add the SQLite config:</p>
-                    
-                    <div class="config-box">
-                        <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
-                        <pre style="white-space: pre-wrap; margin-top: 10px;">{
-  "mcpServers": {
-    "existing-server": {
-      "command": "...",
-      "args": ["..."]
-    },
-    "sqlite": {
-      "command": "docker",
-      "args": [
-        "run",
-        "--rm",
-        "-i",
-        "-v",
-        "mcp-sqlite:/mcp",
-        "mcp/sqlite",
-        "--db-path",
-        "/mcp/test.db"
-      ]
-    }
-  }
-}</pre>
-                    </div>
-                </div>
-
-                <div class="success-box">
-                    <h3>💾 Save and Restart</h3>
-                    <ol>
-                        <li><strong>Save</strong> the config file (Ctrl+S in Notepad)</li>
-                        <li><strong>Close</strong> Claude Desktop completely</li>
-                        <li><strong>Restart</strong> Claude Desktop</li>
-                        <li><strong>Wait</strong> a few seconds for it to connect to the MCP server</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="step-card">
-                <div class="step-title">
-                    <span>3.3</span>
-                    <span>Verify the Connection</span>
+                    <span>3.1 </span>
+                    <span>Download the ISO</span>
                 </div>
                 <p><span class="time-badge">⏱️ 5 minutes</span></p>
+                <p>Grab the Kali Linux Installer ISO from kali.org</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.2 </span>
+                    <span>Create the VM in VMware</span>
+                </div>
+                <p><span class="time-badge">⏱️ 10 minutes</span></p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.3 </span>
+                    <span>Install Kali</span>
+                </div>
+                <p><span class="time-badge">⏱️ 20-30 minutes</span></p>
 
                 <p style="margin-bottom: 20px;">Let's make sure Claude can see the SQLite tool:</p>
 
-                <div class="prompt-box">
-                    <span class="prompt-label">📝 Test Prompt</span>
-                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
-                    <pre style="white-space: pre-wrap; margin-top: 15px;">Hello Claude! Please list all the tools you have available right now. Specifically, do you have access to any SQLite or database tools?</pre>
-                </div>
-
-                <div class="success-box">
-                    <h3>✅ Expected Response</h3>
-                    <p>Claude should mention something like:</p>
-                    <ul>
-                        <li>"I have access to an SQLite database tool..."</li>
-                        <li>"I can create tables, insert data, and query databases..."</li>
-                        <li>It might list specific functions like <code>create_table</code>, <code>execute_query</code>, etc.</li>
-                    </ul>
-                </div>
-
-                <div class="warning-box">
-                    <h3>⚠️ If Claude Doesn't See SQLite Tools</h3>
-                    <ul>
-                        <li>Double-check the JSON syntax (commas, brackets, quotes)</li>
-                        <li>Verify Docker Desktop is running</li>
-                        <li>Completely quit and restart Claude Desktop (not just minimize)</li>
-                        <li>Check the config file path is exactly: <code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
-                    </ul>
-                </div>
             </div>
         </div>
 
