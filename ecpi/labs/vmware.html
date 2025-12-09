@@ -566,6 +566,7 @@
                 <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">
                     Virtual machines are the Swiss Army knives of cybersecurity—portable, disposable, and perfect for experimenting without nuking your actual computer. 
                     In this lab, you’ll install VMware Workstation Player, create a Kali Linux virtual machine, configure networking, and connect it to TryHackMe. 
+                    
                     Once you're done, you'll have your own hacker sandbox ready to roll.
                 </p>
             </div>
@@ -580,27 +581,13 @@
                 </ul>
             </div>
 
-            <div class="architecture-diagram">
-                <h3>🏗️ System Architecture</h3>
-                <div class="arch-flow">
-                    <div class="arch-component">Claude Desktop<br/>(AI Agent)</div>
-                    <span style="color: #667eea; font-size: 1.5em;"> ⇄ </span>
-                    <div class="arch-component">MCP SQLite Server<br/>(Tool Provider)</div>
-                    <span style="color: #667eea; font-size: 1.5em;"> ⇄ </span>
-                    <div class="arch-component">SQLite DB<br/>(in Docker Volume)</div>
-                </div>
-                <p style="margin-top: 20px; color: #4a5568; font-style: italic;">
-                    All communication happens automatically through the MCP protocol
-                </p>
-            </div>
-
             <div class="objective-card">
-                <h4>🎓 Learning Objective 1: Conceptual Understanding</h4>
+                <h4>🎓 Part 1: Understanding VMware (The "What" Before the "How" </h4>
                 <p>Explain what agentic AI is: <strong>LLM + Tools</strong>, not just chat</p>
             </div>
 
             <div class="objective-card">
-                <h4>🔧 Learning Objective 2: Technical Components</h4>
+                <h4>🔧 Part 2: Installing VMware Workstation</h4>
                 <p>Describe the roles of:</p>
                 <ul>
                     <li><strong>Claude Desktop</strong> - The AI/agent making decisions</li>
@@ -610,7 +597,7 @@
             </div>
 
             <div class="objective-card">
-                <h4>💼 Learning Objective 3: Practical Application</h4>
+                <h4>💼 Part 3: Setting UP a Kali Linux VM</h4>
                 <p>Use Claude Desktop with a Docker-based SQLite MCP server to:</p>
                 <ul>
                     <li>Create tables and insert rows</li>
