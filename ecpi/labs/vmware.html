@@ -646,7 +646,7 @@
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">1</span>
-                    <span>Part 1: Understanding VMWare</span>
+                    <span>Understanding VMWare</span>
                 </div>
                 <p><span class="time-badge">⏱️ 10 minutes</span></p>
 
@@ -670,14 +670,14 @@
                     <h3>🎯 Why Cybersecurity Uses Virtual Machines</h3>
                     <p>Security professionals rely on VMs to:</p>
                     <ul>
-                        <li>📊 Safely run hacking tools</li>
-                        <li>🐳 Isolate malware</li>
-                        <li>🤖 Test configurations</li>
-                        <li>✨ Recreate networks and targets</li>
+                        <li>Safely run hacking tools</li>
+                        <li>Isolate malware</li>
+                        <li>Test configurations</li>
+                        <li>Recreate networks and targets</li>
                     </ul>
                 </div>
 
-                <div class="architecture-diagram">
+                <div class="success-box">
                     <h3>🔄 How VMware Works</h3>
                     <p>VMware simulates hardware components such as:</p>
                     <ul>
@@ -689,13 +689,17 @@
                     <p>This lets your virtual machine behave just like a real computer.</p>
                 </div>
 
-                <div class="success-box">
+                <div class="key-concept">
                     <h3>🎓 Types of Virtual Machines</h3>
                     <ul>
                         <li>✨ Full OS machines (e.g. Kali Linux)</li>
                         <li>🧠 Specialized appliances (security-focused distros)</li>
                         <li>🔄 Lightweight testing environments</li>
                     </ul>
+                </div>
+                 <div class="success-box">
+                    <h3>🎓 Why we use Kali Linux for TryHackMe</h3>
+                    <p>Kali includes tools such as Nmap, Burp Suite, Hydra, Gobuster, and Metasploit, making it ideal for penetration testing labs.</p>
                 </div>
             </div>
         </div>
@@ -704,57 +708,27 @@
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">2</span>
-                    <span>Pull the SQLite MCP Image</span>
+                    <span>Installing VMware Workstation</span>
                 </div>
-                <p><span class="time-badge">⏱️ 5 minutes</span></p>
+                <p><span class="time-badge">⏱️ 15-20 minutes</span></p>
 
                 <div class="notice-box">
                     <h3>🐳 What We're Doing</h3>
-                    <p>We need to get the official SQLite MCP server image from Docker Hub. This container will provide the database tools that Claude can use.</p>
+                    <p>If you already have VMware workstation on your machine, skip to step 3</p>
                 </div>
 
                 <h3 style="margin: 25px 0 15px 0;">📝 Step-by-Step Instructions</h3>
 
-                <p><strong>1. Open PowerShell or Command Prompt</strong></p>
+                <p><strong>1. Download VMware Workstation</strong></p>
                 <ul>
-                    <li>Press <kbd>Win + R</kbd></li>
-                    <li>Type <code>powershell</code> or <code>cmd</code></li>
-                    <li>Press Enter</li>
+                    <li>VMware is free software by Broadcom</li>
+                    <li><a href="https://www.vmware.com">WVware Website </a></li>
+                    <li><a href="https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion">VMware Fusion and Workstation Download</a></li>
                 </ul>
 
-                <p style="margin-top: 25px;"><strong>2. Pull the Docker image:</strong></p>
-                <div class="command-box">
-                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
-                    <pre style="white-space: pre-wrap; margin-top: 10px;">docker pull mcp/sqlite</pre>
-                </div>
-
-                <div class="highlight-box">
-                    <strong>⏳ What's happening:</strong> Docker is downloading the SQLite MCP server image from Docker Hub. This may take a minute or two depending on your internet connection.
-                </div>
-
-                <p style="margin-top: 25px;"><strong>3. Verify the image is downloaded (optional):</strong></p>
-                <div class="command-box">
-                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
-                    <pre style="white-space: pre-wrap; margin-top: 10px;">docker images mcp/sqlite</pre>
-                </div>
-
-                <div class="success-box">
-                    <h3>✅ Expected Output</h3>
-                    <p>You should see something like:</p>
-                    <pre style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 10px; overflow-x: auto;">
-REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
-mcp/sqlite    latest    abc123def456   2 weeks ago    150MB
-                    </pre>
-                </div>
-
-                <div class="warning-box">
-                    <h3>⚠️ Troubleshooting</h3>
-                    <ul>
-                        <li><strong>Docker not running?</strong> Make sure Docker Desktop is started</li>
-                        <li><strong>Permission denied?</strong> Run PowerShell as Administrator</li>
-                        <li><strong>Network error?</strong> Check your internet connection and proxy settings</li>
-                    </ul>
-                </div>
+                <p style="margin-top: 25px;"><strong>2. Install using default settings</strong></p>
+                <p style="margin-top: 25px;"><strong>3. Lauch the application</strong></p>
+   
             </div>
         </div>
 
