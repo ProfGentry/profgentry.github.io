@@ -991,9 +991,22 @@
                     <p style="font-size: 1.1em; line-height: 1.8;">
                         Make sure your VM network is working before adding the VPN on top of it.</p>
                         <ol>
-                            <li>Start your <strong>Kali VM</strong> in VMware.</li>
-                            <li>In VMware, make sure the VM's <strong>Network Adapter</strong> is set to <strong>NAT</strong></li>
-                            <li>Inside Kali, open a <strong>terminal</strong></li>
+                            <li>Open a <strong>new</strong>terminal window or tab in Kali (leave the OpenVPN terminal running)</li>
+                            <li>Type:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre style="white-space: pre-wrap; margin-top: 10px;">ip a</pre>
+                            </div>
+                            </li>
+                            <li>Look for an interface named <code>tun0</code> - this is the VPN tunnel</li>
+                            <li>In your browser, go to TryHackMe and <strong>start a machine</strong> that gives you an IP address</li>
+                            <li>From the new terminal, try pinging that IP:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre style="white-space: pre-wrap; margin-top: 10px;">ping -c 4 <THM_machine_IP></pre>
+                            </div></li>
+                            
+                            <li>If you receive replies, your Kali VM is successfully connected to the TryHackMe network.</li>
                         </ol>
                 </div>
                 <div class="step-card">
@@ -1004,7 +1017,7 @@
                             <li>Go back to the terminal window where <strong>OpenVPN</strong> is running.</li>
                             <li>Press <strong>Ctrl+C</strong> to stop the OpenVPN process.</li>
                             <li>You should see messages indicating that the connection is being terminated.</li>
-                            <li>The '''tun0''' interface will disappear, and your VM will go back to using its normal NAT internet connection.</li>
+                            <li>The <code>tun0</code> interface will disappear, and your VM will go back to using its normal NAT internet connection.</li>
                         </ol>
                 </div>
             </div>
