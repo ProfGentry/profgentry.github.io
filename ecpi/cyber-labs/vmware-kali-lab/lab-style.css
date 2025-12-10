@@ -81,29 +81,35 @@ body {
    z-index: 1;
 }
 
-        .info-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.25);
-            padding: 10px 20px;
-            border-radius: 20px;
-            margin: 10px 5px;
-            font-weight: bold;
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 1;
-        }
+/* =========================================================
+   BADGES & META INFO
+   ========================================================= */
+.info-badge {
+   display: inline-block;
+   background: rgba(255, 255, 255, 0.2);
+   padding: 8px 16px;
+   border-radius: 16px;
+   margin: 6px 8px;
+   font-weight: bold;
+   backdrop-filter: blur(10px);
+   position: relative;
+   z-index: 1;
+}
 
-        .advanced-badge {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: bold;
-            display: inline-block;
-            margin: 10px 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
+.advanced-badge {
+   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+   padding: 8px 16px;
+   border-radius: 16px;
+   font-size: 0.9em;
+   font-weight: bold;
+   display: inline-block;
+   margin: 6px 8px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
 
+/* =========================================================
+   TABS & TAB CONTENT
+   ========================================================= */
         .tabs {
             display: flex;
             background: #1a1a2e;
