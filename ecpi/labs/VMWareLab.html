@@ -6,454 +6,192 @@
     <title>VMware Virtual Machine Laboratory Exercise</title>
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background-color: #f3f4f6;
-            color: #111827;
-            min-height: 100vh;
-            padding: 24px;
-        }
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef3fa;
+    padding: 20px;
+    min-height: 100vh;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
-            overflow: hidden;
-            border: 1px solid #e5e7eb;
-        }
+/* Main white container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+    overflow: hidden;
+}
 
-        /* Header */
+/* Header */
+.header {
+    background: #2b4c7e;
+    color: white;
+    text-align: center;
+    padding: 40px 30px;
+}
 
-        .header {
-            background: #111827;
-            color: #f9fafb;
-            padding: 32px 40px;
-            text-align: left;
-        }
+.header h1 {
+    font-size: 2.4em;
+    margin-bottom: 8px;
+}
 
-        .header h1 {
-            font-size: 2.3rem;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
+.header .subtitle {
+    font-size: 1.2em;
+    margin-top: 4px;
+    opacity: 0.95;
+}
 
-        .header p {
-            font-size: 1rem;
-            opacity: 0.92;
-            margin-bottom: 12px;
-        }
+.prof-brand {
+    margin-top: 15px;
+    font-size: 1.05em;
+    background: rgba(255,255,255,0.18);
+    padding: 8px 18px;
+    border-radius: 8px;
+    display: inline-block;
+}
 
-        .header-subtitle {
-            font-size: 0.95rem;
-            color: #d1d5db;
-            margin-bottom: 18px;
-        }
+/* Info badges */
+.info-row {
+    margin-top: 20px;
+}
 
-        .badge-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 4px;
-        }
+.info-badge {
+    display: inline-block;
+    margin: 6px 8px;
+    padding: 8px 16px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.2);
+    font-weight: 600;
+}
 
-        .info-badge {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(31, 41, 55, 0.85);
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #e5e7eb;
-            border: 1px solid rgba(156, 163, 175, 0.6);
-        }
+/* Tabs */
+.tabs {
+    display: flex;
+    background: #e8eef7;
+    border-bottom: 3px solid #2b4c7e;
+}
 
-        .advanced-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 4px 12px;
-            border-radius: 999px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            background: #e5e7eb;
-            color: #111827;
-            border: 1px solid #d1d5db;
-            margin-bottom: 10px;
-        }
+.tab {
+    flex: 1;
+    padding: 18px;
+    background: #d9e3f4;
+    color: #2b4c7e;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: 0.2s;
+}
 
-        /* Tabs */
+.tab:hover {
+    background: #cbd8ee;
+}
 
-        .tabs {
-            display: flex;
-            background: #f9fafb;
-            border-bottom: 1px solid #e5e7eb;
-            overflow-x: auto;
-        }
+.tab.active {
+    background: #ffffff;
+    color: #2b4c7e;
+    border-bottom: 3px solid #2b4c7e;
+}
 
-        .tab {
-            flex: 1;
-            padding: 14px 16px;
-            text-align: center;
-            cursor: pointer;
-            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-            background: #f9fafb;
-            border: none;
-            border-right: 1px solid #e5e7eb;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #6b7280;
-            min-width: 120px;
-        }
+.tab-content {
+    display: none;
+    padding: 40px;
+    background: #ffffff;
+}
 
-        .tab:last-child {
-            border-right: none;
-        }
+.tab-content.active {
+    display: block;
+}
 
-        .tab:hover {
-            background: #f3f4f6;
-            color: #111827;
-        }
+/* Step Cards */
+.step-card {
+    background: #ffffff;
+    border-left: 5px solid #2b4c7e;
+    padding: 26px;
+    margin: 25px 0;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
 
-        .tab.active {
-            background: #ffffff;
-            color: #111827;
-            border-bottom: 2px solid #1d4ed8;
-        }
+/* Step number circle */
+.step-number {
+    background: #2b4c7e;
+    color: white;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 15px;
+    display: inline-block;
+    font-size: 1.2em;
+}
 
-        /* Tab Content */
+.step-title {
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
 
-        .tab-content {
-            display: none;
-            padding: 32px 40px;
-            background: #ffffff;
-        }
+/* Light boxes */
+.notice-box, .success-box, .highlight-box {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
 
-        .tab-content.active {
-            display: block;
-        }
+.notice-box {
+    background: #e6f4fa;
+    border-left: 5px solid #2b9cd3;
+}
 
-        /* Progress tracker */
+.success-box {
+    background: #eaf6ea;
+    border-left: 5px solid #3da35a;
+}
 
-        .progress-tracker {
-            background: #111827;
-            color: #f9fafb;
-            padding: 16px 20px;
-            border-radius: 10px;
-            margin-bottom: 24px;
-            font-size: 0.9rem;
-        }
+.highlight-box {
+    background: #fff8e1;
+    border-left: 5px solid #f1c232;
+}
 
-        .progress-tracker h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
+/* Footer */
+.footer {
+    background: #2b4c7e;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 30px;
+}
 
-        .progress-bar {
-            height: 10px;
-            background: rgba(249, 250, 251, 0.12);
-            border-radius: 999px;
-            overflow: hidden;
-            margin-top: 10px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #1d4ed8, #4f46e5);
-            width: 0%;
-            transition: width 0.4s ease;
-        }
-
-        /* Cards and sections */
-
-        .intro-section {
-            background: #f9fafb;
-            padding: 24px 24px 22px;
-            border-radius: 10px;
-            margin: 18px 0 20px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .intro-section h2 {
-            color: #111827;
-            margin-bottom: 10px;
-            font-size: 1.35rem;
-        }
-
-        .intro-section p {
-            font-size: 0.98rem;
-            line-height: 1.7;
-            color: #374151;
-        }
-
-        .key-concept {
-            background: #ffffff;
-            padding: 20px 22px;
-            margin: 16px 0;
-            border-radius: 10px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .key-concept h3 {
-            color: #111827;
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-        }
-
-        .key-concept p {
-            font-size: 0.95rem;
-            color: #374151;
-        }
-
-        .objective-card {
-            background: #f9fafb;
-            padding: 18px 20px;
-            margin: 16px 0;
-            border-radius: 10px;
-            border-left: 4px solid #1d4ed8;
-        }
-
-        .objective-card h4 {
-            color: #111827;
-            margin-bottom: 4px;
-            font-size: 0.98rem;
-            font-weight: 500;
-        }
-
-        .notice-box,
-        .highlight-box,
-        .success-box,
-        .warning-box {
-            padding: 18px 20px;
-            margin: 18px 0;
-            border-radius: 8px;
-            font-size: 0.95rem;
-        }
-
-        .notice-box {
-            background: #ecfeff;
-            border-left: 4px solid #06b6d4;
-        }
-
-        .highlight-box {
-            background: #fffbeb;
-            border-left: 4px solid #f59e0b;
-        }
-
-        .success-box {
-            background: #ecfdf3;
-            border-left: 4px solid #22c55e;
-        }
-
-        .warning-box {
-            background: #fef2f2;
-            border-left: 4px solid #ef4444;
-        }
-
-        .notice-box h3,
-        .highlight-box h3,
-        .success-box h3,
-        .warning-box h3 {
-            margin-bottom: 8px;
-            font-size: 1rem;
-            color: #111827;
-        }
-
-        .step-card {
-            background: #ffffff;
-            border-left: 4px solid #1d4ed8;
-            padding: 22px 24px;
-            margin: 22px 0;
-            border-radius: 10px;
-            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
-        }
-
-        .step-title {
-            font-size: 1.2rem;
-            color: #111827;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #1d4ed8;
-            color: #f9fafb;
-            width: 40px;
-            height: 40px;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .time-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 4px 10px;
-            border-radius: 999px;
-            font-size: 0.78rem;
-            font-weight: 500;
-            background: #e0ebff;
-            color: #1d4ed8;
-            margin: 4px 0 10px;
-        }
-
-        ul, ol {
-            margin: 12px 0 4px;
-            padding-left: 22px;
-            font-size: 0.95rem;
-            color: #374151;
-            line-height: 1.7;
-        }
-
-        li {
-            margin: 4px 0;
-        }
-
-        /* Code / terminal boxes */
-
-        .command-box {
-            background: #020617;
-            color: #a7f3d0;
-            padding: 14px 16px 14px;
-            border-radius: 8px;
-            margin: 10px 0 14px;
-            font-family: "Courier New", monospace;
-            position: relative;
-            overflow-x: auto;
-            border: 1px solid #1f2937;
-            font-size: 0.9rem;
-        }
-
-        .command-box::before {
-            content: 'Terminal';
-            position: absolute;
-            top: -11px;
-            left: 14px;
-            background: #020617;
-            padding: 2px 8px;
-            font-size: 0.7rem;
-            color: #9ca3af;
-            font-weight: 600;
-            text-transform: uppercase;
-            border-radius: 4px;
-            border: 1px solid #4b5563;
-        }
-
-        .copy-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #1d4ed8;
-            color: #f9fafb;
-            border: none;
-            padding: 6px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.78rem;
-            font-weight: 600;
-        }
-
-        .copy-btn:hover {
-            background: #1e40af;
-        }
-
-        pre {
-            margin: 6px 0 0;
-            white-space: pre-wrap;
-        }
-
-        code {
-            background: #111827;
-            color: #e5e7eb;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: "Courier New", monospace;
-            font-size: 0.85rem;
-        }
-
-        .scenario-box {
-            background: #f9fafb;
-            padding: 18px 20px;
-            margin: 16px 0;
-            border-radius: 8px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .scenario-box h4 {
-            color: #111827;
-            margin-bottom: 8px;
-            font-size: 1rem;
-        }
-
-        /* Footer */
-
-        .footer {
-            background: #111827;
-            color: #e5e7eb;
-            text-align: center;
-            padding: 20px;
-            margin-top: 8px;
-            font-size: 0.9rem;
-        }
-
-        .footer p {
-            margin: 4px 0;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 16px;
-            }
-
-            .header {
-                padding: 24px 20px;
-            }
-
-            .tab-content {
-                padding: 24px 20px;
-            }
-
-            .tabs {
-                font-size: 0.85rem;
-            }
-
-            .step-card {
-                padding: 18px 18px;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="advanced-badge">Virtual Machine Laboratory Exercise</div>
-            <h1>VMware Lab</h1>
-            <p>Configuring a Kali Linux virtual machine for use with TryHackMe.</p>
-            <p class="header-subtitle">
-                In this lab, you will install VMware Workstation, create and configure a Kali Linux virtual machine,
-                select appropriate network modes, and verify connectivity to TryHackMe.
-            </p>
-            <div class="badge-row">
-                <span class="info-badge">Estimated time: 90–120 minutes</span>
-                <span class="info-badge">Technical level: Beginner</span>
-                <span class="info-badge">Platform: Windows with VMware Workstation</span>
+            <h1>VMware Virtual Machine Laboratory</h1>
+            <p class="subtitle">A Hands-On Introduction to Virtualization for Cybersecurity Students</p>
+
+            <div class="prof-brand">
+                Prepared for Students by <strong>Professor Jennifer Gentry</strong>
+            </div>
+
+            <div class="info-row">
+                <span class="info-badge">Estimated Time: 90–120 Minutes</span>
+                <span class="info-badge">Technical Level: Beginner</span>
+                <span class="info-badge">Windows VMware Required</span>
             </div>
         </div>
+
 
         <div class="tabs">
             <button class="tab active" onclick="openTab(event, 'overview')">Overview</button>
@@ -1063,12 +801,14 @@
             </div>
         </div>
 
-        <div class="footer">
-            <p>VMware and Kali Linux Laboratory for TryHackMe</p>
-            <p style="font-size:0.85rem; color:#9ca3af; margin-top:4px;">
-                Virtualization • Cybersecurity • Applied Practice
+       <div class="footer">
+            <p><strong>Professor Jennifer Gentry</strong> • School of Computer & Information Science</p>
+            <p>Virtual Machines • Cybersecurity • Laboratory Instruction</p>
+            <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.7;">
+                Building foundational cybersecurity skills one virtual environment at a time.
             </p>
         </div>
+
     </div>
 
     <script>
