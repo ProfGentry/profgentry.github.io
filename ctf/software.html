@@ -5,79 +5,220 @@
   <title>Recommended Software – CTF Program</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- CTF Theme -->
   <link rel="stylesheet" href="../assets/css/ctf.css" />
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
   <div class="page-wrap">
     <div class="shell">
+      <div class="ctf-layout">
 
-      <header>
-        <div>
-          <div class="badge">
-            <span class="badge-dot"></span>
-            <span>ECPI Cybersecurity • Recommended Software</span>
+        <!-- ================= LEFT SIDEBAR NAV ================= -->
+        <aside class="ctf-sidebar">
+          <div class="ctf-nav-title">CTF Portal</div>
+          <div class="ctf-nav-subtitle">ECPI Cybersecurity</div>
+
+          <div class="ctf-nav-group-label">Site</div>
+          <div class="ctf-nav-links">
+            <a href="../index.html" class="ctf-nav-link">
+              <span>Labs Home</span>
+              <span class="icon">⌂</span>
+            </a>
           </div>
 
-          <h1>Recommended Software for CTF Work</h1>
-          <p class="subtitle">
-            Tools you’ll use in competitions, training, and cybersecurity practice.
-          </p>
-
-          <p class="lead">
-            These tools support virtualization, Linux-based offensive security, and general CTF workflows. Using the
-            recommended versions ensures compatibility with team training and competition environments.
-          </p>
-        </div>
-
-        <div class="hero-right">
-          <div class="hero-right-card">
-            <strong>Start with a VM.</strong>
-            <p>You’ll use either Parrot or Kali for most challenge categories.</p>
+          <div class="ctf-nav-group-label">CTF Overview</div>
+          <div class="ctf-nav-links">
+            <a href="ctf.html" class="ctf-nav-link">
+              <span>CTF Overview</span>
+              <span class="icon">⚑</span>
+            </a>
+            <a href="CodeOfConduct.html" class="ctf-nav-link">
+              <span>Code of Conduct</span>
+              <span class="icon">⚖</span>
+            </a>
           </div>
-          <p class="hero-right-metric">Tools • Platforms • OS</p>
-          <p class="tagline">Prepare your environment</p>
-        </div>
-      </header>
 
-      <main>
-        <section>
-          <h2>Virtualization Platforms</h2>
-          <ul>
-            <li>VMware Workstation / Player</li>
-            <li><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a></li>
-            <li>Hyper-V (Windows)</li>
-          </ul>
-        </section>
+          <div class="ctf-nav-group-label">Training</div>
+          <div class="ctf-nav-links">
+            <a href="training.html" class="ctf-nav-link">
+              <span>Training Overview</span>
+              <span class="icon">➤</span>
+            </a>
+            <a href="remote.html" class="ctf-nav-link">
+              <span>Remote Training</span>
+              <span class="icon">☁</span>
+            </a>
+          </div>
 
-        <section>
-          <h2>Linux Distributions for CTF</h2>
-          <h3>Parrot OS (Recommended for HTB)</h3>
-          <ul>
-            <li><a href="https://www.parrotsec.org/download/" target="_blank">Download Parrot Security OS</a></li>
-            <li>Create the VM using the HTB ISO</li>
-            <li>Boot → Choose "Try/Install"</li>
-            <li>From the desktop, run “Install Debian” to complete installation</li>
-          </ul>
+          <div class="ctf-nav-group-label">Reference</div>
+          <div class="ctf-nav-links">
+            <a href="roles.html" class="ctf-nav-link">
+              <span>CTF Roles</span>
+              <span class="icon">👥</span>
+            </a>
+            <a href="software.html" class="ctf-nav-link active">
+              <span>Software</span>
+              <span class="icon">💾</span>
+            </a>
+          </div>
+        </aside>
 
-          <h3>Kali Linux</h3>
-          <ul>
-            <li><a href="https://www.kali.org/get-kali/#kali-platforms" target="_blank">Download Kali Linux</a></li>
-          </ul>
-        </section>
+        <!-- ================= MAIN CONTENT AREA ================= -->
+        <div class="ctf-main">
 
-      </main>
+          <!-- HEADER -->
+          <header>
+            <div>
+              <div class="badge">
+                <span class="badge-dot"></span>
+                <span>ECPI Cybersecurity • CTF Software</span>
+              </div>
 
-      <footer class="footer-meta">
-        <span>ECPI Cybersecurity • CTF Program</span>
-        <span class="micro-pill">Software</span>
-      </footer>
+              <h1>Recommended Software & Tools</h1>
+              <p class="subtitle">
+                Essential software for participating in CTF challenges, practicing cybersecurity skills, and preparing for competitions.
+              </p>
 
-    </div>
-  </div>
+              <p class="lead">
+                These tools help you analyze networks, reverse engineer binaries, examine packets,
+                exploit vulnerabilities, and investigate digital evidence. Each tool supports one or
+                more major CTF categories, and all are widely used in the security industry.
+              </p>
+            </div>
+
+            <div class="hero-right">
+              <div class="hero-right-card">
+                <strong>Tool Strategy</strong>
+                <p>Start with a few core tools. Grow your kit as challenges require.</p>
+              </div>
+
+              <p class="hero-right-metric">Industry Tools • Free Options • Cross-Platform</p>
+              <p class="tagline">Build your toolkit</p>
+            </div>
+          </header>
+
+          <!-- MAIN GRID CONTENT -->
+          <main>
+
+            <!-- LEFT COLUMN -->
+            <section>
+              <h2>Binary Analysis & Reverse Engineering</h2>
+              <ul>
+                <li><strong>Ghidra</strong> — NSA’s free decompiler and reverse engineering suite</li>
+                <li><strong>Binary Ninja (Free / Student)</strong> — User-friendly RE platform</li>
+                <li><strong>IDA Free</strong> — Classic disassembler for static analysis</li>
+                <li><strong>Radare2 / Cutter</strong> — Open-source reversing tools</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Forensics</h2>
+              <ul>
+                <li><strong>Autopsy</strong> — Disk forensics and evidence recovery</li>
+                <li><strong>Volatility</strong> — Memory forensics framework</li>
+                <li><strong>Wireshark</strong> — Packet capture viewing and analysis</li>
+                <li><strong>Binwalk</strong> — Firmware extraction and analysis</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Cryptography Tools</h2>
+              <ul>
+                <li><strong>CyberChef</strong> — Web-based data transformation toolkit</li>
+                <li><strong>Hashcat</strong> — GPU-accelerated password cracking</li>
+                <li><strong>John the Ripper</strong> — CPU-based password cracker</li>
+                <li><strong>RsaCtfTool</strong> — Attack weak RSA implementations</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>General CTF Utilities</h2>
+              <ul>
+                <li><strong>Python 3 + pip</strong> — Most scripts and exploits use Python</li>
+                <li><strong>Burp Suite Community</strong> — Web exploitation platform</li>
+                <li><strong>nmap</strong> — Network scanning and enumeration</li>
+                <li><strong>Gobuster / ffuf</strong> — Directory fuzzing tools</li>
+                <li><strong>tmux</strong> — Terminal multiplexer for multitasking</li>
+              </ul>
+            </section>
+
+            <!-- RIGHT COLUMN -->
+            <section>
+              <h2>Virtual Machines & OS Environments</h2>
+              <ul>
+                <li><strong>Kali Linux</strong> — Standard pentesting distro</li>
+                <li><strong>Parrot Security OS</strong> — Lightweight, privacy-focused alternative</li>
+                <li><strong>Ubuntu</strong> — Great for development and custom tooling</li>
+                <li><strong>Windows Sandbox / VMs</strong> — For malware and binary testing</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Communication & Collaboration</h2>
+              <ul>
+                <li><strong>Discord</strong> — Team communication</li>
+                <li><strong>GitHub / GitLab</strong> — Script and writeup management</li>
+                <li><strong>Obsidian / Notion</strong> — Documentation, notes, and shared knowledge</li>
+              </ul>
+            </section>
+
+            <section class="links-section">
+              <h2>Download Links</h2>
+              <ul>
+                <li>
+                  <a class="chip-link" href="https://ghidra-sre.org/" target="_blank">
+                    <span>Ghidra</span>
+                    <span class="chip-link-icon">↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="chip-link" href="https://www.wireshark.org/" target="_blank">
+                    <span>Wireshark</span>
+                    <span class="chip-link-icon">↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="chip-link" href="https://www.autopsy.com/" target="_blank">
+                    <span>Autopsy Forensics</span>
+                    <span class="chip-link-icon">↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="chip-link" href="https://portswigger.net/burp" target="_blank">
+                    <span>Burp Suite Community</span>
+                    <span class="chip-link-icon">↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="chip-link" href="https://www.kali.org/" target="_blank">
+                    <span>Kali Linux</span>
+                    <span class="chip-link-icon">↗</span>
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+          </main>
+
+          <!-- FOOTER -->
+          <footer class="footer-meta">
+            <span>ECPI Cybersecurity • CTF Program</span>
+            <span class="micro-pill">Software</span>
+          </footer>
+
+        </div> <!-- /.ctf-main -->
+
+      </div> <!-- /.ctf-layout -->
+    </div> <!-- /.shell -->
+  </div> <!-- /.page-wrap -->
 </body>
 </html>
