@@ -166,3 +166,28 @@ body {
     margin-top: 30px;
 }
 
+/* ===================== BREADCRUMB NAVIGATION ===================== */
+
+.breadcrumb {
+    background: #f1f5fb;
+    padding: 12px 30px;
+    font-size: 0.95em;
+    color: #2b4c7e;
+    border-bottom: 1px solid #d5dfef;
+}
+
+.breadcrumb a {
+    color: #1e3a5f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin: 0 6px;
+    color: #4a6486;
+    font-weight: 600;
+}
