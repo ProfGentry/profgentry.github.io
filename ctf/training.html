@@ -5,79 +5,203 @@
   <title>CTF Training – ECPI Cybersecurity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- CTF Theme -->
   <link rel="stylesheet" href="../assets/css/ctf.css" />
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
   <div class="page-wrap">
     <div class="shell">
+      <div class="ctf-layout">
 
-      <header>
-        <div>
-          <div class="badge">
-            <span class="badge-dot"></span>
-            <span>ECPI Cybersecurity • CTF Training</span>
+        <!-- ================= LEFT SIDEBAR NAV ================= -->
+        <aside class="ctf-sidebar">
+          <div class="ctf-nav-title">CTF Portal</div>
+          <div class="ctf-nav-subtitle">ECPI Cybersecurity</div>
+
+          <div class="ctf-nav-group-label">Site</div>
+          <div class="ctf-nav-links">
+            <a href="../index.html" class="ctf-nav-link">
+              <span>Labs Home</span>
+              <span class="icon">⌂</span>
+            </a>
           </div>
 
-          <h1>CTF Training Overview</h1>
-          <p class="subtitle">
-            Structured practice designed to build real technical skill while strengthening collaboration and problem-solving.
-          </p>
-
-          <p class="lead">
-            Training is divided into Q&A sessions, in-person collaboration, and independent remote practice. Bring curiosity, questions, and the willingness to experiment.
-          </p>
-        </div>
-
-        <div class="hero-right">
-          <div class="hero-right-card">
-            <strong>Training Philosophy</strong>
-            <p>Have fun, learn naturally, and make progress together.</p>
+          <div class="ctf-nav-group-label">CTF Overview</div>
+          <div class="ctf-nav-links">
+            <a href="ctf.html" class="ctf-nav-link">
+              <span>CTF Overview</span>
+              <span class="icon">⚑</span>
+            </a>
+            <a href="CodeOfConduct.html" class="ctf-nav-link">
+              <span>Code of Conduct</span>
+              <span class="icon">⚖</span>
+            </a>
           </div>
-          <p class="hero-right-metric">Practice • Collaboration • Exploration</p>
-          <p class="tagline">Learn • Break • Fix • Repeat</p>
-        </div>
-      </header>
 
-      <main>
-        <section>
-          <h2>Q&A Sessions</h2>
-          <p>Bring a list of concepts or problems you don’t understand. The group works together to figure them out.</p>
-          <ul>
-            <li>If the group can’t explain something, we explore tools together — AI, Google, documentation, and walkthroughs.</li>
-            <li>Sessions focus on clarity, not speed.</li>
-          </ul>
-        </section>
+          <div class="ctf-nav-group-label">Training</div>
+          <div class="ctf-nav-links">
+            <a href="training.html" class="ctf-nav-link active">
+              <span>Training Overview</span>
+              <span class="icon">➤</span>
+            </a>
+            <a href="remote.html" class="ctf-nav-link">
+              <span>Remote Training</span>
+              <span class="icon">☁</span>
+            </a>
+          </div>
 
-        <section>
-          <h2>In-person Trainings</h2>
-          <p>The primary goal is to enjoy the challenge and get to know your teammates. Learning happens naturally.</p>
-          <p><strong>Save the grinding</strong> for remote practice — in-person time is for sharing, exploring, and building teamwork.</p>
-        </section>
+          <div class="ctf-nav-group-label">Reference</div>
+          <div class="ctf-nav-links">
+            <a href="roles.html" class="ctf-nav-link">
+              <span>CTF Roles</span>
+              <span class="icon">👥</span>
+            </a>
+            <a href="software.html" class="ctf-nav-link">
+              <span>Software</span>
+              <span class="icon">💾</span>
+            </a>
+          </div>
+        </aside>
 
-        <section>
-          <h2>Remote Trainings (On Your Own)</h2>
-          <p>Remote practice gives you time to grind, explore tools deeply, and strengthen your weaknesses.</p>
-          <p><a class="chip-link" href="remote.html"><span>Remote Training Guide</span><span class="chip-link-icon">›</span></a></p>
-        </section>
+        <!-- ================= MAIN CONTENT AREA ================= -->
+        <div class="ctf-main">
 
-        <section>
-          <h2>Roles & Specializations</h2>
-          <p>Explore common CTF roles and discover where your strengths lie.</p>
-          <p><a class="chip-link" href="roles.html"><span>CTF Roles</span><span class="chip-link-icon">›</span></a></p>
-        </section>
-      </main>
+          <!-- HEADER -->
+          <header>
+            <div>
+              <div class="badge">
+                <span class="badge-dot"></span>
+                <span>ECPI Cybersecurity • CTF Training</span>
+              </div>
 
-      <footer class="footer-meta">
-        <span>ECPI Cybersecurity • CTF Program</span>
-        <span class="micro-pill">Training</span>
-      </footer>
+              <h1>CTF Training Overview</h1>
+              <p class="subtitle">
+                A mix of Q&amp;A, collaborative practice, and remote work designed to build deep, repeatable skills.
+              </p>
 
-    </div>
-  </div>
+              <p class="lead">
+                Training is where you experiment, break things, and learn from the process. The goal is not perfection;
+                the goal is progress. These sessions are structured to help you ask better questions, learn tools
+                efficiently, and become a teammate others can rely on.
+              </p>
+            </div>
+
+            <div class="hero-right">
+              <div class="hero-right-card">
+                <strong>Training Philosophy</strong>
+                <p>Have fun, learn naturally, and make steady progress over time.</p>
+              </div>
+              <p class="hero-right-metric">Practice • Collaboration • Exploration</p>
+              <p class="tagline">Learn • Break • Fix • Repeat</p>
+            </div>
+          </header>
+
+          <!-- MAIN GRID CONTENT -->
+          <main>
+
+            <!-- LEFT COLUMN -->
+            <section>
+              <h2>Q&amp;A Sessions</h2>
+              <p>
+                Q&amp;A sessions are dedicated time to bring questions about concepts, tools, or challenges that are
+                confusing or frustrating. The group works through them together.
+              </p>
+              <ul>
+                <li>Bring specific problems, screenshots, or error messages.</li>
+                <li>If the group cannot answer, we walk through how to research:
+                  documentation, search engines, AI tools, and writeups.</li>
+                <li>Focus is on understanding why something works, not just copying a fix.</li>
+              </ul>
+              <p>
+                These sessions are perfect for taking something from “I kind of get it” to
+                “I can explain this to someone else.”
+              </p>
+            </section>
+
+            <section>
+              <h2>In-Person Trainings</h2>
+              <p>
+                In-person training is about collaboration and community. This is where you share ideas, test approaches
+                together, and see how others think through problems.
+              </p>
+              <ul>
+                <li>Short mini-lessons on tools, categories, or techniques.</li>
+                <li>Paired or small-group problem solving.</li>
+                <li>Live walkthroughs of example challenges.</li>
+              </ul>
+              <p>
+                Heavy solo “grinding” is better suited to remote practice. In-person time is best used to share strategies,
+                ask questions out loud, and build team chemistry.
+              </p>
+            </section>
+
+            <!-- RIGHT COLUMN -->
+            <section>
+              <h2>Remote Trainings</h2>
+              <p>
+                Remote training modules are self-paced exercises you complete on your own. They’re focused on developing
+                independence, persistence, and comfort with core tools.
+              </p>
+              <ul>
+                <li>Strengthen fundamentals like Linux, scripting, and networking.</li>
+                <li>Work through beginner and intermediate CTF-style challenges.</li>
+                <li>Rebuild skills regularly instead of cramming before competitions.</li>
+              </ul>
+              <p>
+                Details and specific remote modules are listed on the Remote Training page.
+              </p>
+              <p>
+                <a class="chip-link" href="remote.html">
+                  <span>View Remote Training Modules</span>
+                  <span class="chip-link-icon">›</span>
+                </a>
+              </p>
+            </section>
+
+            <section>
+              <h2>Roles &amp; Specializations</h2>
+              <p>
+                Over time, most students naturally gravitate toward certain CTF categories—web, crypto, forensics,
+                reverse engineering, and so on. Training sessions will touch each of these, but you are encouraged to
+                explore and develop a specialty.
+              </p>
+              <ul>
+                <li>Experiment with multiple challenge types early on.</li>
+                <li>Notice what you enjoy and what feels intuitive.</li>
+                <li>Lean into your strengths while still maintaining general skills.</li>
+              </ul>
+              <p>
+                For more detail on each specialization and how it supports the team:
+              </p>
+              <p>
+                <a class="chip-link" href="roles.html">
+                  <span>Explore CTF Roles</span>
+                  <span class="chip-link-icon">›</span>
+                </a>
+              </p>
+            </section>
+
+          </main>
+
+          <!-- FOOTER -->
+          <footer class="footer-meta">
+            <span>ECPI Cybersecurity • CTF Program</span>
+            <span class="micro-pill">Training Overview</span>
+          </footer>
+
+        </div> <!-- /.ctf-main -->
+
+      </div> <!-- /.ctf-layout -->
+    </div> <!-- /.shell -->
+  </div> <!-- /.page-wrap -->
 </body>
 </html>
