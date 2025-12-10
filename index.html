@@ -42,4 +42,488 @@
     body {
       margin: 0;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gra
+      background: radial-gradient(circle at top, #1e293b 0, #020617 50%, #020617 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 980px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      padding: 2rem 2.25rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle glow accent */
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.06), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.06), transparent 55%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 2.7fr) minmax(0, 2.4fr);
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 2.25rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: var(--radius-xl);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
+    }
+
+    h1 {
+      margin: 0 0 0.4rem;
+      font-size: clamp(1.9rem, 3vw, 2.25rem);
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      margin: 0 0 0.9rem;
+      font-size: 0.98rem;
+      color: var(--text-muted);
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 0.97rem;
+      color: var(--text-soft);
+      max-width: 44rem;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .avatar-wrap {
+      position: relative;
+    }
+
+    .avatar-ring {
+      position: absolute;
+      inset: -7px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      opacity: 0.7;
+      filter: blur(0.2px);
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      object-fit: cover;
+      display: block;
+      border: 3px solid rgba(15, 23, 42, 0.9);
+      box-shadow: 0 18px 30px rgba(15, 23, 42, 0.9);
+      background: #020617;
+    }
+
+    .tagline {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 2.1fr);
+      gap: 1.75rem;
+    }
+
+    section {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.94));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--card-border);
+      padding: 1.3rem 1.4rem 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.07), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      pointer-events: none;
+    }
+
+    section:hover::before {
+      opacity: 1;
+    }
+
+    h2 {
+      margin: 0 0 0.8rem;
+      font-size: 1.02rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    p {
+      margin: 0 0 0.7rem;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    .links-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.3rem 0 0;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .chip-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      font-size: 0.9rem;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: background var(--transition-fast), transform var(--transition-fast),
+        border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .chip-link span {
+      opacity: 0.9;
+    }
+
+    .chip-link-icon {
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+
+    .chip-link:hover,
+    .chip-link:focus-visible {
+      outline: none;
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.85);
+    }
+
+    a {
+      color: var(--accent-strong);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    .pub-meta {
+      margin-top: 0.5rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .pub-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) auto;
+      gap: 1rem;
+      align-items: start;
+      margin-top: 0.5rem;
+    }
+
+    .pub-cover {
+      background: rgba(15, 23, 42, 1);
+      border-radius: 14px;
+      padding: 0.4rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: inline-flex;
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.9);
+    }
+
+    .pub-cover img {
+      display: block;
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .footer-meta {
+      margin-top: 2rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      padding-top: 0.9rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-meta span {
+      opacity: 0.9;
+    }
+
+    .micro-pill {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 800px) {
+      .shell {
+        padding: 1.75rem 1.4rem 2.1rem;
+      }
+
+      header {
+        grid-template-columns: minmax(0, 1fr);
+        text-align: left;
+      }
+
+      .hero-right {
+        align-items: flex-start;
+      }
+
+      .tagline {
+        text-align: left;
+      }
+
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .pub-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .pub-cover img {
+        width: 135px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-wrap {
+        padding: 1.5rem 0.9rem;
+      }
+
+      .shell {
+        border-radius: 16px;
+        padding: 1.5rem 1.15rem 1.7rem;
+      }
+
+      .footer-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="shell">
+      <header>
+        <div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span>Computer Science &amp; Aerospace Engineering</span>
+          </div>
+          <h1>Jennifer Gentry, M.S.</h1>
+          <p class="subtitle">Educator, researcher, and longtime aerospace professional.</p>
+          <p class="lead">
+            Jennifer empowers students and colleagues through one-on-one collaboration on
+            technology-focused research and coursework. By building a strong digital presence,
+            faculty create a durable legacy for their work and open doors to future opportunities.
+          </p>
+        </div>
+
+        <div class="hero-right">
+          <div class="avatar-wrap">
+            <div class="avatar-ring"></div>
+            <img
+              class="avatar"
+              src="https://github.com/user-attachments/assets/448bce19-9512-411e-89f7-52bb89ce812a"
+              alt="Portrait of Jennifer Gentry"
+            />
+          </div>
+          <p class="tagline">Teaching • Research • Industry</p>
+        </div>
+      </header>
+
+      <main>
+        <section aria-labelledby="about-heading">
+          <h2 id="about-heading">Background</h2>
+          <p>
+            Jennifer is ABD in a Ph.D. program in Information Systems and holds an M.S. in
+            Computer Science from the University of New Haven in West Haven, Connecticut.
+          </p>
+          <p>
+            Her undergraduate studies were in Mechanical and Aerospace Engineering at Rutgers
+            University in New Brunswick, New Jersey.
+          </p>
+          <p>
+            With over 25 years in the aerospace field, Jennifer has focused on structural
+            analysis and FAA substantiation of interior structures for aircraft.
+          </p>
+        </section>
+
+        <section class="links-section" aria-labelledby="links-heading">
+          <h2 id="links-heading">Teaching &amp; Resources</h2>
+          <ul>
+            <li>
+              <a
+                class="chip-link"
+                href="https://www.youtube.com/channel/UCQ1FVzzYo9Wz1g3qmRt6DQw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>YouTube Channel</span>
+                <span class="chip-link-icon">↗</span>
+              </a>
+            </li>
+            <li>
+              <a class="chip-link" href="/ctf/">
+                <span>CTF Teams</span>
+                <span class="chip-link-icon">›</span>
+              </a>
+            </li>
+            <li>
+              <a class="chip-link" href="/certs/">
+                <span>Certification Information</span>
+                <span class="chip-link-icon">›</span>
+              </a>
+            </li>
+            <li>
+              <a class="chip-link" href="/ecpi/">
+                <span>Greensboro ECPI Information</span>
+                <span class="chip-link-icon">›</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="chip-link"
+                href="https://www.studystack.com/users/jlgentry"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Study Stacks</span>
+                <span class="chip-link-icon">↗</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="pub-heading">
+          <h2 id="pub-heading">Publications</h2>
+
+          <p>
+            <a
+              href="https://www.igi-global.com/book/aiding-forensic-investigation-through-deep/290354#table-of-contents/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Aiding Forensic Investigation Through Deep Learning and Machine Learning Frameworks
+            </a>
+          </p>
+
+          <div class="pub-layout">
+            <div>
+              <p class="pub-meta">
+                Copyright 2022<br />
+                DOI: 10.4018/978-1-6684-4558-7<br />
+                ISBN: 9781668445587
+              </p>
+              <p class="pub-meta">
+                This work explores how modern machine learning and deep learning techniques can
+                support digital forensics, helping investigators extract insight from complex,
+                high-volume data.
+              </p>
+            </div>
+
+            <div class="pub-cover" aria-hidden="true">
+              <img
+                src="https://github.com/user-attachments/assets/6fcdde50-b2b7-4774-b8bb-324baec05fa1"
+                alt="Book cover for Aiding Forensic Investigation Through Deep Learning and Machine Learning Frameworks"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="focus-heading">
+          <h2 id="focus-heading">Areas of Focus</h2>
+          <p>
+            • Computer Science education<br />
+            • Cybersecurity and digital forensics<br />
+            • Aerospace structural analysis and certification<br />
+            • Applied research and student mentorship
+          </p>
+        </section>
+      </main>
+
+      <footer class="footer-meta">
+        <span>&copy; 2022&ndash;<span id="current-year"></span> Jennifer Gentry. All rights reserved.</span>
+        <span class="micro-pill">Academic profile</span>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Update footer year automatically
+    (function () {
+      var span = document.getElementById("current-year");
+      if (span) {
+        span.textContent = new Date().getFullYear();
+      }
+    })();
+  </script>
+</body>
+</html>
