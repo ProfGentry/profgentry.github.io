@@ -432,80 +432,59 @@ body {
    GENERIC LISTS & INLINE ELEMENTS
    ========================================================= */
 
-        ul {
-            margin: 20px 0;
-            padding-left: 35px;
-        }
+ul {
+   margin: 20px 0;
+   padding-left: 35px;
+}
 
-        li {
-            margin: 12px 0;
-            line-height: 1.8;
-        }
+li {
+   margin: 12px 0;
+   line-height: 1.8;
+}
 
-        .emoji {
-            font-size: 1.5em;
-            margin-right: 10px;
-        }
+.emoji {
+   font-size: 1.5em;
+   margin-right: 10px;
+}
 
-        .objective-card {
-            background: white;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
-        }
+.objective-card {
+   background: white;
+   padding: 20px;
+   margin: 15px 0;
+   border-radius: 10px;
+   border-left: 4px solid #667eea;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+   transition: transform 0.3s ease;
+}
 
-        .objective-card:hover {
-            transform: translateX(10px);
-        }
+.objective-card:hover {
+   transform: translateX(10px);
+}
 
-        .objective-card h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
+.objective-card h4 {
+   color: #667eea;
+   margin-bottom: 10px;
+}
 
-        .prereq-item {
-            background: #f8f9fa;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border-left: 3px solid #28a745;
-        }
+.prereq-item {
+   background: #f8f9fa;
+   padding: 15px;
+   margin: 10px 0;
+   border-radius: 8px;
+   border-left: 3px solid #28a745;
+}
 
-        .footer {
-            background: #1a202c;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 20px;
-        }
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
-        .progress-tracker {
-            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .progress-bar {
-            height: 12px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            overflow: hidden;
-            margin: 15px 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            width: 0%;
-            transition: width 0.6s ease;
-            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
-        }
+.footer {
+   background: #1a202c;
+   color: white;
+   text-align: center;
+   padding: 30px;
+   margin-top: 20px;
+}
 
         .time-badge {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -591,4 +570,3 @@ body {
             color: #667eea;
             margin-bottom: 12px;
         }
-    </style>
