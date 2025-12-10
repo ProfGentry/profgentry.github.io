@@ -203,217 +203,234 @@ body {
       transform: translateY(0);   }
 }
 
-        .step-card {
-            background: white;
-            border-left: 5px solid #667eea;
-            padding: 30px;
-            margin: 25px 0;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+/* =========================================================
+   STEP CARDS & OBJECTIVES
+   ========================================================= */
+.step-card {
+   background: white;
+   border-left: 5px solid #2b4c73; <!-- 667eea; -->
+   padding: 26px;
+   margin: 25px 0;
+   border-radius: 10px;
+   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .step-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(102, 126, 234, 0.2);
-        }
+.step-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 12px 24px rgba(102, 126, 234, 0.2);
+}
 
-        .step-number {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-            border-radius: 50%;
-            font-weight: bold;
-            margin-right: 15px;
-            font-size: 1.4em;
-            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
-        }
+.step-number {
+   display: inline-block;
+   background: #2b4c7e; <!-- linear-gradient(135deg, #667eea 0%, #764ba2 100%); -->
+   color: white;
+   width: 45px;
+   height: 45px;
+   line-height: 45px;
+   text-align: center;
+   border-radius: 50%;
+   font-weight: bold;
+   margin-right: 12px;
+   font-size: 1.2em;
+   box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
 
-        .step-title {
-            font-size: 1.8em;
-            color: #1a202c;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
+.step-title {
+   font-size: 1.4em;
+   color: #1a202c;
+   margin-bottom: 12px;
+   display: flex;
+   align-items: center;
+}
 
-        .command-box {
-            background: #1a202c;
-            color: #48bb78;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-            position: relative;
-            overflow-x: auto;
-            border: 2px solid #2d3748;
-        }
+/* =========================================================
+   CODE / TERMINAL / PROMPT BOXES
+   ========================================================= */
+.command-box {
+   background: #1a202c;
+   color: #48bb78;
+   padding: 20px;
+   border-radius: 10px;
+   margin: 20px 0;
+   font-family: 'Courier New', monospace;
+   position: relative;
+   overflow-x: auto;
+   border: 2px solid #2d3748;
+}
 
-        .command-box::before {
-            content: 'TERMINAL';
-            position: absolute;
-            top: -12px;
-            left: 20px;
-            background: #1a202c;
-            padding: 2px 10px;
-            font-size: 10px;
-            color: #48bb78;
-            font-weight: bold;
-            border: 1px solid #2d3748;
-            border-radius: 4px;
-        }
+.command-box::before {
+   content: 'TERMINAL';
+   position: absolute;
+   top: -12px;
+   left: 20px;
+   background: #1a202c;
+   padding: 2px 10px;
+   font-size: 10px;
+   color: #48bb78;
+   font-weight: bold;
+   border: 1px solid #2d3748;
+   border-radius: 4px;
+}
 
-        .config-box {
-            background: #2d3748;
-            color: #90cdf4;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-            position: relative;
-            overflow-x: auto;
-            border: 2px solid #4a5568;
-        }
+.config-box {
+   background: #2d3748;
+   color: #90cdf4;
+   padding: 25px;
+   border-radius: 10px;
+   margin: 20px 0;
+   font-family: 'Courier New', monospace;
+   position: relative;
+   overflow-x: auto;
+   border: 2px solid #4a5568;
+}
 
-        .config-box::before {
-            content: 'CONFIG FILE';
-            position: absolute;
-            top: -12px;
-            left: 20px;
-            background: #2d3748;
-            padding: 2px 10px;
-            font-size: 10px;
-            color: #90cdf4;
-            font-weight: bold;
-            border: 1px solid #4a5568;
-            border-radius: 4px;
-        }
+.config-box::before {
+   content: 'CONFIG FILE';
+   position: absolute;
+   top: -12px;
+   left: 20px;
+   background: #2d3748;
+   padding: 2px 10px;
+   font-size: 10px;
+   color: #90cdf4;
+   font-weight: bold;
+   border: 1px solid #4a5568;
+   border-radius: 4px;
+}
 
-        .prompt-box {
-            background: #2d3748;
-            color: #f6e05e;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-            position: relative;
-            overflow-x: auto;
-            border: 2px solid #4a5568;
-        }
+.prompt-box {
+   background: #2d3748;
+   color: #f6e05e;
+   padding: 25px;
+   border-radius: 10px;
+   margin: 20px 0;
+   font-family: 'Courier New', monospace;
+   position: relative;
+   overflow-x: auto;
+   border: 2px solid #4a5568;
+}
 
-        .prompt-label {
-            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 6px;
-            display: inline-block;
-            margin-bottom: 15px;
-            font-weight: bold;
-            font-size: 0.9em;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
+.prompt-label {
+   background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+   color: white;
+   padding: 6px 16px;
+   border-radius: 6px;
+   display: inline-block;
+   margin-bottom: 15px;
+   font-weight: bold;
+   font-size: 0.9em;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-        .copy-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
+.copy-btn {
+   position: absolute;
+   top: 15px;
+   right: 15px;
+   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+   color: white;
+   border: none;
+   padding: 10px 18px;
+   border-radius: 6px;
+   cursor: pointer;
+   font-size: 13px;
+   font-weight: bold;
+   transition: all 0.3s ease;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-        .copy-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
-        }
+.copy-btn:hover {
+   transform: scale(1.05);
+   box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+}
 
-        .copy-btn:active {
-            transform: scale(0.95);
-        }
+.copy-btn:active {
+   transform: scale(0.95);
+}
 
-        .highlight-box {
-            background: linear-gradient(135deg, #fff3cd 0%, #fff8e1 100%);
-            border-left: 5px solid #ffc107;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
-        }
+/* =========================================================
+   HIGHLIGHT / NOTICE / STATUS BOXES
+   ========================================================= */
 
-        .highlight-box strong {
-            color: #856404;
-        }
+.highlight-box {
+   background: linear-gradient(135deg, #fff3cd 0%, #fff8e1 100%);
+   border-left: 5px solid #ffc107;
+   padding: 20px;
+   margin: 20px 0;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
+}
 
-        .notice-box {
-            background: linear-gradient(135deg, #d1ecf1 0%, #e0f7fa 100%);
-            border-left: 5px solid #0dcaf0;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(13, 202, 240, 0.2);
-        }
+.highlight-box strong {
+   color: #856404;
+}
 
-        .success-box {
-            background: linear-gradient(135deg, #d4edda 0%, #e7f5ea 100%);
-            border-left: 5px solid #28a745;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
-        }
+.notice-box {
+   background: linear-gradient(135deg, #d1ecf1 0%, #e0f7fa 100%);
+   border-left: 5px solid #0dcaf0;
+   padding: 20px;
+   margin: 20px 0;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px rgba(13, 202, 240, 0.2);
+}
 
-        .warning-box {
-            background: linear-gradient(135deg, #f8d7da 0%, #fde7e9 100%);
-            border-left: 5px solid #dc3545;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(220, 53, 69, 0.2);
-        }
+.success-box {
+   background: linear-gradient(135deg, #d4edda 0%, #e7f5ea 100%);
+   border-left: 5px solid #28a745;
+   padding: 20px;
+   margin: 20px 0;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+}
 
-        .architecture-diagram {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin: 25px 0;
-            text-align: center;
-            border: 3px dashed #667eea;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
-        }
+.warning-box {
+   background: linear-gradient(135deg, #f8d7da 0%, #fde7e9 100%);
+   border-left: 5px solid #dc3545;
+   padding: 20px;
+   margin: 20px 0;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px rgba(220, 53, 69, 0.2);
+}
 
-        .architecture-diagram h3 {
-            color: #667eea;
-            margin-bottom: 20px;
-        }
+/* =========================================================
+   ARCHITECTURE DIAGRAM BLOCK
+   ========================================================= */
+.architecture-diagram {
+   background: white;
+   padding: 30px;
+   border-radius: 12px;
+   margin: 25px 0;
+   text-align: center;
+   border: 3px dashed #667eea;
+   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
 
-        .arch-flow {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #2d3748;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-        }
+.architecture-diagram h3 {
+   color: #667eea;
+   margin-bottom: 20px;
+}
 
-        .arch-component {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            margin: 5px;
-            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
-        }
+.arch-flow {
+   font-size: 1.3em;
+   font-weight: bold;
+   color: #2d3748;
+   margin: 20px 0;
+   font-family: 'Courier New', monospace;
+}
+
+.arch-component {
+   display: inline-block;
+   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+   color: white;
+   padding: 12px 24px;
+   border-radius: 8px;
+   margin: 5px;
+   box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* =========================================================
+   GENERIC LISTS & INLINE ELEMENTS
+   ========================================================= */
 
         ul {
             margin: 20px 0;
