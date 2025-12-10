@@ -325,3 +325,197 @@
       border-top: 1px solid rgba(148, 163, 184, 0.45);
       padding-top: 0.9rem;
       font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .micro-pill {
+      padding: 0.15rem 0.55rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .shell {
+        padding: 1.75rem 1.6rem 1.9rem;
+      }
+
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page-wrap {
+        padding: 1.6rem 1rem;
+      }
+
+      .shell {
+        border-radius: 18px;
+        padding: 1.4rem 1.1rem 1.7rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="shell">
+      <header>
+        <div class="title-block">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span>Student Resources</span>
+          </div>
+          <h1>Resources</h1>
+          <p class="subtitle">
+            Central hub for Discord, labs, study tools, and ECPI course links.
+          </p>
+        </div>
+
+        <div class="header-meta">
+          <span class="pill">ECPI • Cyber &amp; CS</span>
+          <span>Updated <span id="last-updated-year"></span></span>
+        </div>
+      </header>
+
+      <main>
+        <!-- LEFT COLUMN: resources -->
+        <div class="left-column">
+          <section aria-labelledby="resources-heading">
+            <h2 id="resources-heading">Resources</h2>
+            <p>Frequently used tools, communities, and study materials.</p>
+
+            <ul class="resource-list">
+              <li>
+                <a
+                  class="chip-link"
+                  href="https://discord.gg/urXRaKKuAj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div class="chip-main">
+                    <span class="chip-title">Greensboro Discord Channel</span>
+                    <span class="chip-meta">Class announcements, Q&amp;A, and peer support</span>
+                  </div>
+                  <span class="chip-icon">↗</span>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="chip-link"
+                  href="https://www.studystack.com/users/jlgentry"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div class="chip-main">
+                    <span class="chip-title">Study Stacks</span>
+                    <span class="chip-meta">Flashcards and quick review material</span>
+                  </div>
+                  <span class="chip-icon">↗</span>
+                </a>
+              </li>
+
+              <li>
+                <a class="chip-link" href="Python/python.md">
+                  <div class="chip-main">
+                    <span class="chip-title">Learn Python</span>
+                    <span class="chip-meta">Scripting notes and practice exercises</span>
+                  </div>
+                  <span class="chip-icon">›</span>
+                </a>
+              </li>
+
+              <li>
+                <a class="chip-link" href="labs/vm.md">
+                  <div class="chip-main">
+                    <span class="chip-title">Virtual Machine Labs</span>
+                    <span class="chip-meta">Hands-on labs for virtualization &amp; OS concepts</span>
+                  </div>
+                  <span class="chip-icon">›</span>
+                </a>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <!-- RIGHT COLUMN: ECPI classes -->
+        <section aria-labelledby="classes-heading">
+          <h2 id="classes-heading">ECPI Classes</h2>
+          <p>Course-specific link hubs for syllabi, labs, and reference materials.</p>
+
+          <div class="course-grid">
+            <article class="course-card">
+              <h3 class="course-title">
+                <a href="CST140/cst140.md">
+                  CST140 &mdash; Operating Systems Links
+                </a>
+              </h3>
+              <p class="course-meta">Foundations of operating systems and system tools.</p>
+              <p class="course-tagline">
+                Process management, memory, and practical OS utilities.
+              </p>
+            </article>
+
+            <article class="course-card">
+              <h3 class="course-title">
+                <a href="cyb120/cyb120.md">
+                  CYB120 / CYB120Lab &mdash; Introduction to Python Scripting
+                </a>
+              </h3>
+              <p class="course-meta">Python for cybersecurity and IT automation.</p>
+              <p class="course-tagline">
+                Variables, control flow, functions, and scripting for real-world tasks.
+              </p>
+            </article>
+
+            <article class="course-card">
+              <h3 class="course-title">
+                <a href="R&amp;S/routing.md">
+                  Routing &amp; Switching &mdash; CYB200/L → CYB220/L → CYB320 → CYB330L
+                </a>
+              </h3>
+              <p class="course-meta">Network fundamentals through advanced routing &amp; switching.</p>
+              <p class="course-tagline">
+                Topologies, routing protocols, VLANs, and hands-on configuration labs.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>&copy; <span id="year-range"></span> Jennifer Gentry. Teaching resources.</span>
+        <span class="micro-pill">Student portal</span>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var now = new Date();
+      var year = now.getFullYear();
+      var yearRangeEl = document.getElementById("year-range");
+      var lastUpdatedYearEl = document.getElementById("last-updated-year");
+
+      if (yearRangeEl) {
+        yearRangeEl.textContent = "2022–" + year;
+      }
+      if (lastUpdatedYearEl) {
+        lastUpdatedYearEl.textContent = year;
+      }
+    })();
+  </script>
+</body>
+</html>
