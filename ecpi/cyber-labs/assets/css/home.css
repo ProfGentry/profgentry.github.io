@@ -1,0 +1,69 @@
+/* ================== HOME PAGE CUSTOM STYLES ================== */
+
+.home-header {
+    background: #2b4c7e;
+    color: white;
+    text-align: center;
+    padding: 50px 30px;
+}
+
+.home-header h1 {
+    font-size: 2.6em;
+    margin-bottom: 5px;
+}
+
+.home-header p {
+    font-size: 1.25em;
+    opacity: 0.95;
+}
+
+/* Lab grid layout */
+.lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 40px;
+}
+
+/* Lab card styling */
+.lab-card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px;
+    border-left: 5px solid #2b4c7e;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lab-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.16);
+}
+
+.lab-card h2 {
+    margin-bottom: 8px;
+    color: #2b4c7e;
+    font-size: 1.35em;
+}
+
+.lab-card p {
+    color: #444;
+    margin-bottom: 18px;
+}
+
+.lab-card a {
+    display: inline-block;
+    background: #2b4c7e;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.lab-card a:hover {
+    background: #203a63;
+}
+
+/* Footer inherits lab-style.css colors */
