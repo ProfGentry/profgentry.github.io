@@ -6,6 +6,8 @@
   --accent: #38bdf8;
   --accent-soft: rgba(56, 189, 248, 0.15);
   --accent-strong: #0ea5e9;
+  --accent-link: #7dd3fc;
+  --accent-link-hover: #bfe8ff;   
   --text-main: #e5e7eb;
   --text-soft: #9ca3af;
   --text-muted: #6b7280;
@@ -14,10 +16,19 @@
   --radius-xl: 999px;
   --transition-fast: 200ms ease-out;
 }
+a {
+  color: var(--accent-link);
+}
+
+a:hover,
+a:focus {
+  color: var(--accent-link-hover);
+  text-decoration: underline;
+}
 
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: radial-gradient(circle at top, #1e293b 0, #020617 50%, #020617 100%);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
@@ -33,11 +44,11 @@ body {
 
 .shell {
   width: 100%;
-  max-width: 980px;
+  max-width: 1120px;
   background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(15,23,42,0.98));
   border-radius: 24px;
   border: 1px solid var(--card-border);
-  padding: 2rem 2.25rem 2.5rem;
+  padding: 1.6rem 1.8rem 2.1rem;
   box-shadow: var(--shadow-soft);
   position: relative;
   overflow: hidden;
@@ -53,11 +64,119 @@ body {
   pointer-events: none;
 }
 
+/* ====== NEW: Overall layout with sidebar ====== */
+
+.ctf-layout {
+  display: flex;
+  gap: 1.75rem;
+  align-items: stretch;
+}
+
+/* ====== NEW: Left navigation sidebar ====== */
+
+.ctf-sidebar {
+  min-width: 220px;
+  max-width: 260px;
+  background: rgba(15,23,42,0.97);
+  border-radius: 18px;
+  border: 1px solid rgba(148,163,184,0.6);
+  padding: 1.1rem 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ctf-nav-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.15rem;
+}
+
+.ctf-nav-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-bottom: 0.5rem;
+}
+
+.ctf-nav-group-label {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  opacity: 0.9;
+}
+
+.ctf-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.3rem;
+}
+
+.ctf-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  color: var(--text-soft);
+  text-decoration: none;
+  border: 1px solid transparent;
+  background: transparent;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.ctf-nav-link span.icon {
+  font-size: 0.78rem;
+  opacity: 0.9;
+}
+
+.ctf-nav-link:hover,
+.ctf-nav-link:focus-visible {
+  outline: none;
+  background: rgba(15,23,42,0.92);
+  border-color: rgba(148,163,184,0.7);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(15,23,42,0.85);
+  color: var(--text-main);
+}
+
+.ctf-nav-link.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--text-main);
+  box-shadow: 0 14px 26px rgba(15,23,42,0.9);
+}
+
+.ctf-nav-link.active span.icon {
+  opacity: 1;
+}
+
+/* Main content panel to the right of sidebar */
+
+.ctf-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Existing header / content styles, adapted for new layout ===== */
+
 header {
   display: grid;
   grid-template-columns: minmax(0,2.7fr) minmax(0,2.4fr);
   gap: 2rem;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2.1rem;
 }
 
 .badge {
@@ -128,7 +247,7 @@ h1 {
 
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
   gap: 1.75rem;
 }
 
@@ -136,7 +255,7 @@ section {
   background: linear-gradient(145deg, rgba(15,23,42,.98), rgba(15,23,42,.94));
   border-radius: var(--radius-lg);
   border: 1px solid var(--card-border);
-  padding: 1.3rem 1.4rem;
+  padding: 1.3rem 1.4rem 1.4rem;
 }
 
 h2 {
@@ -147,10 +266,33 @@ h2 {
   color: var(--text-soft);
 }
 
+p {
+  margin: 0 0 0.7rem;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
 ul {
   padding-left: 1.1rem;
   color: var(--text-soft);
+  font-size: 0.93rem;
 }
+
+li {
+  margin: 0.16rem 0;
+}
+
+a {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Pills, chips, footer etc. */
 
 .pill-list {
   display: flex;
@@ -170,7 +312,7 @@ ul {
 .links-section ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0.3rem 0 0;
   display: grid;
   gap: .45rem;
 }
@@ -178,6 +320,7 @@ ul {
 .chip-link {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: .55rem .75rem;
   border-radius: 999px;
   background: rgba(15,23,42,.9);
@@ -206,6 +349,8 @@ ul {
   color: var(--text-muted);
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .micro-pill {
@@ -214,3 +359,52 @@ ul {
   border: 1px solid rgba(148,163,184,.5);
 }
 
+/* ===== Responsive tweaks ===== */
+
+@media (max-width: 960px) {
+  .page-wrap {
+    padding: 2rem 1rem;
+  }
+
+  .shell {
+    padding: 1.4rem 1.4rem 1.8rem;
+  }
+
+  .ctf-layout {
+    flex-direction: column;
+  }
+
+  .ctf-sidebar {
+    flex-direction: column;
+    width: 100%;
+    max-width: none;
+  }
+
+  header {
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .hero-right {
+    align-items: flex-start;
+  }
+
+  main {
+    grid-template-columns: minmax(0,1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .page-wrap {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .shell {
+    border-radius: 18px;
+    padding: 1.4rem 1.1rem 1.6rem;
+  }
+
+  .footer-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
