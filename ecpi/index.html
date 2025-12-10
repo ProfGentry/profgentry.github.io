@@ -383,127 +383,93 @@
         </div>
       </header>
 
-      <main>
-  <!-- Resources -->
-  <section aria-labelledby="resources-heading">
-    <h2 id="resources-heading">Useful Links</h2>
-    <p>Frequently used tools, communities, and lab materials for students.</p>
+      <main style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.75rem;">
 
-    <ul class="resource-list">
-      <li>
-        <a
-          class="chip-link"
-          href="https://discord.gg/urXRaKKuAj"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div class="chip-main">
-            <span class="chip-title">Greensboro Discord Channel</span>
-            <span class="chip-meta">Class announcements, Q&amp;A, and peer support</span>
-          </div>
-          <span class="chip-icon">↗</span>
-        </a>
-      </li>
+  <!-- LEFT COLUMN -->
+  <div style="display: grid; gap: 1.75rem;">
 
-      <li>
-        <div class="chip-link" aria-label="Hack the Box Student Team">
-          <div class="chip-main">
-            <span class="chip-title">Hack the Box Student Team</span>
-            <span class="chip-meta">Collaborative cybersecurity challenges &amp; CTF practice</span>
-          </div>
-          <span class="chip-icon">🛡</span>
-        </div>
-      </li>
+    <!-- Useful Links (formerly Core Resources) -->
+    <section aria-labelledby="resources-heading">
+      <h2 id="resources-heading">Useful Links</h2>
+      <p>Frequently used tools, communities, and study resources for students.</p>
 
-      <li>
-        <a
-          class="chip-link"
-          href="https://www.studystack.com/users/jlgentry"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div class="chip-main">
-            <span class="chip-title">Study Stacks</span>
-            <span class="chip-meta">Flashcards and quick review material</span>
-          </div>
-          <span class="chip-icon">↗</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-
-  <!-- ECPI Classes -->
-  <section aria-labelledby="classes-heading">
-    <h2 id="classes-heading">ECPI Classes</h2>
-    <p>Course-specific link hubs for syllabi, labs, and reference materials.</p>
-
-    <div class="course-grid">
-      <article class="course-card">
-        <h3 class="course-title">
-          <a href="CST140/cst140.md">
-            CST140 — Operating Systems
+      <ul class="resource-list">
+        <li>
+          <a
+            class="chip-link"
+            href="https://discord.gg/urXRaKKuAj"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="chip-main">
+              <span class="chip-title">Greensboro Discord Channel</span>
+              <span class="chip-meta">Class announcements, Q&amp;A, and peer support</span>
+            </div>
+            <span class="chip-icon">↗</span>
           </a>
-        </h3>
-        <p class="course-meta">Foundations of operating systems and system tools.</p>
-        <p class="course-tagline">
-          Process management, memory, and practical OS utilities.
-        </p>
-      </article>
+        </li>
 
-      <article class="course-card">
-        <h3 class="course-title">
-          <a href="cyb120/cyb120.md">
-            CYB120 / CYB120Lab — Introduction to Python Scripting
-          </a>
-        </h3>
-        <p class="course-meta">Python for cybersecurity and IT automation.</p>
-        <p class="course-tagline">
-          Variables, control flow, functions, and scripting for real-world tasks.
-        </p>
-      </article>
-
-      <article class="course-card">
-        <h3 class="course-title">
-          <a href="R&amp;S/routing.md">
-            Routing & Switching — CYB200/L → CYB220/L → CYB320 → CYB330L
-          </a>
-        </h3>
-        <p class="course-meta">Network fundamentals through advanced routing & switching.</p>
-        <p class="course-tagline">
-          Topologies, routing protocols, VLANs, and hands-on configuration labs.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <!-- NEW: Additional Courses Card -->
-  <section aria-labelledby="additional-heading">
-    <h2 id="additional-heading">Additional Courses</h2>
-    <p>Supplemental learning modules and hands-on lab materials.</p>
-
-    <ul class="resource-list">
-      <li>
-        <a class="chip-link" href="Python/python.md">
-          <div class="chip-main">
-            <span class="chip-title">Learn Python</span>
-            <span class="chip-meta">Scripting notes and practice exercises</span>
+        <li>
+          <div class="chip-link" aria-label="Hack the Box Student Team">
+            <div class="chip-main">
+              <span class="chip-title">Hack the Box Student Team</span>
+              <span class="chip-meta">Collaborative cybersecurity challenges &amp; CTF practice</span>
+            </div>
+            <span class="chip-icon">🛡</span>
           </div>
-          <span class="chip-icon">›</span>
-        </a>
-      </li>
+        </li>
 
-      <li>
-        <a class="chip-link" href="labs/vm.md">
-          <div class="chip-main">
-            <span class="chip-title">Virtual Machine Labs</span>
-            <span class="chip-meta">Hands-on labs for virtualization &amp; OS concepts</span>
-          </div>
-          <span class="chip-icon">›</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-</main>
+        <li>
+          <a
+            class="chip-link"
+            href="https://www.studystack.com/users/jlgentry"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="chip-main">
+              <span class="chip-title">Study Stacks</span>
+              <span class="chip-meta">Flashcards and quick review material</span>
+            </div>
+            <span class="chip-icon">↗</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Additional Courses -->
+    <section aria-labelledby="additional-heading">
+      <h2 id="additional-heading">Additional Courses</h2>
+      <p>Supplemental learning modules and hands-on lab materials.</p>
+
+      <ul class="resource-list">
+        <li>
+          <a class="chip-link" href="Python/python.md">
+            <div class="chip-main">
+              <span class="chip-title">Learn Python</span>
+              <span class="chip-meta">Scripting notes and practice exercises</span>
+            </div>
+            <span class="chip-icon">›</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="chip-link" href="labs/vm.md">
+            <div class="chip-main">
+              <span class="chip-title">Virtual Machine Labs</span>
+              <span class="chip-meta">Hands-on labs for virtualization &amp; OS concepts</span>
+            </div>
+            <span class="chip-icon">›</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- RIGHT COLUMN → ECPI Classes spans height of both left cards -->
+  <section aria-labelledby="classes-heading" style="height: 100%;">
+    <h2 id="classe
+
 
       <footer>
         <span>&copy; <span id="year-range"></span> Jennifer Gentry. Teaching resources.</span>
