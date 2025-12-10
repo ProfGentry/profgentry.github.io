@@ -5,142 +5,215 @@
   <title>CTF Roles – ECPI Cybersecurity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- CTF Theme -->
   <link rel="stylesheet" href="../assets/css/ctf.css" />
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
   <div class="page-wrap">
     <div class="shell">
+      <div class="ctf-layout">
 
-      <header>
-        <div>
-          <div class="badge">
-            <span class="badge-dot"></span>
-            <span>ECPI Cybersecurity • CTF Roles</span>
+        <!-- ================= LEFT SIDEBAR NAV ================= -->
+        <aside class="ctf-sidebar">
+          <div class="ctf-nav-title">CTF Portal</div>
+          <div class="ctf-nav-subtitle">ECPI Cybersecurity</div>
+
+          <div class="ctf-nav-group-label">Site</div>
+          <div class="ctf-nav-links">
+            <a href="../index.html" class="ctf-nav-link">
+              <span>Labs Home</span>
+              <span class="icon">⌂</span>
+            </a>
           </div>
 
-          <h1>CTF Roles & Specializations</h1>
-          <p class="subtitle">
-            Students naturally gravitate toward certain areas — each role contributes to team success.
-          </p>
-
-          <p class="lead">
-            Whether you're a strategist, a code-breaker, or a digital detective, every specialization strengthens the team. Explore the roles below and find what fits your strengths.
-          </p>
-        </div>
-
-        <div class="hero-right">
-          <div class="hero-right-card">
-            <strong>No one starts as an expert.</strong>
-            <p>You’ll grow into your role as you train and compete.</p>
+          <div class="ctf-nav-group-label">CTF Overview</div>
+          <div class="ctf-nav-links">
+            <a href="ctf.html" class="ctf-nav-link">
+              <span>CTF Overview</span>
+              <span class="icon">⚑</span>
+            </a>
+            <a href="CodeOfConduct.html" class="ctf-nav-link">
+              <span>Code of Conduct</span>
+              <span class="icon">⚖</span>
+            </a>
           </div>
-          <p class="hero-right-metric">Exploration • Growth • Teamwork</p>
-          <p class="tagline">Find your specialty</p>
-        </div>
-      </header>
 
-      <main>
-        <section>
-          <h2>Coordinator</h2>
-          <ul>
-            <li>Strategist & organizer</li>
-            <li>Manages communication and assigns challenges</li>
-            <li>Knows a bit of everything</li>
-          </ul>
-        </section>
+          <div class="ctf-nav-group-label">Training</div>
+          <div class="ctf-nav-links">
+            <a href="training.html" class="ctf-nav-link">
+              <span>Training Overview</span>
+              <span class="icon">➤</span>
+            </a>
+            <a href="remote.html" class="ctf-nav-link">
+              <span>Remote Training</span>
+              <span class="icon">☁</span>
+            </a>
+          </div>
 
-        <section>
-          <h2>Documentation Lead</h2>
-          <ul>
-            <li>Tracks notes, methods, working payloads, and failures</li>
-            <li>Writes reports & maintains team knowledge</li>
-          </ul>
-        </section>
+          <div class="ctf-nav-group-label">Reference</div>
+          <div class="ctf-nav-links">
+            <a href="roles.html" class="ctf-nav-link active">
+              <span>CTF Roles</span>
+              <span class="icon">👥</span>
+            </a>
+            <a href="software.html" class="ctf-nav-link">
+              <span>Software</span>
+              <span class="icon">💾</span>
+            </a>
+          </div>
+        </aside>
 
-        <section>
-          <h2>Reverse Engineer</h2>
-          <ul>
-            <li>Assembler & binary analysis</li>
-            <li>Debugging & decompiling</li>
-            <li>Malware and binary exploitation</li>
-          </ul>
-        </section>
+        <!-- ================= MAIN CONTENT AREA ================= -->
+        <div class="ctf-main">
 
-        <section>
-          <h2>Exploitation Specialist</h2>
-          <ul>
-            <li>Memory corruption</li>
-            <li>Buffer overflows</li>
-            <li>Privilege escalation</li>
-            <li>Low-level attack vectors</li>
-          </ul>
-        </section>
+          <!-- HEADER -->
+          <header>
+            <div>
+              <div class="badge">
+                <span class="badge-dot"></span>
+                <span>ECPI Cybersecurity • CTF Roles</span>
+              </div>
 
-        <section>
-          <h2>Web Exploitation Expert</h2>
-          <ul>
-            <li>SQL injection</li>
-            <li>Burp Suite</li>
-            <li>APIs & web tech stack</li>
-          </ul>
-        </section>
+              <h1>CTF Roles & Specializations</h1>
+              <p class="subtitle">
+                Students naturally gravitate toward different strengths. Each role brings vital skills to the team.
+              </p>
 
-        <section>
-          <h2>Crypto Analyst</h2>
-          <ul>
-            <li>RSA, DES, XOR, hashing</li>
-            <li>Password cracking & cryptanalysis</li>
-          </ul>
-        </section>
+              <p class="lead">
+                No one begins as a specialist. As you participate, you’ll discover what you enjoy—and what your teammates
+                rely on you for. Explore each role and see what aligns with your interests and abilities.
+              </p>
+            </div>
 
-        <section>
-          <h2>Forensic Specialist</h2>
-          <ul>
-            <li>Wireshark & PCAP analysis</li>
-            <li>Volatility, Autopsy</li>
-            <li>File carving & metadata analysis</li>
-          </ul>
-        </section>
+            <div class="hero-right">
+              <div class="hero-right-card">
+                <strong>Find Your Strength</strong>
+                <p>Every role is essential. Strong teams are built on diversity of talent.</p>
+              </div>
+              <p class="hero-right-metric">Exploration • Collaboration • Growth</p>
+              <p class="tagline">Find your specialty</p>
+            </div>
+          </header>
 
-        <section>
-          <h2>OSINT Investigator</h2>
-          <ul>
-            <li>Online search mastery</li>
-            <li>Metadata extraction</li>
-            <li>Social engineering awareness</li>
-          </ul>
-        </section>
+          <!-- MAIN GRID CONTENT -->
+          <main>
 
-        <section>
-          <h2>Network Specialist</h2>
-          <ul>
-            <li>Packet flow analysis</li>
-            <li>Network protocol understanding</li>
-            <li>Detecting misconfigurations & covert channels</li>
-          </ul>
-        </section>
+            <section>
+              <h2>Coordinator</h2>
+              <ul>
+                <li>Team strategist and communication hub</li>
+                <li>Assigns challenges and monitors team status</li>
+                <li>Understands all categories well enough to route tasks</li>
+                <li>Ensures nothing falls through the cracks</li>
+              </ul>
+            </section>
 
-        <section>
-          <h2>Programmer</h2>
-          <ul>
-            <li>Python, Bash, C/C++, Regex</li>
-            <li>Automation & scripting</li>
-            <li>API manipulation and tooling</li>
-          </ul>
-        </section>
+            <section>
+              <h2>Documentation Lead</h2>
+              <ul>
+                <li>Maintains notes and shared knowledge base</li>
+                <li>Logs working payloads and failed approaches</li>
+                <li>Writes post-event reports</li>
+                <li>Keeps the team organized and aligned</li>
+              </ul>
+            </section>
 
-      </main>
+            <section>
+              <h2>Reverse Engineer</h2>
+              <ul>
+                <li>Analyzes binaries, assembly, and compiled code</li>
+                <li>Uses debuggers and decompilers</li>
+                <li>Understands malware behavior and binary exploitation</li>
+              </ul>
+            </section>
 
-      <footer class="footer-meta">
-        <span>ECPI Cybersecurity • CTF Program</span>
-        <span class="micro-pill">Roles</span>
-      </footer>
+            <section>
+              <h2>Exploitation Specialist</h2>
+              <ul>
+                <li>Memory corruption issues</li>
+                <li>Buffer overflows</li>
+                <li>Stack/heap exploitation</li>
+                <li>Low-level attack development</li>
+              </ul>
+            </section>
 
-    </div>
-  </div>
+            <section>
+              <h2>Web Exploitation Expert</h2>
+              <ul>
+                <li>Understands HTTP, cookies, sessions, and APIs</li>
+                <li>Performs SQLi, XSS, CSRF, and logic flaws</li>
+                <li>Heavy Burp Suite user</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Crypto Analyst</h2>
+              <ul>
+                <li>Works with RSA, DES, XOR, hashing, modular arithmetic</li>
+                <li>Understands cryptographic failures</li>
+                <li>Specializes in cracking and pattern recognition</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Forensic Specialist</h2>
+              <ul>
+                <li>PCAP analysis (Wireshark)</li>
+                <li>Memory forensics (Volatility)</li>
+                <li>Disk forensics and file carving (Autopsy, SleuthKit)</li>
+                <li>Understands evidence recovery</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>OSINT Investigator</h2>
+              <ul>
+                <li>Search mastery and pivoting</li>
+                <li>Metadata extraction</li>
+                <li>Social engineering awareness</li>
+                <li>Creative puzzle-solving</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Network Specialist</h2>
+              <ul>
+                <li>Understands packets, routing, protocols, and covert channels</li>
+                <li>Diagnoses misconfigurations and unusual network behavior</li>
+                <li>Can spot what “doesn’t belong” in traffic captures</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Programmer</h2>
+              <ul>
+                <li>Python, Bash, C/C++, PowerShell, Regex</li>
+                <li>Automates tasks and builds tooling</li>
+                <li>Writes scripts to speed up exploitation or analysis</li>
+              </ul>
+            </section>
+
+          </main>
+
+          <!-- FOOTER -->
+          <footer class="footer-meta">
+            <span>ECPI Cybersecurity • CTF Program</span>
+            <span class="micro-pill">Roles</span>
+          </footer>
+
+        </div> <!-- /.ctf-main -->
+
+      </div> <!-- /.ctf-layout -->
+    </div> <!-- /.shell -->
+  </div> <!-- /.page-wrap -->
 </body>
 </html>
