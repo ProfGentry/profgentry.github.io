@@ -34,8 +34,8 @@
         <div class="tabs">
             <button class="tab active" onclick="openTab(event, 'overview')">📋 Overview</button>
             <button class="tab" onclick="openTab(event, 'vmware')">🖥️ VMware</button>
-            <button class="tab" onclick="openTab(event, 'kali')">🐉 Kali VM Setup</button>
-            <button class="tab" onclick="openTab(event, 'config')">🌀 VM Config</button>
+            <button class="tab" onclick="openTab(event, 'kali')">🐉 Install VMware</button>
+            <button class="tab" onclick="openTab(event, 'config')">🌀 Kali VM Setup</button>
             <button class="tab" onclick="openTab(event, 'network')">🌐 Network Modes</button>
             <button class="tab" onclick="openTab(event, 'conn')">🔗 Connect to TryHackMe</button>
             <button class="tab" onclick="openTab(event, 'complete')">🏁 Finish</button>
@@ -43,15 +43,6 @@
 
         <!-- =================== TAB: OVERVIEW ===================== -->
         <div id="overview" class="tab-content active">
-
-         <!--   <div class="progress-tracker">
-                <h3>Lab Progress</h3>
-                <p>As you move through each tab, the progress bar tracks your completion for this lab.</p>
-                <div class="progress-bar">
-                    <div id="progressBar" class="progress-fill"></div>
-                </div>
-                <span class="time-badge">Estimated: 90–120 minutes</span>
-            </div> -->
 
             <div class="intro-section">
                 <h2><span class="emoji">🎯</span> Lab Overview</h2>
@@ -94,7 +85,8 @@
                     ✅ <strong>Virtualization enabled in BIOS/UEFI</strong>
                 </div>
                 <div class="prereq-item">
-                    ✅ <strong>OS:</strong> 64-bit Windows 11 (adaptable for other hosts)</div>
+                    ✅ <strong>OS:</strong> 64-bit Windows 11 (adaptable for other hosts)
+                </div>
                 <div class="prereq-item">
                     ✅ <strong>VMware Workstation:</strong> permission to install desktop hypervisor software
                 </div>
@@ -633,7 +625,75 @@
         </div>
     </div>
 
-    <!-- Shared lab JavaScript (tabs, progress, copy-to-clipboard) -->
-    <script src="lab.js"></script>
+    <!-- Inline script for tabs + copy buttons -->
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab contents
+            var tabContent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContent.length; i++) {
+                tabContent[i].classList.remove("active");
+            }
+
+            // Remove active class from all tab buttons
+            var tabButtons = document.getElementsByClassName("tab");
+            for (var j = 0; j < tabButtons.length; j++) {
+                tabButtons[j].classList.remove("active");
+            }
+
+            // Show the selected tab
+            var tab = document.getElementById(tabName);
+            if (tab) {
+                tab.classList.add("active");
+            }
+
+            // Mark the clicked button as active
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.classList.add("active");
+            }
+        }
+
+        function copyPrompt(button) {
+            var pre = button.nextElementSibling;
+            if (!pre) return;
+
+            var text = pre.innerText || pre.textContent;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text)
+                    .then(function () {
+                        var original = button.textContent;
+                        button.textContent = "✅ Copied";
+                        setTimeout(function () {
+                            button.textContent = original;
+                        }, 1200);
+                    })
+                    .catch(function () {
+                        fallbackCopy(text, button);
+                    });
+            } else {
+                fallbackCopy(text, button);
+            }
+        }
+
+        function fallbackCopy(text, button) {
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.style.position = "fixed";
+            textarea.style.left = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand("copy");
+                var original = button.textContent;
+                button.textContent = "✅ Copied";
+                setTimeout(function () {
+                    button.textContent = original;
+                }, 1200);
+            } catch (err) {
+                console.error("Copy failed", err);
+            }
+            document.body.removeChild(textarea);
+        }
+    </script>
 </body>
 </html>
