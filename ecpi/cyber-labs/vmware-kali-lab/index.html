@@ -626,15 +626,13 @@
     </div>
 
     <!-- Inline script for tabs + copy buttons -->
-    <script>
+<script>
         function openTab(evt, tabName) {
-            // Hide all tab contents
-            var tabContent = document.getElementsByClassName("tab-content");
-            for (var i = 0; i < tabContent.length; i++) {
-                tabContent[i].classList.remove("active");
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
             }
 
-            // Remove active class from all tab buttons
             var tabs = document.getElementsByClassName("tab");
             for (var i = 0; i < tabs.length; i++) {
                 tabs[i].classList.remove("active");
@@ -642,61 +640,50 @@
 
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
-            
-            <!-- // Show the selected tab
-            var tab = document.getElementById(tabName);
-            if (tab) {
-                tab.classList.add("active");
-            }
 
-            // Mark the clicked button as active
-            if (evt && evt.currentTarget) {
-                evt.currentTarget.classList.add("active");
-            } -->
+            updateProgress(tabName);
+        }
+
+        function updateProgress(tabName) {
+            var progress = {
+                'overview': 0,
+                'vmware': 15,
+                'kali': 30,
+                'config': 55,
+                'network': 80,
+                'conn':90,
+                'complete': 100
+            };
+            
+            var progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                progressBar.style.width = progress[tabName] + '%';
+            }
         }
 
         function copyPrompt(button) {
-            var pre = button.nextElementSibling;
-            if (!pre) return;
+            var promptBox = button.parentElement;
+            var preElement = promptBox.querySelector('pre');
+            var text = preElement.textContent;
 
-            var text = pre.innerText || pre.textContent;
-
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text)
-                    .then(function () {
-                        var original = button.textContent;
-                        button.textContent = "✅ Copied";
-                        setTimeout(function () {
-                            button.textContent = original;
-                        }, 1200);
-                    })
-                    .catch(function () {
-                        fallbackCopy(text, button);
-                    });
-            } else {
-                fallbackCopy(text, button);
-            }
+            navigator.clipboard.writeText(text).then(function() {
+                var originalText = button.textContent;
+                button.textContent = '✅ Copied!';
+                button.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+                
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy text: ', err);
+                alert('Copy failed. Please select and copy manually.');
+            });
         }
 
-        function fallbackCopy(text, button) {
-            var textarea = document.createElement("textarea");
-            textarea.value = text;
-            textarea.style.position = "fixed";
-            textarea.style.left = "-9999px";
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand("copy");
-                var original = button.textContent;
-                button.textContent = "✅ Copied";
-                setTimeout(function () {
-                    button.textContent = original;
-                }, 1200);
-            } catch (err) {
-                console.error("Copy failed", err);
-            }
-            document.body.removeChild(textarea);
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress('overview');
+        });
     </script>
 </body>
 </html>
