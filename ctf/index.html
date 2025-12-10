@@ -4,127 +4,251 @@
   <meta charset="UTF-8" />
   <title>Capture The Flag (CTF) – ECPI Cybersecurity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Capture The Flag (CTF) information, skills, and resources for ECPI cybersecurity students." />
+  <meta
+    name="description"
+    content="Capture The Flag (CTF) information, skills, and resources for ECPI cybersecurity students."
+  />
 
-  <!-- External CSS -->
-  <link rel="stylesheet" href="../assets/css/ctf.css">
+  <!-- External CTF Theme CSS -->
+  <link rel="stylesheet" href="../assets/css/ctf.css" />
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
   <div class="page-wrap">
     <div class="shell">
+      <div class="ctf-layout">
 
-      <header>
-        <div>
-          <div class="badge">
-            <span class="badge-dot"></span>
-            <span>ECPI Cybersecurity • Capture The Flag</span>
+        <!-- ================= LEFT SIDEBAR NAV ================= -->
+        <aside class="ctf-sidebar">
+          <div class="ctf-nav-title">CTF Portal</div>
+          <div class="ctf-nav-subtitle">ECPI Cybersecurity</div>
+
+          <div class="ctf-nav-group-label">Site</div>
+          <div class="ctf-nav-links">
+            <a href="../index.html" class="ctf-nav-link">
+              <span>Labs Home</span>
+              <span class="icon">⌂</span>
+            </a>
           </div>
 
-          <h1>Capture The Flag (CTF) Teams</h1>
-          <p class="subtitle">
-            Hands-on offense, defense, and problem-solving through ethical hacking challenges.
-          </p>
-          <p class="lead">
-            CTF is a competitive cybersecurity environment where you solve challenges, exploit vulnerabilities,
-            and recover hidden “flags.” It is one of the most effective ways to build real technical skill.
-          </p>
-        </div>
-
-        <div class="hero-right">
-          <div class="hero-right-card">
-            <strong>Who can join?</strong>
-            <p>
-              Anyone curious and willing to learn. No prior hacking experience required.
-            </p>
+          <div class="ctf-nav-group-label">CTF Overview</div>
+          <div class="ctf-nav-links">
+            <a href="ctf.html" class="ctf-nav-link active">
+              <span>CTF Overview</span>
+              <span class="icon">⚑</span>
+            </a>
+            <a href="CodeOfConduct.html" class="ctf-nav-link">
+              <span>Code of Conduct</span>
+              <span class="icon">⚖</span>
+            </a>
           </div>
 
-          <p class="hero-right-metric">Teamwork • Problem-Solving • Real-World Skills</p>
-          <p class="tagline">Student competition • Ethical hacking • Community</p>
-        </div>
-      </header>
-
-      <main>
-        <section>
-          <h2>What is CTF?</h2>
-          <p>
-            A <strong>Capture The Flag (CTF)</strong> event is a cyber challenge series covering web exploitation,
-            cryptography, forensics, reverse engineering, and more.
-          </p>
-          <p>CTFs help you build:</p>
-          <ul>
-            <li>Technical depth and familiarity with tools</li>
-            <li>Logical reasoning and debugging skill</li>
-            <li>Communication and teamwork under pressure</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Who is CTF for?</h2>
-          <p>
-            CTF welcomes all skill levels—from beginners to advanced students. Curiosity and persistence
-            matter more than prior experience.
-          </p>
-
-          <div class="pill-list">
-            <span class="pill">Beginners Welcome</span>
-            <span class="pill">All Majors</span>
-            <span class="pill">Collaborative</span>
+          <div class="ctf-nav-group-label">Training</div>
+          <div class="ctf-nav-links">
+            <a href="training.html" class="ctf-nav-link">
+              <span>Training Overview</span>
+              <span class="icon">➤</span>
+            </a>
+            <a href="remote.html" class="ctf-nav-link">
+              <span>Remote Training</span>
+              <span class="icon">☁</span>
+            </a>
           </div>
-        </section>
 
-        <section>
-          <h2>CTF Skill Areas</h2>
-          <ul>
-            <li><strong>General Skills</strong>
+          <div class="ctf-nav-group-label">Reference</div>
+          <div class="ctf-nav-links">
+            <a href="roles.html" class="ctf-nav-link">
+              <span>CTF Roles</span>
+              <span class="icon">👥</span>
+            </a>
+            <a href="software.html" class="ctf-nav-link">
+              <span>Software</span>
+              <span class="icon">💾</span>
+            </a>
+          </div>
+        </aside>
+
+        <!-- ================= MAIN CONTENT AREA ================= -->
+        <div class="ctf-main">
+
+          <!-- HEADER -->
+          <header>
+            <div>
+              <div class="badge">
+                <span class="badge-dot"></span>
+                <span>ECPI Cybersecurity • Capture The Flag</span>
+              </div>
+              <h1>Capture The Flag (CTF) Teams</h1>
+              <p class="subtitle">
+                Hands-on offense, defense, and problem-solving through ethical hacking challenges.
+              </p>
+              <p class="lead">
+                CTF is a competitive, hands-on cybersecurity environment where you solve challenges, exploit vulnerabilities,
+                and recover hidden “flags” that prove your success. It is one of the most effective ways to build real
+                security skills and learn to think like both an attacker and a defender.
+              </p>
+            </div>
+
+            <div class="hero-right">
+              <div class="hero-right-card">
+                <strong>Who can join?</strong>
+                <p style="margin-top:0.35rem;">
+                  Anyone who is curious, persistent, and willing to learn. You do not need prior CTF or hacking experience
+                  to start—only interest and follow-through.
+                </p>
+              </div>
+              <p class="hero-right-metric">
+                Focus areas: <strong>Teamwork</strong> • <strong>Problem-Solving</strong> • <strong>Real-World Skills</strong>
+              </p>
+              <p class="tagline">Student competition • Ethical hacking • Community</p>
+            </div>
+          </header>
+
+          <!-- MAIN GRID CONTENT -->
+          <main>
+            <!-- LEFT COLUMN -->
+            <section aria-labelledby="what-heading">
+              <h2 id="what-heading">What is CTF?</h2>
+              <p>
+                A <strong>Capture The Flag (CTF)</strong> event is a competitive cybersecurity challenge where students
+                tackle problems across areas like web exploitation, cryptography, forensics, reverse engineering, and
+                binary analysis. Each challenge hides a small piece of text—a <em>flag</em>—that you recover by successfully
+                solving the puzzle.
+              </p>
+              <p>
+                CTFs are intense, creative, and highly educational. They help you think like both an attacker and a defender,
+                sharpening:
+              </p>
               <ul>
-                <li>Scripting (Python, Bash, PowerShell)</li>
-                <li>Linux / Windows fundamentals</li>
-                <li>System and network basics</li>
+                <li>Technical depth and tool familiarity</li>
+                <li>Logical reasoning and debugging skills</li>
+                <li>Communication and teamwork under pressure</li>
               </ul>
-            </li>
-            <li><strong>Cryptography</strong></li>
-            <li><strong>Forensics</strong></li>
-            <li><strong>Web Exploitation</strong></li>
-            <li><strong>Reverse Engineering</strong></li>
-            <li><strong>Binary Exploitation</strong></li>
-            <li><strong>Miscellaneous Challenges</strong></li>
-          </ul>
-        </section>
+              <p>
+                You do not need to be an expert to begin. Curiosity and persistence are more important than prior experience.
+              </p>
+            </section>
 
-        <section class="links-section">
-          <h2>Readiness & Resources</h2>
+            <section aria-labelledby="who-heading">
+              <h2 id="who-heading">Who is CTF for?</h2>
+              <p>
+                CTF is for anyone who wants to learn by doing. Nobody is expected to arrive as a CTF expert. Most students
+                start with curiosity, not credentials.
+              </p>
+              <p>
+                The most valuable person on a team is not always the one scoring the most points. Often, it is the person
+                who keeps people engaged, asks good questions, organizes notes, or helps connect the dots between ideas.
+              </p>
+              <p>
+                You can be a complete beginner or a seasoned problem-solver; what matters most is your drive to learn and
+                your willingness to contribute to the team. The ECPI community will help you grow into the role that fits you.
+              </p>
+              <div class="pill-list">
+                <span class="pill">Beginners welcome</span>
+                <span class="pill">All majors</span>
+                <span class="pill">Collaborative</span>
+              </div>
+            </section>
 
-          <p><strong>Expectations for participation:</strong></p>
-          <ul>
-            <li>Basic Linux command line comfort</li>
-            <li>Willingness to install and use VMs</li>
-            <li>Independent exploration</li>
-            <li>Enthusiasm and curiosity</li>
-          </ul>
+            <!-- RIGHT COLUMN -->
+            <section aria-labelledby="skills-heading">
+              <h2 id="skills-heading">CTF Skill Areas</h2>
+              <p>
+                Everyone should have a basic understanding of each area, but most people will specialize in a few. The goal
+                is to build a balanced team that uses each person’s strengths.
+              </p>
+              <ul>
+                <li><strong>General Skills</strong>
+                  <ul>
+                    <li>Scripting (Python, Bash, PowerShell, etc.)</li>
+                    <li>Operating system–specific knowledge (Linux, Windows)</li>
+                    <li>System administration and configuration</li>
+                  </ul>
+                </li>
+                <li><strong>Cryptography</strong></li>
+                <li><strong>Forensics</strong>
+                  <ul>
+                    <li>File and filesystem analysis</li>
+                    <li>Memory analysis</li>
+                    <li>Network capture analysis</li>
+                  </ul>
+                </li>
+                <li><strong>Web Exploitation</strong></li>
+                <li><strong>Reverse Engineering</strong></li>
+                <li><strong>Binary Exploitation</strong></li>
+                <li><strong>Uncategorized / Miscellaneous</strong></li>
+              </ul>
+            </section>
 
-          <h3>CTF Program Links</h3>
-          <ul>
-            <li><a class="chip-link" href="CodeOfConduct.html"><span>CTF Code of Conduct</span><span class="chip-link-icon">›</span></a></li>
-            <li><a class="chip-link" href="https://discord.gg/gU4GedW7gE" target="_blank"><span>CTF Discord Server</span><span class="chip-link-icon">↗</span></a></li>
-            <li><a class="chip-link" href="training.html"><span>CTF Training</span><span class="chip-link-icon">›</span></a></li>
-            <li><a class="chip-link" href="roles.html"><span>CTF Roles</span><span class="chip-link-icon">›</span></a></li>
-            <li><a class="chip-link" href="software.html"><span>Recommended Software</span><span class="chip-link-icon">›</span></a></li>
-          </ul>
-        </section>
-      </main>
+            <section aria-labelledby="ready-heading" class="links-section">
+              <h2 id="ready-heading">Readiness &amp; Resources</h2>
+              <p><strong>Things you should be comfortable with (or willing to learn):</strong></p>
+              <ul>
+                <li>Using a Linux virtual machine</li>
+                <li>Working in a command-line interface (CLI)</li>
+                <li>Learning new tools and techniques independently</li>
+                <li>Approaching challenges with curiosity and a sense of fun</li>
+              </ul>
 
-      <footer class="footer-meta">
-        <span>ECPI Cybersecurity • Capture The Flag Program</span>
-        <span class="micro-pill"><a href="https://profgentry.github.io/">Prof. Gentry's Homepage</a></span>
-      </footer>
+              <h3 style="margin-top:1rem;">CTF Program Links</h3>
+              <ul>
+                <li>
+                  <a class="chip-link" href="CodeOfConduct.html">
+                    <span>CTF Code of Conduct</span>
+                    <span class="chip-link-icon">›</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="chip-link"
+                    href="https://discord.gg/gU4GedW7gE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>CTF Discord Server</span>
+                    <span class="chip-link-icon">↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="chip-link" href="training.html">
+                    <span>CTF Training</span>
+                    <span class="chip-link-icon">›</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="chip-link" href="roles.html">
+                    <span>CTF Roles</span>
+                    <span class="chip-link-icon">›</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="chip-link" href="software.html">
+                    <span>Recommended Software</span>
+                    <span class="chip-link-icon">›</span>
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </main>
 
-    </div>
-  </div>
+          <!-- FOOTER -->
+          <footer class="footer-meta">
+            <span>ECPI Cybersecurity • Capture The Flag Program</span>
+            <span class="micro-pill">CTF Overview</span>
+          </footer>
+
+        </div> <!-- /.ctf-main -->
+
+      </div> <!-- /.ctf-layout -->
+    </div> <!-- /.shell -->
+  </div> <!-- /.page-wrap -->
 </body>
 </html>
