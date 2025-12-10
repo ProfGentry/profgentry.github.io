@@ -46,24 +46,6 @@
             </p>
         </div>
     </div>
-
-    <!-- JS functions (unchanged) -->
-    <script>
-        function openTab(evt, tabName) {
-            var tabContents = document.getElementsByClassName("tab-content");
-            for (var i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove("active");
-            }
-
-            var tabs = document.getElementsByClassName("tab");
-            for (var j = 0; j < tabs.length; j++) {
-                tabs[j].classList.remove("active");
-            }
-
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-    </script>
-
+    <script src="lab.js"></script>
 </body>
 </html>
