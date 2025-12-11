@@ -140,8 +140,8 @@ body {
    ========================================================= */
 .tabs {
    display: flex;
-   background: #e8eef7; <!-- 1a1a2e; -->
-   border-bottom: 3px solid #2b4c7e; <!-- 667eea; -->
+   background: 1a1a2e;
+   border-bottom: 3px solid 667eea;
    overflow-x: auto;
 }
 
@@ -151,11 +151,11 @@ body {
    text-align: center;
    cursor: pointer;
    transition: 0.2x; <!-- all 0.3s ease; -->
-   background: #d9e3f4; <!-- 16213e; -->
+   background: 16213e;
    border: none;
    font-size: 0.95em; <!-- 15px; -->
    font-weight: bold;
-   color: #2b4c7e; <!-- a0aec0; -->
+   color: a0aec0; 
    min-width: 140px;
    position: relative;
 }
@@ -168,7 +168,7 @@ body {
 
 .tab.active {
    background: white;
-   color: #2b4c7e; <!-- 667eea; -->
+   color: 667eea;
    border-bottom: 3px solid #2b4c7e; <!-- 667eea; -->
    transform: translateY(3px);
 }
