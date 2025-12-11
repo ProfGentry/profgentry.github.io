@@ -91,20 +91,540 @@
             </div>
         </div>
 
-        <!-- ========== TAB: HYPER-V CONCEPTS ========== -->
-        <div id="concepts" class="tab-content-active">
-            <!--<div class="step-card">
+          <!-- =================== TAB: VMWARE CONCEPTS ===================== -->
+        <div id="vmware" class="tab-content">
+            <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">1</span>
-                    <span>Hyper-V & Virtualization Concepts</span>
+                    <span>Understanding VMware & Virtualization</span>
                 </div>
                 <p><span class="time-badge">⏱️ ~10 minutes</span></p>
-            </div> -->
+
+                <div class="intro-section">
+                    <h2>🧠 Understanding VMware</h2>
+                    <p style="font-size: 1.05em; line-height: 1.8; margin-bottom: 20px;">
+                        Before we click buttons, we need to understand what’s actually happening.
+                    </p>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>💡 What is Virtualization?</h3>
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        Virtualization is the creation of a simulated (virtual) computer environment that runs inside
+                        your physical computer. It allows you to run multiple different operating systems at the same
+                        time without them interfering with your main system.
+                    </p>
+                </div>
+
+                <div class="key-concept">
+                    <h3>🧱 Why Cybersecurity Uses Virtual Machines</h3>
+                    <p>Security professionals rely on VMs to:</p>
+                    <ul>
+                        <li>Safely run offensive tools and exploits</li>
+                        <li>Isolate malware samples</li>
+                        <li>Test configurations and defenses</li>
+                        <li>Recreate networks and targets for practice</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <h3>⚙️🧩 How VMware Works</h3>
+                    <p>VMware simulates core hardware components such as:</p>
+                    <ul>
+                        <li>CPU</li>
+                        <li>RAM</li>
+                        <li>Storage</li>
+                        <li>Network adapters</li>
+                    </ul>
+                    <p>This lets your virtual machine behave just like a real computer, but inside a window.</p>
+                </div>
+
+                <div class="key-concept">
+                    <h3>🗂️ Types of Virtual Machines</h3>
+                    <ul>
+                        <li>🖥️ Full OS machines (e.g., Kali Linux)</li>
+                        <li>📦 Specialized appliances (pre-built security distros)</li>
+                        <li>🧪 Lightweight testing environments</li>
+                    </ul>
+                </div>
+
+                <div class="notice-box">
+                    <h3>🛡️ Why We Use Kali Linux for TryHackMe</h3>
+                    <p>
+                        Kali includes tools such as Nmap, Burp Suite, Hydra, Gobuster, and Metasploit, making it an
+                        ideal penetration testing environment for platforms like TryHackMe.
+                    </p>
+                </div>
+            </div>
         </div>
-    
-  </div>         <!-- Close the Container -->
+
+        <!-- =================== TAB: INSTALL VMWARE ===================== -->
+        <div id="kali" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    <span>Installing VMware Workstation</span>
+                </div>
+                <p><span class="time-badge">⏱️ ~15–20 minutes</span></p>
+
+                <div class="notice-box">
+                    <h3>🐳 What We Are Doing</h3>
+                    <p>If you already have VMware Workstation installed, you can skip ahead to the VM creation section.</p>
+                </div>
+
+                <h3 style="margin: 25px 0 15px 0;">📝 Step-by-Step Instructions</h3>
+
+                <p><strong>1. Download VMware Workstation</strong></p>
+                <ul>
+                    <li>VMware Workstation Player is free for personal, non-commercial use.</li>
+                    <li>Go to the official VMware website:
+                        <a href="https://www.vmware.com" target="_blank" rel="noopener noreferrer">VMware Website</a>
+                    </li>
+                    <li>
+                        Download the desktop hypervisor:
+                        <a href="https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion" target="_blank" rel="noopener noreferrer">
+                            VMware Fusion and Workstation Downloads
+                        </a>
+                    </li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong>2. Install Using Default Settings</strong></p>
+                <p>Run the installer and accept the default options unless your instructor or environment requires otherwise.</p>
+
+                <p style="margin-top: 20px;"><strong>3. Launch the Application</strong></p>
+                <p>After installation, open VMware Workstation Player and verify that it starts without errors.</p>
+
+                <h3 style="margin-top: 25px; font-size: 1em;">
+                    <em>Note: Downloads may take longer depending on your internet connection.</em>
+                </h3>
+            </div>
+        </div>
+
+        <!-- =================== TAB: CREATE KALI VM ===================== -->
+        <div id="config" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    <span>Setting Up a Kali Linux VM</span>
+                </div>
+                <p><span class="time-badge">⏱️ ~35–45 minutes</span></p>
+                <p>
+                    In this part, you will create a brand new virtual machine that runs Kali Linux. Follow each step
+                    carefully and pay attention to what each step is doing.
+                </p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.1</span>
+                    <span> 📥 Download the Kali ISO</span>
+                </div>
+                <p>Get the installer image (ISO) for Kali Linux.</p>
+                <ol>
+                    <li>On your host (Windows) system, open a web browser.</li>
+                    <li>Go to
+                        <a href="https://www.kali.org/get-kali/#kali-installer-images" target="_blank" rel="noopener noreferrer">
+                            https://www.kali.org/get-kali/#kali-installer-images
+                        </a>
+                    </li>
+                    <li>Download the 64-bit <strong>Installer</strong> ISO image.</li>
+                    <li>Save it somewhere easy to find (e.g., <code>Downloads</code> or a folder like <code>C:\ISOs</code>).</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.2</span>
+                    <span> 🏗️ Create a New VM in VMware</span>
+                </div>
+                <p>You’re creating the “computer within a computer.”</p>
+                <ol>
+                    <li>Open VMware Workstation Player.</li>
+                    <li>Click <strong>Create a New Virtual Machine</strong>.</li>
+                    <li>Select <strong>Installer disc image file (ISO)</strong> and browse to the Kali ISO you downloaded.</li>
+                    <li>Click <strong>Next</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.3</span>
+                    <span> 🖱️ Choose the Guest Operating System Type</span>
+                </div>
+                <p>Optimize settings for the OS you are installing.</p>
+                <ol>
+                    <li>For <strong>Guest operating system</strong>, choose <strong>Linux</strong>.</li>
+                    <li>For <strong>Version</strong>, choose <strong>Debian 10.x 64-bit</strong> (Kali is based on Debian).</li>
+                    <li>Click <strong>Next</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.4</span>
+                    <span> 🏷️ Name the Virtual Machine</span>
+                </div>
+                <p>Give your VM a clear name and choose where the files will live.</p>
+                <ol>
+                    <li>Enter a name such as <strong>Kali for TryHackMe</strong>.</li>
+                    <li>Choose a location where you have space (e.g., <code>C:\VMs\Kali-THM</code>).</li>
+                    <li>Click <strong>Next</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.5</span>
+                    <span> 💾 Specify Disk Capacity</span>
+                </div>
+                <p>Decide how big your virtual hard drive will be.</p>
+                <ol>
+                    <li>Set the maximum disk size to at least <strong>40 GB</strong>.</li>
+                    <li>Choose <strong>Store virtual disk as a single file</strong> for simplicity.</li>
+                    <li>Click <strong>Next</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.6</span>
+                    <span> ⚙️ Customize Hardware</span>
+                </div>
+                <p>Allocate part of your host computer’s resources to the VM.</p>
+                <ol>
+                    <li>Click <strong>Customize Hardware…</strong> before finishing.</li>
+                    <li>Memory (RAM): set to at least <strong>4096 MB (4 GB)</strong> if your host has ≥ 8 GB.</li>
+                    <li>Processors: set to <strong>2 cores</strong> if available.</li>
+                    <li>Network Adapter: leave as <strong>NAT</strong> (recommended for this lab).</li>
+                    <li>Click <strong>Close</strong>, then <strong>Finish</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.7</span>
+                    <span> 🔥➡️🐧 Power On the VM and Start the Installer</span>
+                </div>
+                <p>Boot from the virtual “DVD” to install Kali.</p>
+                <ol>
+                    <li>Make sure your Kali VM is selected in VMware.</li>
+                    <li>Click <strong>Play virtual machine</strong>.</li>
+                    <li>When the Kali boot menu appears, choose <strong>Graphical install</strong> and press <strong>Enter</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.8</span>
+                    <span> 📀 Run Through the Kali Installer</span>
+                </div>
+                <p>Install Kali onto the virtual hard drive.</p>
+                <ol>
+                    <li>Select your language, location, and keyboard layout.</li>
+                    <li>Enter a hostname (e.g., <strong>kali</strong>).</li>
+                    <li>Create a user account and password—store this somewhere safe.</li>
+                    <li>For partitioning, select <strong>Guided – use entire disk</strong>.</li>
+                    <li>Accept the default for installing the bootloader (GRUB).</li>
+                    <li>Wait while the installer copies files and sets up the desktop environment.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.9</span>
+                    <span> 🔁 Reboot into the Kali Desktop</span>
+                </div>
+                <p>Finish the installation and start using Kali.</p>
+                <ol>
+                    <li>When installation is complete, select <strong>Continue</strong> to reboot.</li>
+                    <li>Log in with the username and password you created.</li>
+                    <li>You should see the Kali Linux desktop.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- =================== TAB: NETWORK MODES ===================== -->
+        <div id="network" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">4</span>
+                    <span>Understanding VM Networking Modes</span>
+                </div>
+                <p><span class="time-badge">⏱️ ~10 minutes</span></p>
+
+                <div class="intro-section">
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        In this part, you will understand how your virtual machine communicates with the outside
+                        world and with your host system. These modes determine whether your Kali VM can access the
+                        internet, talk to your local network, or stay isolated for safe testing.
+                    </p>
+                </div>
+
+                <div class="success-box">
+                    <h2>🌐 NAT (Recommended)</h2>
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        NAT (Network Address Translation) allows your VM to share your host computer’s internet
+                        connection. The VM gets a private internal IP address, and VMware acts like a router
+                        translating traffic.
+                    </p>
+                    <p><strong>Why this matters:</strong></p>
+                    <ul>
+                        <li>Safest option for beginners.</li>
+                        <li>Ideal for TryHackMe VPN access.</li>
+                        <li>Keeps your VM hidden from your real LAN, reducing risk.</li>
+                    </ul>
+                    <p><strong>Analogy:</strong> NAT is like your VM using your host’s Wi-Fi without ever knowing the actual password.</p>
+                </div>
+
+                <div class="notice-box">
+                    <h2>🌉 Bridged</h2>
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        Bridged mode places your VM directly on your physical network as if it were its own device
+                        with its own IP address.
+                    </p>
+                    <p><strong>Why this matters:</strong></p>
+                    <ul>
+                        <li>Useful when simulating real networks.</li>
+                        <li>Helpful for labs where the VM must act as a separate machine.</li>
+                        <li>Less isolated, so slightly higher risk if misused.</li>
+                    </ul>
+                    <p><strong>Analogy:</strong> The VM becomes a “real roommate” on your network—visible and discoverable.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h2>🚧 Host-Only</h2>
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        Host-Only mode isolates your VM from the internet entirely. The VM can only communicate
+                        with your host computer.
+                    </p>
+                    <p><strong>Why this matters:</strong></p>
+                    <ul>
+                        <li>Great for malware analysis when you want nothing leaking out.</li>
+                        <li>Useful for offline testing and isolated labs.</li>
+                        <li>Not suitable for TryHackMe because it requires internet access.</li>
+                    </ul>
+                    <p><strong>Analogy:</strong> Host-Only is like airplane mode for your VM, except it can still talk to your host.</p>
+                </div>
+
+                <div class="intro-section">
+                    <h2><span class="emoji">🔑</span> Key Takeaways</h2>
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        Each mode controls your VM’s “reach”:
+                    </p>
+                    <ul>
+                        <li>🌐 <strong>NAT</strong> → Internet access, safe, hidden behind your host.</li>
+                        <li>🌉 <strong>Bridged</strong> → Internet + LAN visibility, appears as a separate device.</li>
+                        <li>🚧 <strong>Host-Only</strong> → No internet, only host-to-VM communication.</li>
+                    </ul>
+                    <p>Understanding these choices ensures your VM behaves correctly for different cybersecurity scenarios.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- =================== TAB: CONNECT TO THM ===================== -->
+        <div id="conn" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">5</span>
+                    <span>Connecting Kali to TryHackMe</span>
+                </div>
+                <p><span class="time-badge">⏱️ ~15–20 minutes</span></p>
+
+                <div class="intro-section">
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        In this part, you will connect your Kali VM to TryHackMe using a VPN configuration file.
+                        This allows your VM to securely join the TryHackMe network so you can reach lab machines
+                        from inside Kali.
+                    </p>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 1 🛠️: Confirm Internet Access from Kali</h2>
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        Make sure your VM network is working before adding the VPN.
+                    </p>
+                    <ol>
+                        <li>Start your <strong>Kali VM</strong> in VMware.</li>
+                        <li>In VMware, confirm the VM’s <strong>Network Adapter</strong> is set to <strong>NAT</strong>.</li>
+                        <li>Inside Kali, open a <strong>terminal</strong>.</li>
+                        <li>Run:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>ping -c 4 8.8.8.8</pre>
+                            </div>
+                        </li>
+                        <li>You should see replies from <code>8.8.8.8</code>. Press <strong>Ctrl+C</strong> to stop.</li>
+                        <li>Optional: Open <strong>Firefox</strong> and browse to <code>https://tryhackme.com</code>.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 2 🛠️: Update Kali’s Package List</h2>
+                    <p>Refresh Kali’s knowledge of available software.</p>
+                    <ol>
+                        <li>In the Kali terminal, run:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>sudo apt update</pre>
+                            </div>
+                        </li>
+                        <li>Enter your password if prompted.</li>
+                        <li>Wait for the command to complete.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 3 🛠️: Install OpenVPN</h2>
+                    <p>Install the VPN client that will create the tunnel to TryHackMe.</p>
+                    <ol>
+                        <li>In the same terminal, run:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>sudo apt install openvpn -y</pre>
+                            </div>
+                        </li>
+                        <li>Wait while Kali downloads and installs OpenVPN.</li>
+                        <li>When the prompt returns with no errors, OpenVPN is installed.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 4 🛠️: Download Your TryHackMe VPN Configuration File</h2>
+                    <p>Get a unique <code>.ovpn</code> file that links your VM to your TryHackMe account.</p>
+                    <ol>
+                        <li>In Kali, open <strong>Firefox</strong>.</li>
+                        <li>Go to <a href="https://tryhackme.com" target="_blank" rel="noopener noreferrer">https://tryhackme.com</a> and log in.</li>
+                        <li>Go to the <strong>Access</strong> / <strong>VPN</strong> section.</li>
+                        <li>Choose the <strong>OpenVPN</strong> option.</li>
+                        <li>Download your <code>.ovpn</code> configuration file.</li>
+                        <li>Verify it appears in your <strong>Downloads</strong> folder in Kali.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 5 🛠️: Navigate to the VPN File in the Terminal</h2>
+                    <p>Move into the folder where your <code>.ovpn</code> file is stored.</p>
+                    <ol>
+                        <li>In the Kali terminal, run:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>cd ~/Downloads</pre>
+                            </div>
+                        </li>
+                        <li>List the files to verify the <code>.ovpn</code> file is present:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>ls</pre>
+                            </div>
+                        </li>
+                        <li>Look for a filename ending in <code>.ovpn</code>
+                            (e.g., <code>thm-region-yourusername.ovpn</code>).</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 6 🛠️: Connect to TryHackMe Using OpenVPN</h2>
+                    <p>Create a secure VPN tunnel from your VM to TryHackMe.</p>
+                    <ol>
+                        <li>Still in the <strong>Downloads</strong> folder, run (replace the filename with your actual VPN file):
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>sudo openvpn yourfile.ovpn</pre>
+                            </div>
+                        </li>
+                        <li>Enter your password if prompted.</li>
+                        <li>Watch the terminal output as OpenVPN connects.</li>
+                        <li>When you see <code>Initialization Sequence Completed</code>, the VPN connection is active.</li>
+                        <li><strong>Do not close this terminal window</strong> while using TryHackMe; closing it will terminate the VPN.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 7 🛠️: Verify the VPN Connection</h2>
+                    <p>Confirm that your VM is successfully on the TryHackMe network.</p>
+                    <ol>
+                        <li>Open a <strong>new</strong> terminal window in Kali (leave the OpenVPN window running).</li>
+                        <li>Run:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>ip a</pre>
+                            </div>
+                        </li>
+                        <li>Look for an interface named <code>tun0</code> – that’s your VPN tunnel.</li>
+                        <li>In your browser, start a TryHackMe machine and note its IP address.</li>
+                        <li>From the new terminal, try:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>ping -c 4 &lt;THM_machine_IP&gt;</pre>
+                            </div>
+                        </li>
+                        <li>If you receive replies, your Kali VM is successfully connected to the TryHackMe network.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 8 🛠️: Disconnect When You’re Done</h2>
+                    <p>Safely close the VPN tunnel.</p>
+                    <ol>
+                        <li>Return to the terminal window where <strong>OpenVPN</strong> is running.</li>
+                        <li>Press <strong>Ctrl+C</strong> to stop the OpenVPN process.</li>
+                        <li>You should see messages indicating the connection is terminating.</li>
+                        <li>The <code>tun0</code> interface will disappear, and your VM will go back to normal NAT internet use.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- =================== TAB: COMPLETE ===================== -->
+        <div id="complete" class="tab-content">
+            <div style="text-align: center; padding: 40px;">
+                <div style="font-size: 4em; margin-bottom: 20px;">🎊</div>
+                <h2 style="color: #2b4c7e; font-size: 2.2em; margin-bottom: 20px;">VMware TryHackMe Lab Complete!</h2>
+
+                <div class="success-box" style="text-align: left; max-width: 900px; margin: 30px auto;">
+                    <h3>🎓 What You Accomplished</h3>
+                    <ul style="font-size: 1.05em;">
+                        <li>✅ Explained what virtualization is and why it matters for cybersecurity.</li>
+                        <li>✅ Installed VMware Workstation and deployed a Kali Linux VM.</li>
+                        <li>✅ Configured VM networking modes and chose the correct one for TryHackMe.</li>
+                        <li>✅ Connected your VM to TryHackMe and verified connectivity.</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="text-align: left; max-width: 900px; margin: 30px auto;">
+                    <h3>🚀 Suggested Next Steps</h3>
+                    <ul style="font-size: 1.05em;">
+                        <li><strong>Install:</strong> a multi-pane terminal like Terminator.</li>
+                        <li><strong>Customize:</strong> your Kali theme to make the environment your own.</li>
+                        <li><strong>Set up:</strong> a shared folder between host and VM for file transfer.</li>
+                        <li><strong>Earn:</strong> your first TryHackMe badge by completing beginner rooms.</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box" style="text-align: left; max-width: 900px; margin: 30px auto;">
+                    <h3>⚠️ Important Considerations</h3>
+                    <ul>
+                        <li><strong>Isolation isn’t magic:</strong> Treat VMs as safer, not invincible.</li>
+                        <li><strong>Snapshots are gold:</strong> Take snapshots before big experiments.</li>
+                        <li><strong>Performance matters:</strong> Allocate resources wisely; don’t starve your VM or your host.</li>
+                        <li><strong>Network mode = risk level:</strong> Choose NAT, Bridged, or Host-Only intentionally.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- =================== FOOTER ===================== -->
+        <div class="footer">
+            <p><strong>Professor Jennifer Gentry</strong> • VMware for TryHackMe Lab</p>
+            <p style="margin-top: 8px; font-size: 0.9em;">Virtual Machines • Cybersecurity • Kali Linux</p>
+            <p style="margin-top: 12px; font-size: 0.85em; opacity: 0.8;">
+                Building foundational cybersecurity capability one VM at a time.
+            </p>
+        </div>
+    </div>
+
+    <!-- Reuse the same JS file -->
     <script src="lab.js"></script>
     
 </body>
 </html>
-
