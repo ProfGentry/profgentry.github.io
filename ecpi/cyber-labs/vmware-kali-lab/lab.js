@@ -12,10 +12,10 @@
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
 
-            updateProgress(tabName);
+            <! --updateProgress(tabName);-->
         }
 
-        function updateProgress(tabName) {
+       <!--  function updateProgress(tabName) {
             var progress = {
                 'overview': 0,
                 'vmware': 15,
@@ -30,7 +30,7 @@
             if (progressBar) {
                 progressBar.style.width = progress[tabName] + '%';
             }
-        }
+        } -->
 
         function copyPrompt(button) {
             var promptBox = button.parentElement;
@@ -52,7 +52,7 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        <!-- document.addEventListener('DOMContentLoaded', function() {
             updateProgress('overview');
-        });
+        }); -->
     
