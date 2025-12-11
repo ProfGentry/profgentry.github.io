@@ -148,15 +148,15 @@
             </div>
         </div>
 
-        <!-- ========== TAB: DOWNLOAD PARROT OS (ID "kali" reused) ========== -->
-        <div id="kali" class="tab-content">
+        <!-- ========== TAB: DOWNLOAD PARROT OS ========== -->
+        <div id="downloads" class="tab-content">
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">2</span>
                     <span>Download Parrot OS</span>
                 </div>
                 <p><span class="time-badge">⏱️ ~15–20 minutes</span></p>
-                
+                <!--
                 <div class="notice-box">
                     Parrot OS is a Debian-based distribution designed for security, privacy, and development.
                     You may use Parrot Security Edition or Parrot Home Edition, depending on course guidance.
@@ -179,20 +179,19 @@
                         For a production environment, you should verify checksums (SHA256) and signatures provided by the
                         Parrot team. For this introductory lab, we focus on basic installation and configuration.
                     </p>
-                </div>
+                </div> -->
             </div>
         </div>
 
-        <!-- ========== TAB: CREATE PARROT VM (ID "config" reused) ========== -->
-        <div id="config" class="tab-content">
+        <!-- ========== TAB: CREATE PARROT VM ========== -->
+        <div id="parrot" class="tab-content">
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">3</span>
                     <span>Create the Parrot OS Virtual Machine in Hyper-V</span>
                 </div>
                 <p><span class="time-badge">⏱️ ~35–45 minutes</span></p>
-                
-                <div class="notice-box">
+                <!-- <div class="notice-box">
                     <h3>Step 1 – Create an External Virtual Switch</h3>
                     <p>
                         An external virtual switch allows your VM to access the internet via the physical network adapter.
@@ -257,6 +256,7 @@
                         <li>Log in to the Parrot desktop using the credentials you created.</li>
                     </ol>
                 </div>
+                -->
             </div>
         </div>
 
@@ -269,7 +269,7 @@
                 </div>
                 
                 <p><span class="time-badge">⏱️ ~10 minutes</span></p>
-                
+                <!--
                 <div class="success-box">
                     <h3>Verify Network Connectivity in Parrot</h3>
                     <ol>
@@ -291,11 +291,11 @@
                         Because you are using an external virtual switch, your Parrot VM appears on the same network as your
                         host. This is convenient for platforms like Hack The Box that rely on VPN tunnels for lab connectivity.
                     </p>
-                </div>
+                </div> -->
             </div>
         </div>
 
-        <!-- ========== TAB: CONNECT TO HACK THE BOX (ID "conn" reused) ========== -->
+        <!-- ========== TAB: CONNECT TO HACK THE BOX ========== -->
         <div id="conn" class="tab-content">
             <div class="step-card">
                 <div class="step-title">
@@ -304,7 +304,7 @@
                 </div>
                  
                 <p><span class="time-badge">⏱️ ~15–20 minutes</span></p>
-                
+                <!--
                 <div class = "intro-section">
                     Hack The Box (HTB) uses VPN tunnels to place your machine inside its lab networks.
                     In this section, you will install OpenVPN (or the HTB VPN client, if specified),
@@ -382,18 +382,18 @@
                         </li>
                         <li>If you receive replies, your Parrot VM is successfully connected to Hack The Box.</li>
                     </ol>
-                </div>
+                </div> -->
             </div>
         </div>
 
-        <!-- ========== TAB: SUMMARY (ID "complete" reused) ========== -->
+        <!-- ========== TAB: SUMMARY  ========== -->
         <div id="complete" class="tab-content">
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">6</span>
                     <span>Summary & Reflection</span>
                 </div>
-
+<!--
                 <div class="success-box">
                     <h3>What You Accomplished</h3>
                     <ul>
@@ -412,7 +412,7 @@
                         <li>Begin working through introductory HTB machines using this dedicated Parrot environment.</li>
                         <li>Compare this Hyper-V setup with other hypervisors (e.g., VMware, VirtualBox) in terms of performance and usability.</li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -424,7 +424,8 @@
                 Building cybersecurity proficiency one virtual machine at a time.
             </p>
         </div>
-    </div>
+    
+  <!--  </div> -->
 
     <!-- Reuse the same JS file -->
     <script src="lab.js"></script>
