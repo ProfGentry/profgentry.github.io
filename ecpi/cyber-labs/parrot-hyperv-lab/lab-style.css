@@ -140,7 +140,7 @@ body {
    ========================================================= */
 .tabs {
    display: flex;
-   background: 1a1a2e;
+   background: #c8c8ef;
    border-bottom: 3px solid 667eea;
    overflow-x: auto;
 }
@@ -151,7 +151,7 @@ body {
    text-align: center;
    cursor: pointer;
    transition: all 0.3s ease; 
-   background: #1e2a47;
+   background: #c8c8ef;
    border: none;
    font-size: 15px;
    font-weight: bold;
@@ -232,7 +232,7 @@ body {
    border-radius: 50%;
    font-weight: bold;
    margin-right: 15px;
-   font-size: 1.4em;
+   font-size: 1.1em;
    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
 }
 
@@ -438,8 +438,8 @@ ul {
 }
 
 li {
-   margin: 12px 0;
-   line-height: 1.8;
+   margin: 20px 0;
+   line-height: 1.2;
 }
 
 .emoji {
