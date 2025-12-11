@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyper-V + Parrot Lab – Hack The Box Environment</title>
+
+    <!-- Shared academic lab styling -->
+    <link rel="stylesheet" href="assets/css/lab-style.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- =================== HEADER ===================== -->
+        <div class="header">
+            <h1>Hyper-V + Parrot Lab</h1>
+            <p class="subtitle">Creating a virtual machine for Hack The Box in a safe, repeatable environment.</p>
+
+            <div class="info-row">
+                <span class="info-badge">~90–120 Minutes</span>
+                <span class="info-badge">Beginner Technical Level</span>
+                <span class="info-badge">Windows + Hyper-V</span>
+            </div>
+        </div>
+
+        <!-- =================== BREADCRUMB ===================== -->
+        <div class="breadcrumb">
+            <a href="https://profgentry.github.io/index.html">     Prof G's Home     </a>
+            <span>&rsaquo;</span>
+            <a href="https://profgentry.github.io/ecpi/index.html">     Classes Home     </a>
+            <span>&rsaquo;</span>
+            <a href="https://profgentry.github.io/ecpi/cyber-labs/index.html">     Labs Home     </a>
+            <span>&rsaquo;</span>
+            <span>Hyper-V + Parrot Lab</span>
+        </div>
+
+        <!-- =================== TABS ===================== -->
+        <div class="tabs">
+            <button class="tab active" onclick="openTab(event, 'overview')">📋 Overview</button>
+            <button class="tab" onclick="openTab(event, 'vmware')">🖥️ Hyper-V</button>
+            <button class="tab" onclick="openTab(event, 'kali')">🧩 Enable Hyper-V</button>
+            <button class="tab" onclick="openTab(event, 'config')">🦜 Parrot VM</button>
+            <button class="tab" onclick="openTab(event, 'network')">🌐 Network</button>
+            <button class="tab" onclick="openTab(event, 'conn')">🔗 Connect</button>
+            <button class="tab" onclick="openTab(event, 'complete')">🏁 Finish</button>
+        </div>
+
+        <!-- =================== TAB: OVERVIEW ===================== -->
+        <div id="overview" class="tab-content active">
+
+            <div class="intro-section">
+                <h2><span class="emoji">🎯</span> Lab Overview</h2>
+                <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 20px;">
+                    Virtual machines function as flexible, contained environments that allow cybersecurity
+                    professionals to experiment without risking the stability of the host system. In this lab,
+                    you will enable Microsoft Hyper-V, create a Parrot Security OS virtual machine, configure
+                    networking, and connect the virtual machine to the Hack The Box (HTB) platform.
+                    At the end of the lab, you will have a reusable, dedicated environment for future penetration
+                    testing and cybersecurity exercises.
+                </p>
+            </div>
+
+            <div class="success-box">
+                <h3>🔍 What You Will Experience</h3>
+                <ul>
+                    <li><strong>Explain</strong> the role of virtualization and why cybersecurity professionals rely on it.</li>
+                    <li><strong>Enable</strong> Hyper-V and deploy a Parrot Security OS virtual machine.</li>
+                    <li><strong>Configure</strong> Hyper-V virtual networking and select an appropriate virtual switch for HTB.</li>
+                    <li><strong>Connect</strong> your Parrot VM to Hack The Box and verify connectivity to an HTB target.</li>
+                </ul>
+            </div>
+
+            <div class="objective-card">
+                <h4>🖥️ Part 1: Understanding Hyper-V and virtualization</h4>
+                <h4>🧩 Part 2: Enabling Hyper-V on Windows</h4>
+                <h4>🦜 Part 3: Setting up a Parrot Security VM</h4>
+                <h4>🌐 Part 4: Understanding Hyper-V networking</h4>
+                <h4>🔗 Part 5: Connecting your VM to Hack The Box</h4>
+                <h4>🏁 Part 6: Reflection and next steps</h4>
+            </div>
+
+            <div class="notice-box">
+                <h3>📋 Prerequisites</h3>
+                <div class="prereq-item">
+                    <p>✅ <strong>Basic computer skills</strong></p>
+                    <p>✅ <strong>Computer requirements:</strong> At least 8 GB RAM, 50 GB free disk space</p>
+                    <p>✅ <strong>Virtualization enabled</strong> in BIOS/UEFI (Intel VT-x or AMD-V)</p>
+                    <p>✅ <strong>OS:</strong> 64-bit Windows 10/11 Pro or Education with Hyper-V capability</p>
+                    <p>✅ <strong>Permissions:</strong> Ability to enable Windows features such as Hyper-V</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- =================== TAB: HYPER-V CONCEPTS ===================== -->
+        <div id="vmware" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">1</span>
+                    <span>Understanding Hyper-V & Virtualization</span>
+                </div>
+                <p><span class="time-badge">⏱️ ~10 minutes</span></p>
+
+                <div class="intro-section">
+                    <h2>🧠 Understanding Hyper-V</h2>
+                    <p style="font-size: 1.05em; line-height: 1.8; margin-bottom: 20px;">
+                        Before building a virtual machine, it is important to understand what the hypervisor
+                        does and how it manages resources on the host system.
+                    </p>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>💡 What is Virtualization?</h3>
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        Virtualization is the process of creating a simulated computer environment (a virtual
+                        machine) that runs on top of physical hardware. A single physical device can host multiple
+                        virtual machines, each with its own operating system and software, running independently
+                        from the host and from one another.
+                    </p>
+                </div>
+
+                <div class="key-concept">
+                    <h3>🧱 Why Cybersecurity Uses Virtual Machines</h3>
+                    <p>Security professionals rely on virtual machines to:</p>
+                    <ul>
+                        <li>Safely run offensive security tools and exploit code</li>
+                        <li>Isolate and analyze potentially malicious software</li>
+                        <li>Simulate networks and systems for defensive testing</li>
+                        <li>Recreate lab environments that can be reset as needed</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <h3>⚙️🧩 How Hyper-V Works</h3>
+                    <p>Hyper-V is Microsoft’s type-1 hypervisor built into Windows. It manages and abstracts hardware such as:</p>
+                    <ul>
+                        <li>Virtual CPUs (vCPUs)</li>
+                        <li>Virtual memory</li>
+                        <li>Virtual hard disks (VHD/VHDX files)</li>
+                        <li>Virtual network adapters and switches</li>
+                    </ul>
+                    <p>
+                        From the guest operating system’s perspective, the virtual machine behaves like a physical
+                        computer, even though it is sharing the underlying hardware with other guests.
+                    </p>
+                </div>
+
+                <div class="key-concept">
+                    <h3>🗂️ Types of Virtual Machines</h3>
+                    <ul>
+                        <li>🖥️ Full OS machines (e.g., Parrot Security OS)</li>
+                        <li>📦 Pre-built security appliances (firewalls, IDS/IPS virtual images)</li>
+                        <li>🧪 Lightweight, disposable test systems for experiments</li>
+                    </ul>
+                </div>
+
+                <div class="notice-box">
+                    <h3>🛡️ Why We Use Parrot for Hack The Box</h3>
+                    <p>
+                        Parrot Security OS is a Debian-based distribution designed for penetration testing,
+                        digital forensics, and privacy. It includes a curated set of tools for enumeration,
+                        exploitation, web testing, and post-exploitation. This makes it well-suited for
+                        interacting with Hack The Box machines in a controlled lab environment.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- =================== TAB: ENABLE HYPER-V ===================== -->
+        <div id="kali" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    <span>Enabling Hyper-V on Windows</span>
+                </div>
+                <p><span class="time-badge">⏱️ ~15–20 minutes</span></p>
+
+                <div class="notice-box">
+                    <h3>🧩 What You Are Doing</h3>
+                    <p>
+                        In this section you will verify that your system supports virtualization and enable
+                        the Hyper-V feature on Windows. If Hyper-V is already installed and working, you may
+                        proceed directly to the Parrot VM creation section.
+                    </p>
+                </div>
+
+                <h3 style="margin: 25px 0 15px 0;">📝 Step-by-Step Instructions</h3>
+
+                <p><strong>1. Verify Hardware Virtualization Support</strong></p>
+                <ul>
+                    <li>On your Windows host, press <strong>Ctrl + Shift + Esc</strong> to open Task Manager.</li>
+                    <li>Select the <strong>Performance</strong> tab and click <strong>CPU</strong>.</li>
+                    <li>Confirm that <strong>Virtualization</strong> is listed as <strong>Enabled</strong>.</li>
+                    <li>If it is not enabled, you will need to enable virtualization in BIOS/UEFI before proceeding.</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong>2. Enable Hyper-V Using Windows Features</strong></p>
+                <p>Use the built-in Windows feature dialog to enable Hyper-V.</p>
+                <ol>
+                    <li>Open the <strong>Start</strong> menu and search for <strong>Turn Windows features on or off</strong>.</li>
+                    <li>In the dialog, locate and check the boxes for:
+                        <ul>
+                            <li><strong>Hyper-V</strong></li>
+                            <li>Ensure both <strong>Hyper-V Management Tools</strong> and <strong>Hyper-V Platform</strong> are selected.</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>OK</strong>. Windows will install the required components.</li>
+                    <li>Restart the system when prompted.</li>
+                </ol>
+
+                <p style="margin-top: 20px;"><strong>3. Launch Hyper-V Manager</strong></p>
+                <p>After the restart, confirm that Hyper-V is available.</p>
+                <ol>
+                    <li>Open the <strong>Start</strong> menu and search for <strong>Hyper-V Manager</strong>.</li>
+                    <li>Launch <strong>Hyper-V Manager</strong>.</li>
+                    <li>Verify that your local computer appears in the left-hand pane under <strong>Hyper-V Manager</strong>.</li>
+                </ol>
+
+                <h3 style="margin-top: 25px; font-size: 1em;">
+                    <em>Note: On some editions of Windows, Hyper-V is not available. In that case, consult your instructor for an alternate hypervisor.</em>
+                </h3>
+            </div>
+        </div>
+
+        <!-- =================== TAB: CREATE PARROT VM ===================== -->
+        <div id="config" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    <span>Setting Up a Parrot Security VM</span>
+                </div>
+                <p><span class="time-badge">⏱️ ~35–45 minutes</span></p>
+                <p>
+                    In this part, you will create a new virtual machine that runs Parrot Security OS. Follow
+                    each step carefully and pay attention to the choices you make, as they affect performance,
+                    storage, and network behavior.
+                </p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.1</span>
+                    <span> 📥 Download the Parrot ISO</span>
+                </div>
+                <p>First, obtain the installer image (ISO) for Parrot Security OS.</p>
+                <ol>
+                    <li>On your host (Windows) system, open a web browser.</li>
+                    <li>Navigate to the official Parrot download page:
+                        <a href="https://www.parrotsec.org/download/" target="_blank" rel="noopener noreferrer">
+                            https://www.parrotsec.org/download/
+                        </a>
+                    </li>
+                    <li>Select a <strong>Security</strong> edition ISO (64-bit), preferably the stable release.</li>
+                    <li>Download the ISO file and save it in a location that is easy to remember
+                        (for example, <code>Downloads</code> or <code>C:\ISOs\Parrot</code>).</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.2</span>
+                    <span> 🏗️ Create a New Virtual Machine in Hyper-V</span>
+                </div>
+                <p>You are now creating the “computer within a computer.”</p>
+                <ol>
+                    <li>Open <strong>Hyper-V Manager</strong>.</li>
+                    <li>In the right-hand <strong>Actions</strong> pane, click <strong>New</strong> &gt; <strong>Virtual Machine…</strong>.</li>
+                    <li>Review the introductory text and click <strong>Next</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.3</span>
+                    <span> 🖱️ Specify Name and Generation</span>
+                </div>
+                <p>Provide a meaningful name and select the virtual machine generation.</p>
+                <ol>
+                    <li>Enter a name such as <strong>Parrot for HackTheBox</strong>.</li>
+                    <li>Optionally change the storage location (e.g., <code>C:\VMs\Parrot-HTB</code>).</li>
+                    <li>Click <strong>Next</strong>.</li>
+                    <li>Select <strong>Generation 2</strong> if supported by the ISO and your host;
+                        otherwise, select <strong>Generation 1</strong>. When in doubt, follow instructor guidance.</li>
+                    <li>Click <strong>Next</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.4</span>
+                    <span> 🧠 Assign Memory</span>
+                </div>
+                <p>Decide how much RAM the virtual machine should use.</p>
+                <ol>
+                    <li>Assign at least <strong>4096 MB (4 GB)</strong> of startup memory if your host has ≥ 8 GB.</li>
+                    <li>You may enable <strong>Use Dynamic Memory for this virtual machine</strong> so Hyper-V can adjust usage as needed.</li>
+                    <li>Click <strong>Next</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.5</span>
+                    <span> 🌐 Configure Networking (Initial Selection)</span>
+                </div>
+                <p>You will attach the VM to a virtual switch for network connectivity.</p>
+                <ol>
+                    <li>If a <strong>Default Switch</strong> or appropriate <strong>External</strong> virtual switch exists, select it here.</li>
+                    <li>If no switch is available, choose <strong>Not Connected</strong> and you will configure networking later in Part 4.</li>
+                    <li>Click <strong>Next</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.6</span>
+                    <span> 💾 Create a Virtual Hard Disk</span>
+                </div>
+                <p>Create storage for the Parrot VM.</p>
+                <ol>
+                    <li>Keep the option <strong>Create a virtual hard disk</strong> selected.</li>
+                    <li>Specify a name and location for the VHDX file, or accept the defaults.</li>
+                    <li>Set the size to at least <strong>40 GB</strong> to accommodate tools and updates.</li>
+                    <li>Click <strong>Next</strong>.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.7</span>
+                    <span> 🔥➡️🦜 Attach the Parrot ISO</span>
+                </div>
+                <p>Tell Hyper-V to boot from the Parrot installer ISO.</p>
+                <ol>
+                    <li>On the <strong>Installation Options</strong> page, choose
+                        <strong>Install an operating system from a bootable image file</strong>.</li>
+                    <li>Click <strong>Browse…</strong> and select the Parrot ISO you downloaded earlier.</li>
+                    <li>Click <strong>Next</strong>, then review the summary.</li>
+                    <li>Click <strong>Finish</strong> to create the VM.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.8</span>
+                    <span> 🛠️ Start the VM and Run the Parrot Installer</span>
+                </div>
+                <p>Install Parrot onto the virtual hard disk.</p>
+                <ol>
+                    <li>In <strong>Hyper-V Manager</strong>, right-click your new <strong>Parrot for HackTheBox</strong> VM and select <strong>Connect…</strong>.</li>
+                    <li>In the Virtual Machine Connection window, click <strong>Start</strong>.</li>
+                    <li>When the Parrot boot menu appears, select the appropriate <strong>Install</strong> or
+                        <strong>Graphical Install</strong> option.</li>
+                    <li>Follow the on-screen prompts:
+                        <ul>
+                            <li>Select language, region, and keyboard layout.</li>
+                            <li>Set a hostname (for example, <strong>parrot</strong>).</li>
+                            <li>Create a user account and password; record this securely.</li>
+                            <li>Use guided partitioning to install to the entire virtual disk.</li>
+                            <li>Allow the installer to install a bootloader when prompted.</li>
+                        </ul>
+                    </li>
+                    <li>Wait while the installer copies files and configures the system.</li>
+                </ol>
+            </div>
+
+            <div class="step-card">
+                <div class="step-title">
+                    <span>3.9</span>
+                    <span> 🔁 Reboot into the Parrot Desktop</span>
+                </div>
+                <p>Complete the installation and verify that the desktop environment works.</p>
+                <ol>
+                    <li>When prompted, select <strong>Continue</strong> to reboot.</li>
+                    <li>If the VM still boots from the ISO, power off, remove the ISO from the virtual DVD drive in
+                        the VM’s settings, and then start the VM again.</li>
+                    <li>Log in with the username and password you created.</li>
+                    <li>Confirm that you can see and interact with the Parrot desktop environment.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- =================== TAB: NETWORK MODES (HYPER-V) ===================== -->
+        <div id="network" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">4</span>
+                    <span>Understanding Hyper-V Networking</span>
+                </div>
+                <p><span class="time-badge">⏱️ ~10 minutes</span></p>
+
+                <div class="intro-section">
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        Hyper-V uses virtual switches to connect virtual machines to networks. In this part, you will
+                        learn how these switches work and how they affect connectivity to the internet and to
+                        Hack The Box resources.
+                    </p>
+                </div>
+
+                <div class="success-box">
+                    <h2>🌐 Default and External Virtual Switches (Recommended)</h2>
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        Hyper-V can create virtual switches that bridge traffic between VMs, the host, and the
+                        physical network. For most Hack The Box scenarios, using the <strong>Default Switch</strong>
+                        or an <strong>External</strong> switch is appropriate because they allow internet access.
+                    </p>
+                    <p><strong>Why this matters:</strong></p>
+                    <ul>
+                        <li>Provides Parrot with outbound internet connectivity.</li>
+                        <li>Allows the VM to reach HTB’s VPN endpoints.</li>
+                        <li>Keeps configuration relatively simple for beginning labs.</li>
+                    </ul>
+                    <p><strong>Analogy:</strong> The virtual switch acts like a managed power strip for network traffic:
+                        you plug multiple VMs into one logical “outlet” that leads to the wider network.</p>
+                </div>
+
+                <div class="notice-box">
+                    <h2>🌉 External vs Internal vs Private</h2>
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        Hyper-V supports several types of virtual switches, each with a different visibility level.
+                    </p>
+                    <p><strong>External Switch:</strong></p>
+                    <ul>
+                        <li>Bridges VMs to the physical network adapter.</li>
+                        <li>VMs can access the internet and be visible on the local LAN.</li>
+                        <li>Suitable for HTB connectivity in many environments.</li>
+                    </ul>
+                    <p><strong>Internal Switch:</strong></p>
+                    <ul>
+                        <li>Allows communication between the host and its VMs only.</li>
+                        <li>No direct internet access without additional routing.</li>
+                        <li>Useful for host–VM labs and internal simulations.</li>
+                    </ul>
+                    <p><strong>Private Switch:</strong></p>
+                    <ul>
+                        <li>Allows communication only between VMs on the same host.</li>
+                        <li>No connection to the host or the wider network.</li>
+                        <li>Useful for isolated multi-VM scenarios or malware labs.</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h2>🚧 Considerations for Hack The Box</h2>
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        Hack The Box requires your Parrot VM to reach HTB’s VPN infrastructure across the internet.
+                        Therefore, the VM must have working outbound connectivity via an appropriate virtual switch.
+                    </p>
+                    <ul>
+                        <li>For introductory labs, using the <strong>Default Switch</strong> or an
+                            <strong>External</strong> switch is recommended.</li>
+                        <li>Internal and Private switches are not sufficient by themselves for HTB because they do not
+                            provide outbound internet access.</li>
+                    </ul>
+                </div>
+
+                <div class="intro-section">
+                    <h2><span class="emoji">🔑</span> Key Takeaways</h2>
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        Each virtual switch type controls what your VM can reach:
+                    </p>
+                    <ul>
+                        <li>🌐 <strong>Default/External</strong> → Internet access and, optionally, LAN visibility.</li>
+                        <li>🏠 <strong>Internal</strong> → Host and other VMs only.</li>
+                        <li>🔒 <strong>Private</strong> → Only VMs on the same host.</li>
+                    </ul>
+                    <p>
+                        Selecting the correct virtual switch is essential for balancing functionality, isolation,
+                        and risk in cybersecurity labs.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- =================== TAB: CONNECT TO HACK THE BOX ===================== -->
+        <div id="conn" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">5</span>
+                    <span>Connecting Parrot to Hack The Box</span>
+                </div>
+                <p><span class="time-badge">⏱️ ~15–20 minutes</span></p>
+
+                <div class="intro-section">
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        In this part, you will connect your Parrot VM to Hack The Box (HTB) using a VPN configuration
+                        file. This creates a secure tunnel from your VM to the HTB network, allowing you to reach
+                        assigned lab machines for practice and assessment.
+                    </p>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 1 🛠️: Confirm Internet Access from Parrot</h2>
+                    <p style="font-size: 1.05em; line-height: 1.8;">
+                        Before establishing the VPN, verify that the VM can reach the internet.
+                    </p>
+                    <ol>
+                        <li>Start your <strong>Parrot VM</strong> in Hyper-V and log in.</li>
+                        <li>Confirm in Hyper-V Manager that the VM is attached to the intended virtual switch
+                            (Default or External).</li>
+                        <li>Inside Parrot, open a <strong>terminal</strong>.</li>
+                        <li>Run:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>ping -c 4 8.8.8.8</pre>
+                            </div>
+                        </li>
+                        <li>You should see replies from <code>8.8.8.8</code>. Press <strong>Ctrl+C</strong> to stop.</li>
+                        <li>Optional: Open the web browser (for example, Firefox) and navigate to
+                            <code>https://www.hackthebox.com</code> to confirm HTTP/HTTPS access.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 2 🛠️: Update Package Lists</h2>
+                    <p>Ensure Parrot’s package database is current.</p>
+                    <ol>
+                        <li>In the Parrot terminal, run:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>sudo apt update</pre>
+                            </div>
+                        </li>
+                        <li>Enter your password if prompted.</li>
+                        <li>Wait for the command to complete and review for any errors.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 3 🛠️: Install OpenVPN (If Needed)</h2>
+                    <p>Install the VPN client required for many HTB connection packs.</p>
+                    <ol>
+                        <li>In the same terminal, run:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>sudo apt install openvpn -y</pre>
+                            </div>
+                        </li>
+                        <li>Allow the installation to complete.</li>
+                        <li>When the shell prompt returns without errors, OpenVPN is available.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 4 🛠️: Download Your Hack The Box VPN Configuration</h2>
+                    <p>Obtain the personalized configuration that links your VM to your HTB account.</p>
+                    <ol>
+                        <li>From within Parrot, open a web browser.</li>
+                        <li>Navigate to
+                            <a href="https://www.hackthebox.com" target="_blank" rel="noopener noreferrer">
+                                https://www.hackthebox.com
+                            </a> and log in.</li>
+                        <li>Locate the <strong>Access</strong> or <strong>Labs</strong> section associated with your subscription or lab access.</li>
+                        <li>Download the appropriate VPN <code>.ovpn</code> file for your region or assignment.</li>
+                        <li>Verify that the file appears in your <strong>Downloads</strong> directory in Parrot.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 5 🛠️: Navigate to the VPN File in the Terminal</h2>
+                    <p>Move into the directory where the HTB VPN file is stored.</p>
+                    <ol>
+                        <li>In the Parrot terminal, run:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>cd ~/Downloads</pre>
+                            </div>
+                        </li>
+                        <li>List the directory contents:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>ls</pre>
+                            </div>
+                        </li>
+                        <li>Identify the file ending in <code>.ovpn</code>, such as
+                            <code>lab-region-username.ovpn</code>.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 6 🛠️: Connect to Hack The Box Using OpenVPN</h2>
+                    <p>Establish the VPN tunnel from Parrot to HTB.</p>
+                    <ol>
+                        <li>Remain in the directory that contains your <code>.ovpn</code> file.</li>
+                        <li>Run the following command, substituting your actual file name:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>sudo openvpn your_htb_config.ovpn</pre>
+                            </div>
+                        </li>
+                        <li>Enter your password if prompted.</li>
+                        <li>Observe the terminal output. Once you see
+                            <code>Initialization Sequence Completed</code>, the VPN is active.</li>
+                        <li><strong>Do not close this terminal window</strong> while working in Hack The Box.
+                            Closing it will terminate the VPN session.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 7 🛠️: Verify the VPN Connection</h2>
+                    <p>Confirm that the Parrot VM is successfully attached to the HTB network.</p>
+                    <ol>
+                        <li>Open a <strong>new</strong> terminal window in Parrot, leaving the OpenVPN terminal running.</li>
+                        <li>Run:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>ip a</pre>
+                            </div>
+                        </li>
+                        <li>Look for an interface named <code>tun0</code> (or similar). This represents the VPN tunnel.</li>
+                        <li>In your browser, start an assigned Hack The Box machine and note its IP address.</li>
+                        <li>From the new terminal, test connectivity:
+                            <div class="command-box">
+                                <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                                <pre>ping -c 4 &lt;HTB_machine_IP&gt;</pre>
+                            </div>
+                        </li>
+                        <li>If you receive replies, your Parrot VM is successfully connected to the HTB environment.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h2>Step 8 🛠️: Disconnect When Finished</h2>
+                    <p>Close the VPN tunnel in a controlled manner.</p>
+                    <ol>
+                        <li>Return to the terminal window where <strong>OpenVPN</strong> is running.</li>
+                        <li>Press <strong>Ctrl+C</strong> to stop the OpenVPN process.</li>
+                        <li>Confirm in the output that the VPN session is terminating.</li>
+                        <li>Run <code>ip a</code> again if you wish to verify that the <code>tun0</code> interface has been removed.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- =================== TAB: COMPLETE ===================== -->
+        <div id="complete" class="tab-content">
+            <div style="text-align: center; padding: 40px;">
+                <div style="font-size: 4em; margin-bottom: 20px;">🎊</div>
+                <h2 style="color: #2b4c7e; font-size: 2.2em; margin-bottom: 20px;">Hyper-V Parrot Lab Complete!</h2>
+
+                <div class="success-box" style="text-align: left; max-width: 900px; margin: 30px auto;">
+                    <h3>🎓 What You Accomplished</h3>
+                    <ul style="font-size: 1.05em;">
+                        <li>✅ Explained what virtualization is and why it matters for cybersecurity practice.</li>
+                        <li>✅ Enabled Hyper-V and deployed a Parrot Security OS virtual machine.</li>
+                        <li>✅ Configured Hyper-V networking and selected an appropriate virtual switch.</li>
+                        <li>✅ Connected your Parrot VM to Hack The Box and verified connectivity to an HTB target.</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="text-align: left; max-width: 900px; margin: 30px auto;">
+                    <h3>🚀 Suggested Next Steps</h3>
+                    <ul style="font-size: 1.05em;">
+                        <li><strong>Explore:</strong> the Parrot toolset (scanners, web testing tools, password crackers).</li>
+                        <li><strong>Customize:</strong> your Parrot environment, including terminal preferences and editor configuration.</li>
+                        <li><strong>Create:</strong> snapshots at known-good states before attempting more advanced HTB machines.</li>
+                        <li><strong>Document:</strong> your process and commands during HTB activities to build a professional workflow.</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box" style="text-align: left; max-width: 900px; margin: 30px auto;">
+                    <h3>⚠️ Important Considerations</h3>
+                    <ul>
+                        <li><strong>Virtual machines reduce risk, but do not eliminate it:</strong>
+                            continue to follow institutional policies and ethical guidelines.</li>
+                        <li><strong>Resource allocation:</strong> monitor CPU, memory, and disk usage to maintain a responsive host system.</li>
+                        <li><strong>Network scope:</strong> be intentional about which networks your VM can access when working with offensive tools.</li>
+                        <li><strong>Reproducibility:</strong> maintaining a consistent VM and VPN configuration will support future labs and assessments.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- =================== FOOTER ===================== -->
+        <div class="footer">
+            <p><strong>Professor Jennifer Gentry</strong> • Hyper-V + Parrot for Hack The Box Lab</p>
+            <p style="margin-top: 8px; font-size: 0.9em;">Virtual Machines • Cybersecurity • Parrot Security OS</p>
+            <p style="margin-top: 12px; font-size: 0.85em; opacity: 0.8;">
+                Building foundational cybersecurity capability one virtual environment at a time.
+            </p>
+        </div>
+    </div>
+
+    <!-- Reuse the same JS file -->
+    <script src="assets/js/lab.js"></script>
+
+</body>
+</html>
