@@ -12,27 +12,9 @@
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
 
-            <! --updateProgress(tabName);-->
         }
 
-       <!--  function updateProgress(tabName) {
-            var progress = {
-                'overview': 0,
-                'vmware': 15,
-                'kali': 30,
-                'config': 55,
-                'network': 80,
-                'conn':90,
-                'complete': 100
-            };
-            
-            var progressBar = document.getElementById('progressBar');
-            if (progressBar) {
-                progressBar.style.width = progress[tabName] + '%';
-            }
-        } -->
-
-        function copyPrompt(button) {
+       function copyPrompt(button) {
             var promptBox = button.parentElement;
             var preElement = promptBox.querySelector('pre');
             var text = preElement.textContent;
@@ -52,7 +34,4 @@
             });
         }
 
-        <!-- document.addEventListener('DOMContentLoaded', function() {
-            updateProgress('overview');
-        }); -->
-    
+       
