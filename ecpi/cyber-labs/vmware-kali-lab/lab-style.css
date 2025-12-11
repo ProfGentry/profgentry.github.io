@@ -58,8 +58,8 @@ body {
 }
 
 .header h1 {
-   font-size: 2.4em;
-   margin-bottom: 8px;
+   font-size: 2.8em;
+   margin-bottom: 10px;
    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
    position: relative;
    z-index: 1;
@@ -73,7 +73,7 @@ body {
 }
 
 .header .subtitle {
-   font-size: 1.2em;
+   font-size: 1.1em;
    margin-top: 10px;
    font-weight: 300;
    opacity: 0.95
@@ -86,10 +86,10 @@ body {
    ========================================================= */
 .info-badge {
    display: inline-block;
-   background: rgba(255, 255, 255, 0.2);
-   padding: 8px 16px;
-   border-radius: 16px;
-   margin: 6px 8px;
+   background: rgba(255, 255, 255, 0.25);
+   padding: 10px 20px;
+   border-radius: 20px;
+   margin: 10px 5px;
    font-weight: bold;
    backdrop-filter: blur(10px);
    position: relative;
@@ -98,12 +98,12 @@ body {
 
 .advanced-badge {
    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-   padding: 8px 16px;
-   border-radius: 16px;
+   padding: 8px 20px;
+   border-radius: 20px;
    font-size: 0.9em;
    font-weight: bold;
    display: inline-block;
-   margin: 6px 8px;
+   margin: 10px 5px;
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -147,11 +147,11 @@ body {
 
 .tab {
    flex: 1;
-   padding: 18px;
+   padding: 20px;
    text-align: center;
    cursor: pointer;
    transition: all 0.3s ease; 
-   background: 16213e;
+   background: #16213e;
    border: none;
    font-size: 15px;
    font-weight: bold;
@@ -168,8 +168,8 @@ body {
 
 .tab.active {
    background: white;
-   color: 667eea;
-   border-bottom: 3px solid 667eea;
+   color: #667eea;
+   border-bottom: 3px solid #667eea;
    transform: translateY(3px);
 }
 
@@ -212,7 +212,7 @@ body {
    padding: 30px;
    margin: 25px 0;
    border-radius: 12px;
-   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); <!-- was 0.1 -->
    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -225,21 +225,21 @@ body {
    display: inline-block;
    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
    color: white;
-   width: 45px;
-   height: 45px;
-   line-height: 45px;
+   width: 50px;
+   height: 50px;
+   line-height: 50px;
    text-align: center;
    border-radius: 50%;
    font-weight: bold;
-   margin-right: 12px;
-   font-size: 1.2em;
+   margin-right: 15px;
+   font-size: 1.4em;
    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
 }
 
 .step-title {
-   font-size: 1.4em;
+   font-size: 1.8em;
    color: #1a202c;
-   margin-bottom: 12px;
+   margin-bottom: 20px;
    display: flex;
    align-items: center;
 }
