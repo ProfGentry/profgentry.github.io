@@ -39,12 +39,10 @@
 
         <!-- ================= TABS ================= -->
         <div class="tabs">
-            <!-- NOTE: IDs match the original JS (overview, vmware, kali, config, network, conn, complete)
-                 so the same lab.js "updateProgress" function still works without changes. -->
             <button class="tab active" onclick="openTab(event, 'overview')">Overview</button>
-            <button class="tab" onclick="openTab(event, 'vmware')">💡 Concepts</button>
-            <button class="tab" onclick="openTab(event, 'kali')">📥 Downloads</button>
-            <button class="tab" onclick="openTab(event, 'config')">🦜 Parrot</button>
+            <button class="tab" onclick="openTab(event, 'concepts')">💡 Concepts</button>
+            <button class="tab" onclick="openTab(event, 'downloads')">📥 Downloads</button>
+            <button class="tab" onclick="openTab(event, 'parrot')">🦜 Parrot</button>
             <button class="tab" onclick="openTab(event, 'network')">🌐 Networking</button>
             <button class="tab" onclick="openTab(event, 'conn')">🔗 Connect</button>
             <button class="tab" onclick="openTab(event, 'complete')">🏁 Finish</button>
@@ -94,8 +92,8 @@
             </div>
         </div>
 
-        <!-- ========== TAB: HYPER-V CONCEPTS (ID "vmware" reused for JS compatibility) ========== -->
-        <div id="vmware" class="tab-content">
+        <!-- ========== TAB: HYPER-V CONCEPTS ========== -->
+        <div id="concepts" class="tab-content">
             <div class="step-card">
                 <div class="step-title">
                     <span class="step-number">1</span>
@@ -103,7 +101,7 @@
                 </div>
                 <p><span class="time-badge">⏱️ ~10 minutes</span></p>
 
-                <div class="intro-section">
+<!--                <div class="intro-section">
                     <h3>💡 What Is Hyper-V?</h3>
                     <p>
                         Hyper-V is Microsoft’s native type-1 hypervisor. It allows you to run multiple operating systems
@@ -146,7 +144,7 @@
                             Together, these differences illustrate how Hyper-V prioritizes native integration and ease of use, while VMware emphasizes performance, flexibility, and enterprise-grade functionality.
                     </p>
                 </div>
-                
+-->                
             </div>
         </div>
 
