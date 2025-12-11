@@ -150,10 +150,10 @@ body {
    padding: 18px;
    text-align: center;
    cursor: pointer;
-   transition: 0.2x; <!-- all 0.3s ease; -->
+   transition: all 0.3s ease; 
    background: 16213e;
    border: none;
-   font-size: 0.95em; <!-- 15px; -->
+   font-size: 15px;
    font-weight: bold;
    color: a0aec0; 
    min-width: 140px;
