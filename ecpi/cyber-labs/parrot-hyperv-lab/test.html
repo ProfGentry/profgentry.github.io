@@ -1,0 +1,327 @@
+<!--                <div class="intro-section">
+                    <h3>💡 What Is Hyper-V?</h3>
+                    <p>
+                        Hyper-V is Microsoft’s native type-1 hypervisor. It allows you to run multiple operating systems
+                        (virtual machines) directly on your hardware, managed by Windows. This lab uses Hyper-V to host Parrot OS.
+                    </p>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Why Use Hyper-V for Hack The Box?</h3>
+                    <ul>
+                        <li>Integrated with Windows, no third-party hypervisor required.</li>
+                        <li>Supports virtual switches for flexible network design.</li>
+                        <li>Allows you to isolate security tooling from your daily-use host system.</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <h3>Enable Hyper-V on Windows</h3>
+                    <p>Perform these steps on the Windows host (not in a VM):</p>
+                    <ol>
+                        <li>Open <strong>Control Panel</strong> → <strong>Programs</strong> → <strong>Turn Windows features on or off</strong>.</li>
+                        <li>Check <strong>Hyper-V</strong> (and all sub-options).</li>
+                        <li>Click <strong>OK</strong> and allow Windows to install the Hyper-V components.</li>
+                        <li>Restart your system when prompted.</li>
+                        <li>After reboot, open the <strong>Hyper-V Manager</strong> from the Start menu.</li>
+                    </ol>
+                </div>
+
+                <div class="notice-box">
+                    <h3>🛡️ Key differences between Hyper-V and VMware</h3>
+                    <p>
+                            Hyper-V and VMware represent two distinct approaches to virtualization, each shaped by its underlying design philosophy and target environment. 
+                        
+                            Hyper-V is integrated directly into the Windows operating system, offering strong compatibility with Microsoft and a streamlined deployment process for Windows-based infrastructures. 
+                        
+                            VMware, by contrast, provides a platform-agnostic solution with a long-standing emphasis on advanced virtualization capabilities, broad guest operating system support, and highly refined management tools. 
+                        
+                            From a cost perspective, Hyper-V is often more accessible because it is included with certain editions of Windows, whereas VMware typically requires dedicated licensing to unlock its full feature set. 
+                        
+                            Together, these differences illustrate how Hyper-V prioritizes native integration and ease of use, while VMware emphasizes performance, flexibility, and enterprise-grade functionality.
+                    </p>
+                </div>
+-->                
+
+
+
+
+
+
+
+        <!-- ========== TAB: DOWNLOAD PARROT OS ========== -->
+        <div id="downloads" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    <span>Download Parrot OS</span>
+                </div>
+                <p><span class="time-badge">⏱️ ~15–20 minutes</span></p>
+                <!--
+                <div class="notice-box">
+                    Parrot OS is a Debian-based distribution designed for security, privacy, and development.
+                    You may use Parrot Security Edition or Parrot Home Edition, depending on course guidance.
+                </div>
+
+                <div class="success-box">
+                    <h3>Obtain Parrot OS from the Official Site</h3>
+                    <ol>
+                        <li>From the Windows host, open a web browser.</li>
+                        <li>Navigate to the official Parrot website: <strong>https://www.parrotsec.org</strong> or <strong>https://parrotlinux.org</strong>.</li>
+                        <li>Locate the <strong>Downloads</strong> section.</li>
+                        <li>Select an appropriate ISO (e.g., <strong>Parrot Security KDE/Mate 64-bit</strong>).</li>
+                        <li>Download the ISO file and note the folder where it is stored (e.g., <em>C:\ISOs\Parrot</em>).</li>
+                    </ol>
+                </div>
+
+                <div class="notice-box">
+                    <h3>Optional: Verify Integrity</h3>
+                    <p>
+                        For a production environment, you should verify checksums (SHA256) and signatures provided by the
+                        Parrot team. For this introductory lab, we focus on basic installation and configuration.
+                    </p>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- ========== TAB: CREATE PARROT VM ========== -->
+        <div id="parrot" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    <span>Create the Parrot OS Virtual Machine in Hyper-V</span>
+                </div>
+                <p><span class="time-badge">⏱️ ~35–45 minutes</span></p>
+                <!-- <div class="notice-box">
+                    <h3>Step 1 – Create an External Virtual Switch</h3>
+                    <p>
+                        An external virtual switch allows your VM to access the internet via the physical network adapter.
+                    </p>
+                    <ol>
+                        <li>Open <strong>Hyper-V Manager</strong>.</li>
+                        <li>In the right-hand Actions pane, select <strong>Virtual Switch Manager…</strong>.</li>
+                        <li>Choose <strong>New virtual network switch</strong> → <strong>External</strong> → <strong>Create Virtual Switch</strong>.</li>
+                        <li>Give it a clear name, such as <strong>External-Parrot-HTB</strong>.</li>
+                        <li>Select the physical network adapter used for internet access.</li>
+                        <li>Leave other settings at defaults unless instructed otherwise and click <strong>OK</strong>.</li>
+                    </ol>
+                </div>
+
+                <div class="success-box">
+                    <h3>Step 2 – Create a New VM</h3>
+                    <ol>
+                        <li>In <strong>Hyper-V Manager</strong>, right-click your host name and select <strong>New → Virtual Machine…</strong>.</li>
+                        <li>Click <strong>Next</strong> through the introduction.</li>
+                        <li>Assign a name such as <strong>Parrot-HTB</strong> and choose a storage location if needed.</li>
+                        <li>Select a <strong>Generation 2</strong> VM (if Parrot supports your hardware; otherwise, Generation 1).</li>
+                        <li>Assign at least <strong>4096 MB (4 GB)</strong> of memory (more if available).</li>
+                        <li>Choose <strong>Use dynamic memory</strong> if appropriate for your system.</li>
+                        <li>Connect the VM to the external virtual switch you created (e.g., <strong>External-Parrot-HTB</strong>).</li>
+                        <li>Create a virtual hard disk (e.g., 40–60 GB, dynamically expanding).</li>
+                        <li>On the “Installation Options” page, select <strong>Install an operating system from a bootable image file</strong> and browse to the Parrot ISO.</li>
+                        <li>Review the summary and click <strong>Finish</strong>.</li>
+                    </ol>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Step 3 – Adjust Secure Boot (If Needed)</h3>
+                    <p>
+                        Many Linux distributions require a different Secure Boot template or disabled Secure Boot.
+                    </p>
+                    <ol>
+                        <li>Right-click the new VM and choose <strong>Settings…</strong>.</li>
+                        <li>Under <strong>Security</strong>, uncheck <strong>Enable Secure Boot</strong> OR select a Linux-compatible template if available.</li>
+                        <li>Click <strong>OK</strong>.</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">5</span>
+                        <span>Install Parrot OS in the VM</span>
+                    </div>
+                    <p>Now you will perform the Parrot OS installation inside the virtual machine.</p>
+                    <ol>
+                        <li>In Hyper-V Manager, select the <strong>Parrot-HTB</strong> VM and click <strong>Connect…</strong>.</li>
+                        <li>In the VM window, click the green <strong>Start</strong> button.</li>
+                        <li>When the Parrot boot menu appears, choose the appropriate <strong>Install</strong> or <strong>Graphical Install</strong> option.</li>
+                        <li>Follow the Parrot installer prompts:
+                            <ul>
+                                <li>Select language, location, and keyboard layout.</li>
+                                <li>Partition the virtual disk using the guided option.</li>
+                                <li>Create a user account and secure password.</li>
+                            </ul>
+                        </li>
+                        <li>Allow the installer to copy files and configure the system.</li>
+                        <li>When the installation is complete, reboot and remove the ISO if prompted.</li>
+                        <li>Log in to the Parrot desktop using the credentials you created.</li>
+                    </ol>
+                </div>
+                -->
+            </div>
+        </div>
+
+        <!-- ========== TAB: HYPER-V NETWORKING (ID "network" reused) ========== -->
+        <div id="network" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">4</span>
+                    <span>Hyper-V Networking for Parrot</span>
+                </div>
+                
+                <p><span class="time-badge">⏱️ ~10 minutes</span></p>
+                <!--
+                <div class="success-box">
+                    <h3>Verify Network Connectivity in Parrot</h3>
+                    <ol>
+                        <li>Ensure your Parrot VM is connected to the <strong>External-Parrot-HTB</strong> virtual switch.</li>
+                        <li>Start Parrot and open a terminal.</li>
+                        <li>Check IP addressing with:
+                            <br><code>ip a</code>
+                        </li>
+                        <li>Confirm that the primary interface (e.g., <code>eth0</code> or <code>ens33</code>) has an IP address.</li>
+                        <li>Test internet connectivity:
+                            <br><code>ping -c 4 8.8.8.8</code>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="notice-box">
+                    <h3>External Virtual Switch Behavior</h3>
+                    <p>
+                        Because you are using an external virtual switch, your Parrot VM appears on the same network as your
+                        host. This is convenient for platforms like Hack The Box that rely on VPN tunnels for lab connectivity.
+                    </p>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- ========== TAB: CONNECT TO HACK THE BOX ========== -->
+        <div id="conn" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">5</span>
+                    <span>Connecting Parrot OS to Hack The Box</span>
+                </div>
+                 
+                <p><span class="time-badge">⏱️ ~15–20 minutes</span></p>
+                <!--
+                <div class = "intro-section">
+                    Hack The Box (HTB) uses VPN tunnels to place your machine inside its lab networks.
+                    In this section, you will install OpenVPN (or the HTB VPN client, if specified),
+                    download your connection pack, and verify connectivity.
+                </div>
+
+                <div class="notice-box">
+                    <h3>Step 1 – Update Package Lists</h3>
+                    <ol>
+                        <li>In Parrot, open a terminal.</li>
+                        <li>Run:
+                            <br><code>sudo parrot-upgrade</code><br>
+                            or, if instructed:
+                            <br><code>sudo apt update &amp;&amp; sudo apt upgrade</code>
+                        </li>
+                        <li>Allow updates to complete.</li>
+                    </ol>
+                </div>
+
+                <div class="success-box">
+                    <h3>Step 2 – Install OpenVPN (if using OpenVPN pack)</h3>
+                    <ol>
+                        <li>In the terminal, run:
+                            <br><code>sudo apt install openvpn -y</code>
+                        </li>
+                        <li>Verify there are no errors during installation.</li>
+                    </ol>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Step 3 – Download Your HTB VPN Pack</h3>
+                    <ol>
+                        <li>Open a browser inside Parrot and navigate to <strong>https://www.hackthebox.com</strong>.</li>
+                        <li>Sign in with your Hack The Box account.</li>
+                        <li>Locate the area where you download your VPN connection pack (often under “Connect” or “Access”).</li>
+                        <li>Select the appropriate VPN server/location and download the <code>.ovpn</code> configuration file.</li>
+                        <li>Save it to your Parrot home directory (e.g., <em>~/Downloads</em>).</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">8</span>
+                        <span>Step 4 – Connect Using OpenVPN</span>
+                    </div>
+
+                    <ol>
+                        <li>Open a terminal in Parrot.</li>
+                        <li>Change to the directory where you saved the <code>.ovpn</code> file, for example:
+                            <br><code>cd ~/Downloads</code>
+                        </li>
+                        <li>List files to confirm the configuration file is present:
+                            <br><code>ls</code>
+                        </li>
+                        <li>Start the VPN tunnel (replace <code>yourfile.ovpn</code> with the real file name):
+                            <br><code>sudo openvpn yourfile.ovpn</code>
+                        </li>
+                        <li>Enter your sudo password if prompted.</li>
+                        <li>Watch the terminal output. When you see <strong>“Initialization Sequence Completed”</strong>, the VPN is active.</li>
+                        <li><strong>Do not close</strong> this terminal while you need HTB access.</li>
+                    </ol>
+                </div>
+
+                <div class="success-box">
+                    <h3>Step 5 – Verify HTB Connectivity</h3>
+                    <ol>
+                        <li>Open a new terminal in Parrot (leave the OpenVPN terminal running).</li>
+                        <li>Confirm the presence of the VPN interface:
+                            <br><code>ip a</code>
+                        </li>
+                        <li>You should see an interface such as <code>tun0</code> with an IP address in the HTB-assigned range.</li>
+                        <li>From your HTB dashboard, start a target machine and note its IP address.</li>
+                        <li>Ping the target from Parrot:
+                            <br><code>ping -c 4 &lt;HTB_target_IP&gt;</code>
+                        </li>
+                        <li>If you receive replies, your Parrot VM is successfully connected to Hack The Box.</li>
+                    </ol>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- ========== TAB: SUMMARY  ========== -->
+        <div id="complete" class="tab-content">
+            <div class="step-card">
+                <div class="step-title">
+                    <span class="step-number">6</span>
+                    <span>Summary & Reflection</span>
+                </div>
+<!--
+                <div class="success-box">
+                    <h3>What You Accomplished</h3>
+                    <ul>
+                        <li>Enabled and configured Hyper-V on a Windows host.</li>
+                        <li>Downloaded and installed Parrot OS in a Hyper-V virtual machine.</li>
+                        <li>Configured an external virtual switch and verified Parrot’s network connectivity.</li>
+                        <li>Used Parrot to establish a VPN connection to Hack The Box.</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Suggested Next Steps</h3>
+                    <ul>
+                        <li>Take a snapshot or checkpoint of your Parrot VM in a clean, ready state.</li>
+                        <li>Document your configuration choices (RAM, disk size, virtual switch name) in your lab notebook.</li>
+                        <li>Begin working through introductory HTB machines using this dedicated Parrot environment.</li>
+                        <li>Compare this Hyper-V setup with other hypervisors (e.g., VMware, VirtualBox) in terms of performance and usability.</li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- ================= FOOTER ================= -->
+        <div class="footer">
+            <p><strong>Professor Jennifer Gentry</strong> • Hyper-V for Hack the Box Lab</p>
+            <p>Parrot OS • Hyper-V • Hack The Box</p>
+            <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.7;">
+                Building cybersecurity proficiency one virtual machine at a time.
+            </p>
+        </div>
