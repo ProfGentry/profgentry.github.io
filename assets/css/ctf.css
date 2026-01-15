@@ -408,3 +408,13 @@ a:focus {
     align-items: flex-start;
   }
 }
+/* Full-width CTF Combine card */
+.ctf-combine-card {
+    grid-column: 1 / -1;
+    border-left-color: #38bdf8;
+    background: linear-gradient(
+        135deg,
+        rgba(43, 76, 126, 0.08),
+        rgba(56, 189, 248, 0.08)
+    );
+}
