@@ -1,1 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CTF Combine — Skill Stations</title>
+  <meta
+    name="description"
+    content="CTF Combine stations for assessing student strengths across Linux, networking, crypto, blue-team analysis, scripting, and research."
+  />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg2: #070b14;
+      --card: rgba(15, 23, 42, 0.92);
+      --card-border: rgba(148, 163, 184, 0.35);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --muted2: #6b7280;
+      --accent: #38bdf8;
+      --accent2: #0ea5e9;
+      --chip: rgba(56, 189, 248, 0.12);
+      --shadow: 0 18px 45px rgba(2, 6, 23, 0.75);
+      --radius: 18px;
+      --radius-pill: 999px;
+      --gap: 1.25rem;
+      --t: 180ms ease-out;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.12), transparent 45%),
+        radial-gradient(circle at 90% 20%, rgba(129, 140, 248, 0.10), transparent 45%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 2.25rem 1.25rem 2.75rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1100px;
+      background: linear-gradient(135deg, rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.15));
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 1.75rem 1.75rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.10), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.09), transparent 55%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.3fr);
+      gap: 1.5rem;
+      align-items: start;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.85rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(2, 6, 23, 0.55);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      width: fit-content;
+      margin-bottom: 0.8rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent2);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.75);
+    }
+
+    h1 {
+      margin: 0 0 0.45rem;
+      font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.98rem;
+      max-width: 60ch;
+    }
+
+    .meta {
+      background: rgba(2, 6, 23, 0.45);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: var(--radius);
+      padding: 1rem 1rem 1.05rem;
+    }
+
+    .meta h2 {
+      margin: 0 0 0.6rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .meta p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.25rem 0 1.4rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-pill);
+      background: rgba(56, 189, 248, 0.10);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--text);
+      font-size: 0.86rem;
+      white-space: nowrap;
+    }
+
+    .chip span {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--gap);
+    }
+
+    .station {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.15rem 1.2rem 1.2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--t), border-color var(--t), box-shadow var(--t);
+    }
+
+    .station::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--t);
+      pointer-events: none;
+    }
+
+    .station:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 18px 38px rgba(2, 6, 23, 0.6);
+    }
+
+    .station:hover::before { opacity: 1; }
+
+    .station h3 {
+      margin: 0 0 0.6rem;
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+    }
+
+    .goal {
+      margin: 0 0 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 0.75rem;
+    }
+
+    .block {
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(2, 6, 23, 0.35);
+      border-radius: 14px;
+      padding: 0.85rem 0.9rem;
+    }
+
+    .block h4 {
+      margin: 0 0 0.45rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 0.2rem 0 0;
+      padding-left: 1.05rem;
+      color: var(--text);
+    }
+
+    li {
+      margin: 0.28rem 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 0.93rem;
+    }
+
+    .tweak {
+      margin-top: 0.95rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 14px;
+      background: rgba(56, 189, 248, 0.10);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      color: var(--text);
+      font-size: 0.93rem;
+      line-height: 1.5;
+    }
+
+    .tweak strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 1.6rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.22);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      color: var(--muted2);
+      font-size: 0.85rem;
+    }
+
+    .pill {
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: var(--radius-pill);
+      padding: 0.2rem 0.6rem;
+      background: rgba(2, 6, 23, 0.35);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      header { grid-template-columns: minmax(0, 1fr); }
+      main { grid-template-columns: minmax(0, 1fr); }
+      .grid2 { grid-template-columns: minmax(0, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="shell">
+
+      <header>
+        <div>
+          <div class="badge"><span class="dot"></span><span>CTF Combine</span></div>
+          <h1>CTF Combine — Skill Stations</h1>
+          <p class="subtitle">
+            A practical, low-drama way to spot strengths, gaps, and team fit. You’re not building
+            wizards—you’re building reliable operators who can learn fast, communicate clearly, and not
+            panic when the GUI disappears.
+          </p>
+
+          <div class="toolbar" aria-label="Quick notes">
+            <div class="chip">Signal <span>= what you’re actually measuring</span></div>
+            <div class="chip">Combine tweak <span>= how to run it like a coach</span></div>
+            <div class="chip">THM / HTB <span>= structured station sources</span></div>
+          </div>
+        </div>
+
+        <aside class="meta" aria-label="How to use this page">
+          <h2>How to run the combine</h2>
+          <p><strong>Timebox hard:</strong> 15–25 minutes per station is plenty.</p>
+          <p><strong>Watch behavior:</strong> notes, questions, calmness, and process > flags.</p>
+          <p><strong>Score lightly:</strong> use 1–5 ratings for fluency, reasoning, and communication.</p>
+        </aside>
+      </header>
+
+      <main>
+
+        <!-- Station 1 -->
+        <section class="station" aria-labelledby="s1">
+          <h3 id="s1">Station 1 — Linux Reality Check 🐧</h3>
+          <p class="goal"><strong>Goal:</strong> Terminal comfort, not wizardry.</p>
+
+          <div class="grid2">
+            <div class="block">
+              <h4>TryHackMe</h4>
+              <ul>
+                <li>Linux Fundamentals Part 1–3</li>
+              </ul>
+              <h4 style="margin-top:0.75rem;">Signal</h4>
+              <ul>
+                <li>Who navigates confidently</li>
+                <li>Who reads man pages</li>
+                <li>Who freezes without a GUI</li>
+              </ul>
+            </div>
+
+            <div class="block">
+              <h4>Hack The Box</h4>
+              <ul>
+                <li>Linux Fundamentals (Academy)</li>
+              </ul>
+              <h4 style="margin-top:0.75rem;">Signal</h4>
+              <ul>
+                <li>Command accuracy</li>
+                <li>Understanding permissions vs guessing</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tweak"><strong>Combine tweak:</strong> Stop them early. You’re not testing completion—you’re testing fluency.</div>
+        </section>
+
+        <!-- Station 2 -->
+        <section class="station" aria-labelledby="s2">
+          <h3 id="s2">Station 2 — Networking &amp; Web Sense 🌐</h3>
+          <p class="goal"><strong>Goal:</strong> Do they see plumbing, not pixels?</p>
+
+          <div class="grid2">
+            <div class="block">
+              <h4>TryHackMe</h4>
+              <ul>
+                <li>HTTP in Detail</li>
+                <li>How Websites Work</li>
+              </ul>
+              <h4 style="margin-top:0.75rem;">Signal</h4>
+              <ul>
+                <li>Header awareness</li>
+                <li>Client/server separation</li>
+                <li>DevTools instincts</li>
+              </ul>
+            </div>
+
+            <div class="block">
+              <h4>Hack The Box</h4>
+              <ul>
+                <li>Web Requests (Academy)</li>
+              </ul>
+              <h4 style="margin-top:0.75rem;">Signal</h4>
+              <ul>
+                <li>Comfort with curl vs browser-only thinking</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tweak"><strong>Combine tweak:</strong> Ask them to explain what a request did before they move on.</div>
+        </section>
+
+        <!-- Station 3 -->
+        <section class="station" aria-labelledby="s3">
+          <h3 id="s3">Station 3 — Intro Crypto (No Math Trauma) 🔐</h3>
+          <p class="goal"><strong>Goal:</strong> Pattern recognition, not RSA pain.</p>
+
+          <div class="grid2">
+            <div class="block">
+              <h4>TryHackMe</h4>
+              <ul>
+                <li>Crypto 101</li>
+                <li>Crack the Hash</li>
+              </ul>
+              <h4 style="margin-top:0.75rem;">Signal</h4>
+              <ul>
+                <li>Encoding vs encryption awareness</li>
+                <li>Tool selection</li>
+                <li>Sanity checking outputs</li>
+              </ul>
+            </div>
+
+            <div class="block">
+              <h4>Hack The Box</h4>
+              <ul>
+                <li>Cryptography Basics (Academy)</li>
+              </ul>
+              <h4 style="margin-top:0.75rem;">Signal</h4>
+              <ul>
+                <li>Recognition of common formats</li>
+                <li>Logical elimination</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tweak"><strong>Combine tweak:</strong> Include one intentional red herring and watch who questions it.</div>
+        </section>
+
+        <!-- Station 4 -->
+        <section class="station" aria-labelledby="s4">
+          <h3 id="s4">Station 4 — Logs &amp; Anomaly Detection (Blue Radar) 🛡️</h3>
+          <p class="goal"><strong>Goal:</strong> “Something’s wrong here” instincts.</p>
+
+          <div class="grid2">
+            <div class="block">
+              <h4>TryHackMe</h4>
+              <ul>
+                <li>Intro to Blue Team</li>
+                <li>Windows Event Logs</li>
+                <li>Splunk Basics</li>
+              </ul>
+              <h4 style="margin-top:0.75rem;">Signal</h4>
+              <ul>
+                <li>Baseline thinking</li>
+                <li>Pattern spotting</li>
+                <li>Calm analysis</li>
+              </ul>
+            </div>
+
+            <div class="block">
+              <h4>Hack The Box</h4>
+              <ul>
+                <li>Intro to Defensive Security (Academy)</li>
+              </ul>
+              <h4 style="margin-top:0.75rem;">Signal</h4>
+              <ul>
+                <li>Ability to narrate findings clearly</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tweak"><strong>Combine tweak:</strong> Require a written conclusion, not just a flag.</div>
+        </section>
+
+        <!-- Station 5 -->
+        <section class="station" aria-labelledby="s5">
+          <h3 id="s5">Station 5 — Logic, Scripting, Automation Lite 🤖</h3>
+          <p class="goal"><strong>Goal:</strong> Procedural thinking, not syntax perfection.</p>
+
+          <div class="grid2">
+            <div class="block">
+              <h4>TryHackMe</h4>
+              <ul>
+                <li>Python Basics</li>
+                <li>Bash Scripting</li>
+              </ul>
+              <h4 style="margin-top:0.75rem;">Signal</h4>
+              <ul>
+                <li>Step-wise reasoning</li>
+                <li>Willingness to pseudocode</li>
+                <li>Debug mindset</li>
+              </ul>
+            </div>
+
+            <div class="block">
+              <h4>Hack The Box</h4>
+              <ul>
+                <li>Intro to Scripting (Academy)</li>
+              </ul>
+              <h4 style="margin-top:0.75rem;">Signal</h4>
+              <ul>
+                <li>Automation instincts vs manual repetition</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tweak"><strong>Combine tweak:</strong> Accept comments and pseudocode as valid solutions.</div>
+        </section>
+
+        <!-- Station 6 -->
+        <section class="station" aria-labelledby="s6">
+          <h3 id="s6">Station 6 — Research &amp; Documentation 📓</h3>
+          <p class="goal"><strong>Goal:</strong> Can they learn fast and leave a trail?</p>
+
+          <div class="grid2">
+            <div class="block">
+              <h4>TryHackMe</h4>
+              <ul>
+                <li>Search Skills</li>
+                <li>Vulnerability Research</li>
+              </ul>
+              <h4 style="margin-top:0.75rem;">Signal</h4>
+              <ul>
+                <li>Google discipline</li>
+                <li>Source evaluation</li>
+                <li>Note clarity</li>
+              </ul>
+            </div>
+
+            <div class="block">
+              <h4>Hack The Box</h4>
+              <ul>
+                <li>Information Gathering (Academy)</li>
+              </ul>
+              <h4 style="margin-top:0.75rem;">Signal</h4>
+              <ul>
+                <li>Recon structure</li>
+                <li>Documentation habits</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tweak">
+            <strong>Combine tweak:</strong> The “flag” only counts if another student can reproduce it from their notes.
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <span>CTF Combine • Stations 1–6 • Built for skill signal, not ego points.</span>
+        <span class="pill">ECPI Cybersecurity</span>
+      </footer>
+
+    </div>
+  </div>
+</body>
+</html>
 
