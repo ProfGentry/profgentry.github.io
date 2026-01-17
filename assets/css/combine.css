@@ -1,4 +1,3 @@
- <style>
     :root {
       --bg: #0b1220;
       --bg2: #070b14;
@@ -281,4 +280,3 @@
       main { grid-template-columns: minmax(0, 1fr); }
       .grid2 { grid-template-columns: minmax(0, 1fr); }
     }
-  </style>
