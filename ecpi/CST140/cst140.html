@@ -1,133 +1,310 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>CST140 - Introduction to Operating Systems</title>
-  <link rel="stylesheet" href="home.css"/>
+  <meta charset="UTF-8" />
+  <title>CST140 • Operating Systems Resources</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CST140 resources, lecture decks, and activities." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    /* Fallback styling if home.css isn't present */
     :root {
-      --bg: #0b0f1a;
-      --card: rgba(255,255,255,0.06);
-      --text: #e9eefc;
-      --muted: rgba(233,238,252,0.7);
-      --border: rgba(233,238,252,0.12);
-      --accent: #7aa2ff;
+      --bg: #020617;
+      --card-bg: #020617;
+      --card-border: rgba(148, 163, 184, 0.4);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.18);
+      --accent-strong: #0ea5e9;
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --text-muted: #6b7280;
+      --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.5);
+      --radius: 18px;
+      --max: 1100px;
     }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(56,189,248,0.18), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(14,165,233,0.14), transparent 55%),
+                  var(--bg);
+      color: var(--text-main);
       line-height: 1.5;
     }
-    .wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 32px 18px 64px;
+
+    .page-wrap {
+      min-height: 100%;
+      padding: 32px 18px 44px;
+      display: flex;
+      justify-content: center;
     }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+
+    .shell {
+      width: 100%;
+      max-width: var(--max);
     }
-    h1, h2, h3, h4, h5, h6 {
-      margin: 0 0 12px;
-      line-height: 1.2;
+
+    header {
+      display: flex;
+      gap: 18px;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 18px 18px 10px;
+      margin-bottom: 18px;
     }
-    h1 { font-size: 1.9rem; }
-    h2 { font-size: 1.35rem; margin-top: 20px; }
-    p { margin: 10px 0 0; color: var(--muted); }
-    ul { margin: 10px 0 0 18px; color: var(--muted); }
-    li { margin: 8px 0; }
-    a {
-      color: var(--accent);
+
+    .title-block {
+      max-width: 760px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 10px;
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      background: rgba(2,6,23,0.55);
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .badge-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(56,189,248,0.18);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.65rem, 2.6vw, 2.25rem);
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin: 10px 0 0;
+      color: var(--text-soft);
+      font-weight: 400;
+    }
+
+    .header-meta {
+      text-align: right;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+      font-size: 0.95rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--card-border);
+      background: rgba(2,6,23,0.55);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    section {
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      background: rgba(2,6,23,0.55);
+      box-shadow: var(--shadow-soft);
+      padding: 18px;
+    }
+
+    h2 {
+      margin: 0 0 6px 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 0 0 14px 0;
+      color: var(--text-soft);
+    }
+
+    .chip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+    }
+
+    .chip-link {
+      display: block;
+      padding: 12px 12px;
+      border: 1px solid rgba(148,163,184,0.35);
+      border-radius: 14px;
+      background: rgba(2,6,23,0.35);
       text-decoration: none;
-      border-bottom: 1px dashed rgba(122,162,255,.5);
+      color: var(--text-main);
+      transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
     }
-    a:hover { border-bottom-style: solid; }
-    code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: rgba(0,0,0,.25);
-      border: 1px solid var(--border);
-      padding: 2px 6px;
-      border-radius: 8px;
-      color: var(--text);
+
+    .chip-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56,189,248,0.65);
+      background: rgba(56,189,248,0.10);
     }
-    .meta {
-      margin-top: 10px;
-      font-size: .9rem;
-      color: rgba(233,238,252,.6);
+
+    .chip-title {
+      display: block;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .chip-note {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .chip-link--static {
+      cursor: default;
+    }
+
+    footer {
+      margin-top: 22px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-meta {
+        align-items: flex-start;
+        text-align: left;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>CST140 - Introduction to Operating Systems</h1>
-<h2>Supplemental Information</h2>
-<ul>
-<li><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands" target="_blank" rel="noopener">Windows Command Line Commands</a></li>
-</ul>
-<ul>
-<li><a href="https://youtu.be/MBBWVgE0ewk?si=yjzuWWfD2JIrH1vU" target="_blank" rel="noopener">Command Line Tutorial Video</a></li>
-</ul>
-<ul>
-<li>My Lecture PowerPoints</li>
-<ul>
-<li><a href="https://docs.google.com/presentation/d/1w6L9XGc2iCdBufwZqWEEVprST4P-CzT5/edit?usp=sharing&amp;amp;ouid=116347163780582701517&amp;amp;rtpof=true&amp;amp;sd=true" target="_blank" rel="noopener">Lecture 1</a></li>
-</ul>
-<ul>
-<li><a href="https://docs.google.com/presentation/d/1DyOPXkdId4iX2_xbkfPvfhgaReCKpKgW/edit?usp=sharing&amp;amp;ouid=116347163780582701517&amp;amp;rtpof=true&amp;amp;sd=true" target="_blank" rel="noopener">Lecture 2</a></li>
-</ul>
-<ul>
-<li><a href="https://docs.google.com/presentation/d/1NW4-2iTDlhAWPH3qzAu12iqTXAyQaRQN/edit?usp=sharing&amp;amp;ouid=116347163780582701517&amp;amp;rtpof=true&amp;amp;sd=true" target="_blank" rel="noopener">Lecture 3</a></li>
-</ul>
-<ul>
-<li><a href="https://docs.google.com/presentation/d/1d91jkuB_54w6HOWOodeG0l8zvhp8zu3P/edit?usp=sharing&amp;amp;ouid=116347163780582701517&amp;amp;rtpof=true&amp;amp;sd=true" target="_blank" rel="noopener">Lecture 4</a></li>
-</ul>
-<ul>
-<li><a href="https://docs.google.com/presentation/d/1ihpa5_lrF3qNryZzKtB_FZZfpk1RNYDf/edit?usp=sharing&amp;amp;ouid=116347163780582701517&amp;amp;rtpof=true&amp;amp;sd=true" target="_blank" rel="noopener">Lecture 5</a></li>
-</ul>
-<ul>
-<li>Lecture 6 - Midterm Exam</li>
-</ul>
-<ul>
-<li><a href="https://docs.google.com/presentation/d/1oZ0lYH0vmF4UNZYz_Car4uf1kUBL9GEU/edit?usp=sharing&amp;amp;ouid=116347163780582701517&amp;amp;rtpof=true&amp;amp;sd=true" target="_blank" rel="noopener">Lecture 7</a></li>
-</ul>
-<ul>
-<li><a href="https://docs.google.com/presentation/d/1VMKBHFJRu3ShhWpHBogKNL8gcmGx26DW/edit?usp=sharing&amp;amp;ouid=116347163780582701517&amp;amp;rtpof=true&amp;amp;sd=true" target="_blank" rel="noopener">Lecture 8</a></li>
-</ul>
-<ul>
-<li><a href="https://docs.google.com/presentation/d/1KG2Dafzj1yOhImiWtRapKqw-7mlAVmcK/edit?usp=sharing&amp;amp;ouid=116347163780582701517&amp;amp;rtpof=true&amp;amp;sd=true" target="_blank" rel="noopener">Lecture 9</a></li>
-</ul>
-<ul>
-<li>Lecture 10 - Final Exam</li>
-</ul>
-</ul>
-<ul>
-<li>My Instructions</li>
-<ul>
-<li><a href="https://github.com/ProfGentry/profgentry.github.io/blob/main/ecpi/CST140/1.2%20In%20Class%20Activity.md" target="_blank" rel="noopener">1.2 In Class Activity</a></li>
-</ul>
-<ul>
-<li><a href="https://github.com/ProfGentry/profgentry.github.io/blob/main/ecpi/CST140/2.1%20In%20Class%20Activity.md" target="_blank" rel="noopener">2.1 In Class Activity</a></li>
-</ul>
-<ul>
-<li><a href="https://github.com/ProfGentry/profgentry.github.io/blob/main/ecpi/CST140/3.1%20In%20Class%20Activity.md" target="_blank" rel="noopener">3.1 In Class Activity</a></li>
-</ul>
-<ul>
-<li><a href="https://github.com/ProfGentry/profgentry.github.io/blob/main/ecpi/CST140/4.1%20In%20Class%20Activity.md" target="_blank" rel="noopener">4.1 In Class Activity</a></li>
-</ul>
-<ul>
-<li><a href="https://github.com/ProfGentry/profgentry.github.io/blob/main/ecpi/CST140/5.1%20In%20Class%20Activity.md" target="_blank" rel="noopener">5.1 In Class Activity</a></li>
-</ul>
-</ul>
-      <div class="meta">Generated from <code>cst140.md</code></div>
+  <div class="page-wrap">
+    <div class="shell">
+      <header>
+        <div class="title-block">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span>CST140</span>
+          </div>
+          <h1>Introduction to Operating Systems</h1>
+          <p class="subtitle">Supplemental links, lecture decks, and in-class activities.</p>
+        </div>
+
+        <div class="header-meta">
+          <span class="pill">ECPI • CST Track</span>
+          <span>Updated <span id="last-updated-year"></span></span>
+        </div>
+      </header>
+
+      <main>
+        <section aria-labelledby="supp-heading">
+          <h2 id="supp-heading">Supplemental Information</h2>
+          <p>Core references and quick refreshers.</p>
+          <div class="chip-grid" role="list">
+            <a class="chip-link" href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">Windows Command Line Commands</span>
+    </a>
+<a class="chip-link" href="https://youtu.be/MBBWVgE0ewk?si=yjzuWWfD2JIrH1vU" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">Command Line Tutorial Video</span>
+    </a>
+          </div>
+        </section>
+
+        <section aria-labelledby="lect-heading">
+          <h2 id="lect-heading">Lecture PowerPoints</h2>
+          <p>Slide decks used throughout the term.</p>
+          <div class="chip-grid" role="list">
+            <a class="chip-link" href="https://docs.google.com/presentation/d/1w6L9XGc2iCdBufwZqWEEVprST4P-CzT5/edit?usp=sharing&amp;ouid=116347163780582701517&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">Lecture 1</span>
+    </a>
+<a class="chip-link" href="https://docs.google.com/presentation/d/1DyOPXkdId4iX2_xbkfPvfhgaReCKpKgW/edit?usp=sharing&amp;ouid=116347163780582701517&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">Lecture 2</span>
+    </a>
+<a class="chip-link" href="https://docs.google.com/presentation/d/1NW4-2iTDlhAWPH3qzAu12iqTXAyQaRQN/edit?usp=sharing&amp;ouid=116347163780582701517&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">Lecture 3</span>
+    </a>
+<a class="chip-link" href="https://docs.google.com/presentation/d/1d91jkuB_54w6HOWOodeG0l8zvhp8zu3P/edit?usp=sharing&amp;ouid=116347163780582701517&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">Lecture 4</span>
+    </a>
+<a class="chip-link" href="https://docs.google.com/presentation/d/1ihpa5_lrF3qNryZzKtB_FZZfpk1RNYDf/edit?usp=sharing&amp;ouid=116347163780582701517&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">Lecture 5</span>
+    </a>
+<div class="chip-link chip-link--static" role="listitem">
+      <span class="chip-title">Lecture 6 - Midterm Exam</span>
+      <span class="chip-note">No link</span>
+    </div>
+<a class="chip-link" href="https://docs.google.com/presentation/d/1oZ0lYH0vmF4UNZYz_Car4uf1kUBL9GEU/edit?usp=sharing&amp;ouid=116347163780582701517&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">Lecture 7</span>
+    </a>
+<a class="chip-link" href="https://docs.google.com/presentation/d/1VMKBHFJRu3ShhWpHBogKNL8gcmGx26DW/edit?usp=sharing&amp;ouid=116347163780582701517&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">Lecture 8</span>
+    </a>
+<a class="chip-link" href="https://docs.google.com/presentation/d/1KG2Dafzj1yOhImiWtRapKqw-7mlAVmcK/edit?usp=sharing&amp;ouid=116347163780582701517&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">Lecture 9</span>
+    </a>
+<div class="chip-link chip-link--static" role="listitem">
+      <span class="chip-title">Lecture 10 - Final Exam</span>
+      <span class="chip-note">No link</span>
+    </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="inst-heading">
+          <h2 id="inst-heading">My Instructions</h2>
+          <p>In-class activities and supporting docs.</p>
+          <div class="chip-grid" role="list">
+            <a class="chip-link" href="https://github.com/ProfGentry/profgentry.github.io/blob/main/ecpi/CST140/1.2%20In%20Class%20Activity.md" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">1.2 In Class Activity</span>
+    </a>
+<a class="chip-link" href="https://github.com/ProfGentry/profgentry.github.io/blob/main/ecpi/CST140/2.1%20In%20Class%20Activity.md" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">2.1 In Class Activity</span>
+    </a>
+<a class="chip-link" href="https://github.com/ProfGentry/profgentry.github.io/blob/main/ecpi/CST140/3.1%20In%20Class%20Activity.md" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">3.1 In Class Activity</span>
+    </a>
+<a class="chip-link" href="https://github.com/ProfGentry/profgentry.github.io/blob/main/ecpi/CST140/4.1%20In%20Class%20Activity.md" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">4.1 In Class Activity</span>
+    </a>
+<a class="chip-link" href="https://github.com/ProfGentry/profgentry.github.io/blob/main/ecpi/CST140/5.1%20In%20Class%20Activity.md" target="_blank" rel="noopener noreferrer">
+      <span class="chip-title">5.1 In Class Activity</span>
+    </a>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>© <span id="year"></span> • Professor Gentry</span>
+      </footer>
     </div>
   </div>
+
+  <script>
+    const y = new Date().getFullYear();
+    document.getElementById("year").textContent = y;
+    document.getElementById("last-updated-year").textContent = y;
+  </script>
 </body>
 </html>
