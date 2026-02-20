@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Routing &amp; Switching References</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Routing & Switching reference materials for the CYB160 → CYB330L course track." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --panel: rgba(15, 23, 42, 0.97);
+      --panel-2: rgba(15, 23, 42, 0.94);
+      --border: rgba(148, 163, 184, 0.45);
+      --border-soft: rgba(148, 163, 184, 0.30);
+      --accent: #38bdf8;
+      --accent-strong: #0ea5e9;
+      --accent-soft: rgba(56, 189, 248, 0.18);
+      --text: #e5e7eb;
+      --text-soft: #9ca3af;
+      --text-muted: #6b7280;
+      --shadow: 0 22px 45px rgba(15, 23, 42, 0.85);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --transition: 200ms ease-out;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #020617 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1040px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 2rem 2.5rem 2.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.05), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.05), transparent 55%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.85rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.9);
+    }
+
+    h1 {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.7rem, 2.6vw, 2.05rem);
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 48rem;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.3rem;
+    }
+
+    .card {
+      grid-column: span 12;
+      background: linear-gradient(145deg, var(--panel), var(--panel-2));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 1.25rem 1.4rem 1.35rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition);
+      pointer-events: none;
+    }
+    .card:hover::before { opacity: 1; }
+
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.02rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .note {
+      margin: -0.15rem 0 0.9rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .resource-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.4rem 0 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .chip-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding: 0.6rem 0.85rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.92rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: background var(--transition), border-color var(--transition),
+        transform var(--transition), box-shadow var(--transition);
+    }
+
+    .chip-title {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      opacity: 0.96;
+    }
+
+    .chip-icon {
+      font-size: 0.85rem;
+      color: var(--accent-strong);
+      flex-shrink: 0;
+    }
+
+    .chip-link:hover,
+    .chip-link:focus-visible {
+      outline: none;
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(15, 23, 42, 0.9);
+    }
+
+    footer {
+      margin-top: 1.8rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.9rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 880px) {
+      .card { grid-column: span 6; }
+      .card.wide { grid-column: span 12; }
+    }
+
+    @media (max-width: 560px) {
+      .shell { padding: 1.4rem 1.1rem 1.7rem; border-radius: 18px; }
+      .page { padding: 1.6rem 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="shell">
+      <header>
+        <div class="title-block">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span>Routing &amp; Switching</span>
+          </div>
+          <h1>Course Track References</h1>
+          <p class="subtitle">CYB160 → CYB200/L → CYB220/L → CYB320 → CYB330L</p>
+        </div>
+
+        <div class="header-meta">
+          <span class="pill">ECPI • Cyber</span>
+          <span>Updated <span id="updated-year"></span></span>
+        </div>
+      </header>
+
+      <main>
+        <section class="card" aria-labelledby="cyb200">
+          <h2 id="cyb200">CYB200/L References</h2>
+          <ul class="resource-list">
+            <li><a class="chip-link" href="IPv4SubnettingWorkbook.pdf"><span class="chip-title">IPv4 Addressing and Subnetting Workbook</span><span class="chip-icon">↗</span></a></li>
+            <li><a class="chip-link" href="Subnetting.xlsx"><span class="chip-title">Subnetting Excel Workbook</span><span class="chip-icon">↗</span></a></li>
+            <li><a class="chip-link" href="SwitchCommands.txt"><span class="chip-title">Switch Commands</span><span class="chip-icon">↗</span></a></li>
+            <li><a class="chip-link" href="RouterCommands.txt"><span class="chip-title">Router Commands</span><span class="chip-icon">↗</span></a></li>
+            <li><a class="chip-link" href="InternetCommands.txt"><span class="chip-title">Internet Commands</span><span class="chip-icon">↗</span></a></li>
+            <li><a class="chip-link" href="CYB200_Commands.docx"><span class="chip-title">All Commands — Word Document</span><span class="chip-icon">↗</span></a></li>
+          </ul>
+        </section>
+
+        <section class="card" aria-labelledby="cyb220">
+          <h2 id="cyb220">CYB220/L References</h2>
+          <p class="note">Utilize the previous class references.</p>
+          <ul class="resource-list">
+            <li><a class="chip-link" href="CIDR.pdf"><span class="chip-title">IPv4/CIDR Cheat Sheet</span><span class="chip-icon">↗</span></a></li>
+            <li><a class="chip-link" href="ipv6.pdf"><span class="chip-title">IPv6 CIDR Information</span><span class="chip-icon">↗</span></a></li>
+            <li><a class="chip-link" href="ipv6Commands.txt"><span class="chip-title">IPv6 &amp; EtherChannel Commands</span><span class="chip-icon">↗</span></a></li>
+            <li><a class="chip-link" href="CYB220_Commands.docx"><span class="chip-title">IPv6 &amp; EtherChannel Commands — Word Document</span><span class="chip-icon">↗</span></a></li>
+          </ul>
+        </section>
+
+        <section class="card wide" aria-labelledby="cyb320">
+          <h2 id="cyb320">CYB320 References</h2>
+          <p class="note">Utilize the previous class references.</p>
+          <ul class="resource-list">
+            <li><a class="chip-link" href="ACLCommands.txt"><span class="chip-title">ACL Commands</span><span class="chip-icon">↗</span></a></li>
+            <li><a class="chip-link" href="CYB320_Commands.docx"><span class="chip-title">ACL Commands — Word Document</span><span class="chip-icon">↗</span></a></li>
+          </ul>
+        </section>
+      </main>
+
+      <footer>
+        <span>&copy; <span id="year-range"></span> Jennifer Gentry. Routing &amp; Switching references.</span>
+        <span class="pill" style="letter-spacing:0.08em;">Student portal</span>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var now = new Date();
+      var year = now.getFullYear();
+      var yr = document.getElementById("updated-year");
+      var yrRange = document.getElementById("year-range");
+      if (yr) yr.textContent = year;
+      if (yrRange) yrRange.textContent = "2022–" + year;
+    })();
+  </script>
+</body>
+</html>
