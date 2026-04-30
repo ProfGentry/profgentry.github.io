@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ========================================= -->
+  <!-- BASIC PAGE SETUP                         -->
+  <!-- ========================================= -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research Focus | Jennifer Gentry</title>
+
+  <!-- External stylesheet (same directory) -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- ========================================= -->
+  <!-- PAGE WRAPPER (Controls overall width)     -->
+  <!-- ========================================= -->
   <div class="page-wrap">
+
+    <!-- ========================================= -->
+    <!-- HEADER / NAVIGATION                       -->
+    <!-- ========================================= -->
     <header>
+      <!-- Branding (Name + Tagline) -->
       <div class="brand">
         <div class="brand-mark">JG</div>
         <div>
@@ -16,6 +30,8 @@
           <span style="color: var(--muted);">Research Focus & Academic Innovation</span>
         </div>
       </div>
+
+      <!-- Navigation links (anchor links to sections below) -->
       <nav>
         <a href="#areas">Research Areas</a>
         <a href="#projects">Projects</a>
@@ -25,28 +41,46 @@
       </nav>
     </header>
 
+    <!-- ========================================= -->
+    <!-- MAIN CONTENT                             -->
+    <!-- ========================================= -->
     <main>
+
+      <!-- ========================================= -->
+      <!-- HERO SECTION (First impression / hook)    -->
+      <!-- ========================================= -->
       <section class="hero">
         <div class="eyebrow">Cybersecurity · Software Assurance · Workforce Readiness</div>
+
+        <!-- Primary headline -->
         <h1>Research that connects secure systems, real learners, and practical cybersecurity skills.</h1>
+
+        <!-- Supporting description -->
         <p>
           My research interests focus on how cybersecurity education, secure coding practices, AI-assisted development,
           and hands-on labs can better prepare students and professionals for the security challenges they will actually face.
         </p>
+
+        <!-- Call-to-action buttons -->
         <div class="hero-actions">
           <a class="btn" href="#areas">Explore Research Areas</a>
           <a class="btn secondary" href="#projects">View Current Work</a>
         </div>
       </section>
 
+      <!-- ========================================= -->
+      <!-- RESEARCH OVERVIEW                        -->
+      <!-- ========================================= -->
       <section id="overview">
         <div class="section-header">
           <h2>Research Overview</h2>
           <p>
             This space serves as a living portfolio for research ideas, active projects, teaching experiments, and resources
-            connected to cybersecurity education and applied software security. Translation: less ivory tower, more useful toolbox.
+            connected to cybersecurity education and applied software security.
           </p>
         </div>
+
+        <!-- Highlighted summary block -->
         <div class="feature-band">
           <p>
             <strong>Primary Focus:</strong> Building stronger pathways between classroom learning, technical skill development,
@@ -55,15 +89,24 @@
         </div>
       </section>
 
+      <!-- ========================================= -->
+      <!-- CORE RESEARCH AREAS (Card Grid)          -->
+      <!-- ========================================= -->
       <section id="areas">
         <div class="section-header">
           <h2>Core Research Areas</h2>
-          <p>Focused areas of inquiry that connect cybersecurity, education, software development, and applied technology.</p>
+          <p>Focused areas of inquiry that connect cybersecurity, education, and applied technology.</p>
         </div>
+
+        <!-- Grid layout for research areas -->
         <div class="grid">
+
+          <!-- Individual research area card -->
           <article class="card">
             <h3>Cybersecurity Education & Workforce Development</h3>
-            <p>Exploring how programs can better prepare students for cybersecurity roles through applied learning, realistic labs, and measurable skills.</p>
+            <p>Exploring how programs can better prepare students for cybersecurity roles through applied learning.</p>
+
+            <!-- Tag labels for quick scanning -->
             <div class="tag-row">
               <span class="tag">Curriculum</span>
               <span class="tag">Skills Assessment</span>
@@ -73,7 +116,7 @@
 
           <article class="card">
             <h3>Secure Coding & Software Assurance</h3>
-            <p>Studying how developers learn to identify, prevent, and remediate vulnerabilities in code before those issues become expensive little gremlins.</p>
+            <p>Studying how developers identify and prevent vulnerabilities before they become real-world problems.</p>
             <div class="tag-row">
               <span class="tag">Secure SDLC</span>
               <span class="tag">Code Review</span>
@@ -83,7 +126,7 @@
 
           <article class="card">
             <h3>AI in Cybersecurity</h3>
-            <p>Investigating how AI changes cybersecurity practice, including threat detection, secure development, student learning, and responsible use.</p>
+            <p>Investigating how AI changes threat detection, development practices, and learning environments.</p>
             <div class="tag-row">
               <span class="tag">AI Literacy</span>
               <span class="tag">Threat Modeling</span>
@@ -93,7 +136,7 @@
 
           <article class="card">
             <h3>Systems Hardening & Infrastructure Security</h3>
-            <p>Researching practical approaches to configuring, hardening, and maintaining systems in ways that students can practice and repeat.</p>
+            <p>Researching practical methods for configuring and securing real-world systems.</p>
             <div class="tag-row">
               <span class="tag">Linux</span>
               <span class="tag">Hardening</span>
@@ -103,7 +146,7 @@
 
           <article class="card">
             <h3>Human Factors in Security</h3>
-            <p>Examining how people make security decisions, where confusion happens, and how training can reduce avoidable risk.</p>
+            <p>Examining how people make security decisions and where breakdowns occur.</p>
             <div class="tag-row">
               <span class="tag">Behavior</span>
               <span class="tag">Awareness</span>
@@ -113,118 +156,155 @@
 
           <article class="card">
             <h3>Cyber Labs & Simulation-Based Learning</h3>
-            <p>Designing labs, scenarios, and simulations that help students move from “I read about it” to “I can actually do it.” Big upgrade.</p>
+            <p>Designing labs that move students from theory into real-world capability.</p>
             <div class="tag-row">
               <span class="tag">Labs</span>
               <span class="tag">Simulation</span>
               <span class="tag">Assessment</span>
             </div>
           </article>
+
         </div>
       </section>
 
+      <!-- ========================================= -->
+      <!-- CURRENT PROJECTS                         -->
+      <!-- ========================================= -->
       <section id="projects">
         <div class="section-header">
           <h2>Current Projects & Experiments</h2>
-          <p>Active work, prototypes, teaching experiments, and research ideas currently under development.</p>
+          <p>Active research, prototypes, and teaching experiments.</p>
         </div>
+
         <div class="grid two">
+
+          <!-- Project card -->
           <article class="card">
             <h3>Cybersecurity Skill Evidence Framework</h3>
-            <p>A model for documenting what students can actually do through labs, reflections, scenario work, and performance-based assessments.</p>
+            <p>A model for documenting what students can actually do through performance-based work.</p>
             <ul>
-              <li>Maps course outcomes to practical evidence</li>
+              <li>Maps course outcomes to real skills</li>
               <li>Supports program-level assessment</li>
-              <li>Highlights readiness beyond test scores</li>
+              <li>Moves beyond test scores</li>
             </ul>
           </article>
 
           <article class="card">
             <h3>AI-Aware Secure Coding Modules</h3>
-            <p>Course activities that help students use AI tools responsibly while still understanding, reviewing, and defending their code.</p>
+            <p>Helping students use AI tools responsibly while maintaining code ownership and understanding.</p>
             <ul>
-              <li>Prompting for code review</li>
-              <li>AI hallucination checks</li>
-              <li>Secure coding validation steps</li>
+              <li>Prompt engineering for code review</li>
+              <li>AI output validation</li>
+              <li>Security-focused evaluation</li>
             </ul>
           </article>
+
         </div>
       </section>
 
+      <!-- ========================================= -->
+      <!-- RESEARCH QUESTIONS                       -->
+      <!-- ========================================= -->
       <section id="questions">
         <div class="section-header">
           <h2>Research Questions</h2>
-          <p>Questions guiding future projects, writing, presentations, and collaboration.</p>
+          <p>Driving ideas for future work and exploration.</p>
         </div>
+
+        <!-- Each question is its own visual block -->
         <div class="question-list">
-          <div class="question">How can cybersecurity programs better measure real technical capability instead of short-term memorization?</div>
-          <div class="question">What lab structures help students retain secure coding habits after the assignment is over?</div>
-          <div class="question">How should students be taught to use AI without outsourcing the thinking that cybersecurity requires?</div>
-          <div class="question">What does “career-ready” actually mean for entry-level cybersecurity students?</div>
-          <div class="question">How can faculty use lightweight analytics to intervene earlier when students are at risk?</div>
+          <div class="question">How can cybersecurity programs measure real skill instead of memorization?</div>
+          <div class="question">What lab designs improve long-term retention?</div>
+          <div class="question">How should AI be integrated without removing critical thinking?</div>
+          <div class="question">What defines true entry-level readiness?</div>
+          <div class="question">How can early student intervention be improved?</div>
         </div>
       </section>
 
+      <!-- ========================================= -->
+      <!-- TOOLS / RESOURCES                        -->
+      <!-- ========================================= -->
       <section id="tools">
         <div class="section-header">
           <h2>Tools, Labs & Demos</h2>
-          <p>Practical resources connected to research, teaching, and skill development.</p>
+          <p>Resources tied directly to teaching and research.</p>
         </div>
+
         <div class="grid">
           <article class="card">
             <h3>Lab Templates</h3>
-            <p>Reusable lab structures for cybersecurity, Linux, hardware, secure coding, and database topics.</p>
+            <p>Reusable structures for cybersecurity and technical labs.</p>
           </article>
           <article class="card">
             <h3>Teaching Dashboards</h3>
-            <p>Visual weekly dashboards that clarify objectives, assignments, class flow, and student priorities.</p>
+            <p>Visual course structures to improve clarity and engagement.</p>
           </article>
           <article class="card">
             <h3>Assessment Rubrics</h3>
-            <p>Performance-based rubrics that connect deliverables to skills, outcomes, and evidence of learning.</p>
+            <p>Rubrics aligned to skills and measurable outcomes.</p>
           </article>
         </div>
       </section>
 
+      <!-- ========================================= -->
+      <!-- FIELD NOTES (IDEAS / OBSERVATIONS)       -->
+      <!-- ========================================= -->
       <section id="notes">
         <div class="section-header">
           <h2>Field Notes</h2>
-          <p>Short reflections from teaching, lab testing, curriculum design, and research exploration.</p>
+          <p>Quick insights and evolving ideas.</p>
         </div>
+
+        <!-- Timeline-style layout -->
         <div class="timeline">
           <div class="timeline-item">
             <strong>Idea</strong>
-            <p>Build a reusable “cyber skill evidence map” that shows how each course assignment supports employable competencies.</p>
+            <p>Map assignments to employable cybersecurity skills.</p>
           </div>
           <div class="timeline-item">
             <strong>Observation</strong>
-            <p>Students often need more support connecting tool use to decision-making. The tool is not the skill; the judgment is.</p>
+            <p>Tools don’t equal skill — decision-making does.</p>
           </div>
           <div class="timeline-item">
             <strong>Next Step</strong>
-            <p>Create sample research briefs that connect classroom activities to measurable workforce outcomes.</p>
+            <p>Build research briefs tied to workforce outcomes.</p>
           </div>
         </div>
       </section>
 
+      <!-- ========================================= -->
+      <!-- CONTACT / COLLABORATION                  -->
+      <!-- ========================================= -->
       <section id="contact">
         <div class="section-header">
           <h2>Connect & Collaborate</h2>
-          <p>Interested in cybersecurity education, secure coding, AI-aware learning, or applied lab design? Let’s compare notes.</p>
+          <p>Open to collaboration in cybersecurity education and applied research.</p>
         </div>
+
         <div class="feature-band">
           <p>
-            <strong>Collaboration Interests:</strong> cybersecurity curriculum design, workforce readiness, secure coding education,
-            AI in cybersecurity instruction, practical lab development, and student success analytics.
+            <strong>Collaboration Interests:</strong> cybersecurity curriculum design, workforce readiness,
+            secure coding education, AI in instruction, and lab development.
           </p>
-          <p style="margin-top: 12px;">Email: <a href="mailto:your.email@example.com">your.email@example.com</a> · LinkedIn: <a href="#">Add LinkedIn URL</a> · GitHub: <a href="#">Add GitHub URL</a></p>
+
+          <!-- Contact links (update with real links) -->
+          <p style="margin-top: 12px;">
+            Email: <a href="mailto:your.email@example.com">your.email@example.com</a> ·
+            LinkedIn: <a href="#">Add LinkedIn URL</a> ·
+            GitHub: <a href="#">Add GitHub URL</a>
+          </p>
         </div>
       </section>
+
     </main>
 
+    <!-- ========================================= -->
+    <!-- FOOTER                                   -->
+    <!-- ========================================= -->
     <footer>
-      <p>&copy; 2026 Jennifer Gentry. Research, teaching, and practical cybersecurity education.</p>
+      <p>&copy; 2026 Jennifer Gentry. Research, teaching, and cybersecurity education.</p>
     </footer>
+
   </div>
 </body>
 </html>
